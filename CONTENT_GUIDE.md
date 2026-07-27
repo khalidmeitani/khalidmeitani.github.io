@@ -30,7 +30,8 @@ Place the PDF at:
 assets/documents/khalid-meitani-cv.pdf
 ```
 
-The existing CV buttons already point to that location.
+The public CV buttons are hidden until the PDF is available. After adding the
+file, ask Codex to enable the header and homepage CV buttons.
 
 ## Add a research figure
 
