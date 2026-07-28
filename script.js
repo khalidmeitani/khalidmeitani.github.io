@@ -44,6 +44,37 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 
+document.querySelectorAll("[data-adaptive-figure]").forEach((viewport) => {
+  const image = viewport.querySelector("img");
+  const hint = viewport.closest("figure")?.querySelector(".figure-scroll-hint");
+
+  if (!image) return;
+
+  const updateFigureLayout = () => {
+    const ratio = image.naturalWidth / image.naturalHeight;
+    const isPanoramic = ratio >= 2.25;
+    const isPortrait = ratio <= 0.82;
+
+    viewport.classList.toggle("is-panoramic", isPanoramic);
+    viewport.classList.toggle("is-portrait", isPortrait);
+    viewport.tabIndex = isPanoramic ? 0 : -1;
+    viewport.setAttribute(
+      "aria-label",
+      isPanoramic
+        ? "Panoramic figure; scroll horizontally to see the full image"
+        : "Publication figure",
+    );
+
+    if (hint) hint.hidden = !isPanoramic;
+  };
+
+  if (image.complete) {
+    updateFigureLayout();
+  } else {
+    image.addEventListener("load", updateFigureLayout, { once: true });
+  }
+});
+
 document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
   const dialog = document.querySelector(`#${button.dataset.figureDialog}`);
   const closeButton = dialog?.querySelector(".figure-close");
