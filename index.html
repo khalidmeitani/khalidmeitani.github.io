@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#f7f8f5" />
     <link rel="canonical" href="https://khalidmeitani.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260728-3" />
+    <link rel="stylesheet" href="styles.css?v=20260728-4" />
     <title>Khalid Meitani — Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -206,47 +206,41 @@
                 <a href="https://doi.org/10.1109/ACCESS.2026.3697215">Paper &amp; DOI</a>
               </div>
               <details class="publication-details">
-                <summary>View abstract &amp; media</summary>
+                <summary>View research highlights</summary>
                 <div class="publication-details-panel">
-                  <section class="publication-abstract" aria-labelledby="spatial-stiffness-abstract">
-                    <h4 id="spatial-stiffness-abstract">Abstract</h4>
-                    <p>
-                      Soft crawling robots rely on localized anchoring and efficient force
-                      transmission to generate net forward motion. However, their performance
-                      is often limited by fabrication methods that produce uniformly soft
-                      bodies, which limit the ability to introduce localized stiffness required
-                      for efficient locomotion. This paper presents a monolithic spatial
-                      stiffness tuning approach for soft robots enabled by FDM 3D printing of
-                      actively foaming Thermoplastic Polyurethane (TPU), where stiffness is
-                      locally programmed by controlling extrusion temperature and flow ratio
-                      without multi-material printing or additional fabrication time. To
-                      demonstrate this concept, we design and fabricate a novel 3D-printable
-                      electromagnetically actuated soft crawling robot that integrates
-                      electromagnets and permanent magnets within a TPU body and uses a
-                      directional sawtooth friction layer for controlled directional crawling.
-                      Four prototypes with different Shore hardness distributions across the
-                      body and friction layer were fabricated, ranging from fully soft to fully
-                      stiff configurations. Experimental results show that our proposed method
-                      can significantly improve locomotion speed, resulting in around 200%
-                      increase in maximum speed (130.29 mm/s, 1.3029 Bl/s) compared to a fully
-                      soft design (43.29 mm/s, 0.4329 Bl/s), along with improved energetic
-                      efficiency (64% reduction in energy per distance). The optimized design
-                      was fabricated in an untethered configuration and evaluated
-                      experimentally, achieving high-speed locomotion (72.727 mm/s, 0.727 Bl/s),
-                      full 360° rotation in around 23 s, and slope climbing up to 15°. Finally,
-                      the proposed design is quantitatively compared with prior soft crawling
-                      robots, highlighting the performance benefits of monolithic spatial
-                      stiffness tuning using foamed TPU in soft robots.
-                    </p>
-                  </section>
+                  <div class="publication-snapshot">
+                    <section aria-labelledby="spatial-stiffness-snapshot">
+                      <h4 id="spatial-stiffness-snapshot">Research snapshot</h4>
+                      <p class="snapshot-copy">
+                        Local stiffness is programmed during a single FDM print to create a
+                        monolithic soft crawler with compliant and rigid regions where they are
+                        most effective. The optimized design moves faster and more efficiently
+                        while retaining untethered turning and slope-climbing capability.
+                      </p>
+                    </section>
+                    <dl class="result-grid" aria-label="Key experimental results">
+                      <div>
+                        <dt>Maximum speed</dt>
+                        <dd>+200%</dd>
+                      </div>
+                      <div>
+                        <dt>Energy per distance</dt>
+                        <dd>−64%</dd>
+                      </div>
+                      <div>
+                        <dt>Slope climbing</dt>
+                        <dd>15°</dd>
+                      </div>
+                    </dl>
+                  </div>
 
                   <section class="publication-media" aria-labelledby="spatial-stiffness-media">
-                    <h4 id="spatial-stiffness-media">Media</h4>
+                    <h4 id="spatial-stiffness-media">Figure</h4>
                     <figure class="publication-figure">
-                      <a
-                        href="assets/publications/2026-spatial-stiffness-tuning/spatialLocomotion.png"
-                        target="_blank"
-                        rel="noopener"
+                      <button
+                        class="figure-open"
+                        type="button"
+                        data-figure-dialog="spatial-figure-dialog"
                         aria-label="Open the forward locomotion sequence figure at full size"
                       >
                         <img
@@ -256,13 +250,47 @@
                           height="1186"
                           loading="lazy"
                         />
-                      </a>
+                        <span>Open large figure <span aria-hidden="true">↗</span></span>
+                      </button>
                       <figcaption>
-                        Forward locomotion sequence of the soft crawling robot. Select the
-                        figure to view it at full size.
+                        Forward locomotion sequence of the soft crawling robot.
                       </figcaption>
                     </figure>
                   </section>
+
+                  <details class="abstract-details">
+                    <summary>Read full abstract</summary>
+                    <div class="publication-abstract">
+                      <p>
+                        Soft crawling robots rely on localized anchoring and efficient force
+                        transmission to generate net forward motion. However, their performance
+                        is often limited by fabrication methods that produce uniformly soft
+                        bodies, which limit the ability to introduce localized stiffness required
+                        for efficient locomotion. This paper presents a monolithic spatial
+                        stiffness tuning approach for soft robots enabled by FDM 3D printing of
+                        actively foaming Thermoplastic Polyurethane (TPU), where stiffness is
+                        locally programmed by controlling extrusion temperature and flow ratio
+                        without multi-material printing or additional fabrication time. To
+                        demonstrate this concept, we design and fabricate a novel 3D-printable
+                        electromagnetically actuated soft crawling robot that integrates
+                        electromagnets and permanent magnets within a TPU body and uses a
+                        directional sawtooth friction layer for controlled directional crawling.
+                        Four prototypes with different Shore hardness distributions across the
+                        body and friction layer were fabricated, ranging from fully soft to fully
+                        stiff configurations. Experimental results show that our proposed method
+                        can significantly improve locomotion speed, resulting in around 200%
+                        increase in maximum speed (130.29 mm/s, 1.3029 Bl/s) compared to a fully
+                        soft design (43.29 mm/s, 0.4329 Bl/s), along with improved energetic
+                        efficiency (64% reduction in energy per distance). The optimized design
+                        was fabricated in an untethered configuration and evaluated
+                        experimentally, achieving high-speed locomotion (72.727 mm/s, 0.727 Bl/s),
+                        full 360° rotation in around 23 s, and slope climbing up to 15°. Finally,
+                        the proposed design is quantitatively compared with prior soft crawling
+                        robots, highlighting the performance benefits of monolithic spatial
+                        stiffness tuning using foamed TPU in soft robots.
+                      </p>
+                    </div>
+                  </details>
                 </div>
               </details>
             </div>
@@ -410,6 +438,32 @@
         </a>
       </section>
     </main>
+
+    <dialog
+      id="spatial-figure-dialog"
+      class="figure-dialog"
+      aria-labelledby="spatial-figure-title"
+    >
+      <div class="figure-dialog-toolbar">
+        <p id="spatial-figure-title">Forward locomotion sequence</p>
+        <div>
+          <button class="figure-zoom" type="button">View actual size</button>
+          <button class="figure-close" type="button">Close</button>
+        </div>
+      </div>
+      <div class="figure-dialog-canvas">
+        <img
+          class="figure-dialog-image"
+          src="assets/publications/2026-spatial-stiffness-tuning/spatialLocomotion.png"
+          alt="Three-stage diagram showing the soft crawling robot bending and returning to its resting shape to move forward."
+          width="4496"
+          height="1186"
+        />
+      </div>
+      <p class="figure-dialog-caption">
+        Forward locomotion sequence of the soft crawling robot.
+      </p>
+    </dialog>
 
     <footer class="site-footer">
       <div class="shell footer-inner">

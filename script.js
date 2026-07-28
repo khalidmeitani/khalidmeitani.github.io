@@ -43,3 +43,36 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
 }
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
+
+document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
+  const dialog = document.querySelector(`#${button.dataset.figureDialog}`);
+  const closeButton = dialog?.querySelector(".figure-close");
+  const zoomButton = dialog?.querySelector(".figure-zoom");
+  const canvas = dialog?.querySelector(".figure-dialog-canvas");
+  const image = dialog?.querySelector(".figure-dialog-image");
+
+  if (!dialog || !closeButton || !zoomButton || !canvas || !image) return;
+
+  button.addEventListener("click", () => dialog.showModal());
+  closeButton.addEventListener("click", () => dialog.close());
+
+  zoomButton.addEventListener("click", () => {
+    const isZoomed = image.classList.toggle("is-zoomed");
+    canvas.classList.toggle("is-zoomed", isZoomed);
+    zoomButton.textContent = isZoomed ? "Fit to screen" : "View actual size";
+    if (!isZoomed) {
+      canvas.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener("close", () => {
+    image.classList.remove("is-zoomed");
+    canvas.classList.remove("is-zoomed");
+    zoomButton.textContent = "View actual size";
+    canvas.scrollTo({ top: 0, left: 0 });
+  });
+});
