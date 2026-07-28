@@ -284,12 +284,7 @@ img {
 }
 
 .portrait-backdrop {
-  position: absolute;
-  inset: -7px;
-  z-index: -1;
-  background: #dce7de;
-  border: 1px solid rgba(44, 98, 69, 0.16);
-  border-radius: 50%;
+  display: none;
 }
 
 .portrait {
@@ -298,7 +293,10 @@ img {
   background: var(--paper-deep);
   border: 4px solid var(--white);
   border-radius: 50%;
-  box-shadow: 0 12px 32px rgba(22, 45, 35, 0.12);
+  box-shadow:
+    0 0 0 6px #dce7de,
+    0 0 0 7px rgba(44, 98, 69, 0.16),
+    0 12px 32px rgba(22, 45, 35, 0.12);
   object-fit: cover;
   object-position: 50% 28%;
 }
