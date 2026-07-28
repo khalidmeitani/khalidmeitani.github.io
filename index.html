@@ -27,10 +27,7 @@
       (() => {
         try {
           const savedTheme = localStorage.getItem("khalid-theme");
-          const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-          document.documentElement.dataset.theme = savedTheme || systemTheme;
+          document.documentElement.dataset.theme = savedTheme || "light";
         } catch {
           document.documentElement.dataset.theme = "light";
         }
@@ -1031,6 +1028,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260728-5"></script>
+    <script src="script.js?v=20260728-6"></script>
   </body>
 </html>

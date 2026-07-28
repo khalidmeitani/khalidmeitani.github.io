@@ -3,16 +3,7 @@ const navigation = document.querySelector(".site-nav");
 const header = document.querySelector(".site-header");
 const themeToggle = document.querySelector(".theme-toggle");
 const themeColor = document.querySelector("#theme-color");
-const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const themeStorageKey = "khalid-theme";
-
-const readSavedTheme = () => {
-  try {
-    return localStorage.getItem(themeStorageKey);
-  } catch {
-    return null;
-  }
-};
 
 const applyTheme = (theme, persist = false) => {
   const isDark = theme === "dark";
@@ -42,10 +33,6 @@ themeToggle?.addEventListener("click", () => {
   const nextTheme =
     document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   applyTheme(nextTheme, true);
-});
-
-systemTheme.addEventListener("change", (event) => {
-  if (!readSavedTheme()) applyTheme(event.matches ? "dark" : "light");
 });
 
 menuButton?.addEventListener("click", () => {
