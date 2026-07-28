@@ -555,7 +555,66 @@ html[data-theme="dark"] .research-card:hover {
 }
 
 .publication-body {
+  display: grid;
   min-width: 0;
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 152px;
+  column-gap: 28px;
+}
+
+.publication-body > :not(.publication-thumbnail):not(.publication-details) {
+  grid-column: 1;
+}
+
+.publication-body > .publication-details {
+  grid-column: 1 / -1;
+}
+
+.publication-thumbnail {
+  display: grid;
+  width: 152px;
+  margin: 0;
+  overflow: hidden;
+  align-self: start;
+  background: var(--white);
+  border: 1px solid var(--line);
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  justify-self: end;
+  grid-template-rows: 98px auto;
+}
+
+.publication-thumbnail img {
+  width: 100%;
+  height: 98px;
+  padding: 6px;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.publication-thumbnail figcaption {
+  min-height: 31px;
+  padding: 7px 9px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.publication-thumbnail-topic > div {
+  display: grid;
+  color: var(--forest);
+  background:
+    linear-gradient(145deg, rgba(142, 170, 152, 0.2), transparent 66%),
+    var(--paper-deep);
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  place-items: center;
 }
 
 .publication h3 {
@@ -1518,6 +1577,21 @@ body:has(.figure-dialog[open]) {
   .publication {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .publication-body {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-body > :not(.publication-thumbnail):not(.publication-details),
+  .publication-body > .publication-details,
+  .publication-thumbnail {
+    grid-column: 1;
+  }
+
+  .publication-thumbnail {
+    margin-bottom: 14px;
+    grid-row: auto;
   }
 
   .publication-details-panel {
