@@ -85,7 +85,7 @@ document.querySelectorAll("[data-adaptive-figure]").forEach((viewport) => {
 
   const updateFigureLayout = () => {
     const ratio = image.naturalWidth / image.naturalHeight;
-    const isPanoramic = ratio >= 2.25;
+    const isPanoramic = ratio >= 2.25 && !viewport.hasAttribute("data-fit-entire");
     const isPortrait = ratio <= 0.82;
 
     viewport.classList.toggle("is-panoramic", isPanoramic);
