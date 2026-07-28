@@ -758,6 +758,14 @@ img {
   place-items: center;
 }
 
+.carousel-slide-video .publication-video-frame {
+  width: min(100%, 385px);
+  height: auto;
+  margin-inline: auto;
+  padding: 0;
+  aspect-ratio: 480 / 848;
+}
+
 .publication-video-poster {
   position: relative;
   display: grid;
@@ -765,7 +773,7 @@ img {
   height: 100%;
   padding: 0;
   overflow: hidden;
-  background: var(--white);
+  background: #101712;
   border: 0;
   cursor: pointer;
   place-items: center;
@@ -865,7 +873,7 @@ img {
 
 .carousel-arrow {
   position: absolute;
-  top: calc(var(--carousel-figure-height) / 2);
+  top: var(--carousel-arrow-top, calc(var(--carousel-figure-height) / 2));
   z-index: 2;
   display: grid;
   width: 44px;
@@ -885,11 +893,11 @@ img {
 }
 
 .carousel-arrow-previous {
-  left: 14px;
+  left: var(--carousel-arrow-left, 14px);
 }
 
 .carousel-arrow-next {
-  right: 14px;
+  right: var(--carousel-arrow-right, 14px);
 }
 
 .carousel-arrow:hover,

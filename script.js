@@ -96,6 +96,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const toggleButton = carousel.querySelector("[data-carousel-toggle]");
   const announcement = carousel.querySelector("[data-carousel-announcement]");
   const disclosure = carousel.closest("details");
+  const slidesContainer = carousel.querySelector(".carousel-slides");
   const videos = [...carousel.querySelectorAll("video")];
 
   if (
@@ -141,6 +142,24 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     toggleButton.textContent = manuallyPaused ? "Play slideshow" : "Pause slideshow";
   };
 
+  const updateArrowPosition = () => {
+    const stage = slides[currentIndex]?.querySelector(
+      ".adaptive-figure, .publication-video-frame",
+    );
+
+    if (!stage || !slidesContainer) return;
+
+    const sideInset = 14;
+    const left = stage.offsetLeft + sideInset;
+    const right =
+      slidesContainer.clientWidth - stage.offsetLeft - stage.offsetWidth + sideInset;
+    const top = stage.offsetTop + stage.offsetHeight / 2;
+
+    carousel.style.setProperty("--carousel-arrow-left", `${left}px`);
+    carousel.style.setProperty("--carousel-arrow-right", `${right}px`);
+    carousel.style.setProperty("--carousel-arrow-top", `${top}px`);
+  };
+
   function showSlide(index, announce = true) {
     currentIndex = (index + slides.length) % slides.length;
 
@@ -163,6 +182,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       announcement.textContent = `Figure ${currentIndex + 1} of ${slides.length}: ${label}`;
     }
 
+    window.requestAnimationFrame(updateArrowPosition);
     scheduleNextSlide();
   }
 
@@ -216,6 +236,10 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   });
 
   disclosure?.addEventListener("toggle", scheduleNextSlide);
+  disclosure?.addEventListener("toggle", () => {
+    if (disclosure.open) window.requestAnimationFrame(updateArrowPosition);
+  });
+  window.addEventListener("resize", updateArrowPosition, { passive: true });
   document.addEventListener("visibilitychange", scheduleNextSlide);
   document.addEventListener("figure-dialog-opened", stopTimer);
   document.addEventListener("figure-dialog-closed", scheduleNextSlide);
