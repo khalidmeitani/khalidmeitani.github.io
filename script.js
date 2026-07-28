@@ -48,6 +48,18 @@ navigation?.querySelectorAll("a").forEach((link) => {
   });
 });
 
+const publicationDetails = [...document.querySelectorAll(".publication-details")];
+
+publicationDetails.forEach((details) => {
+  details.addEventListener("toggle", () => {
+    if (!details.open) return;
+
+    publicationDetails.forEach((otherDetails) => {
+      if (otherDetails !== details) otherDetails.open = false;
+    });
+  });
+});
+
 window.addEventListener(
   "scroll",
   () => header?.classList.toggle("scrolled", window.scrollY > 8),
