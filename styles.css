@@ -548,6 +548,58 @@ html[data-theme="dark"] .research-card:hover {
   grid-template-columns: 90px 1fr;
 }
 
+.publication-feature-background {
+  position: relative;
+  isolation: isolate;
+  margin-block: 12px;
+  padding: 42px 30px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.publication-feature-background::before,
+.publication-feature-background::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.publication-feature-background::before {
+  background:
+    url("assets/publications/2025-haptic-mixed-reality-telemanipulation/system-overview-web.png")
+    center / cover no-repeat;
+}
+
+.publication-feature-background::after {
+  background: linear-gradient(
+    90deg,
+    rgba(247, 248, 245, 0.99) 0%,
+    rgba(247, 248, 245, 0.96) 47%,
+    rgba(247, 248, 245, 0.72) 68%,
+    rgba(247, 248, 245, 0.18) 100%
+  );
+}
+
+html[data-theme="dark"] .publication-feature-background::after {
+  background: linear-gradient(
+    90deg,
+    rgba(16, 22, 19, 0.99) 0%,
+    rgba(16, 22, 19, 0.96) 47%,
+    rgba(16, 22, 19, 0.76) 68%,
+    rgba(16, 22, 19, 0.28) 100%
+  );
+}
+
+.publication-feature-background .publication-body {
+  grid-template-columns: minmax(0, 720px) 1fr;
+}
+
+.publication-feature-background .publication-thumbnail {
+  display: none;
+}
+
 .publication-year {
   color: var(--accent-dark);
   font-size: 13px;
@@ -1590,6 +1642,25 @@ body:has(.figure-dialog[open]) {
   .publication {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .publication-feature-background {
+    padding: 164px 20px 28px;
+  }
+
+  .publication-feature-background::before {
+    background-position: top center;
+    background-size: 100% auto;
+  }
+
+  .publication-feature-background::after,
+  html[data-theme="dark"] .publication-feature-background::after {
+    background: linear-gradient(
+      180deg,
+      rgba(247, 248, 245, 0.08) 0,
+      rgba(247, 248, 245, 0.18) 118px,
+      var(--paper) 162px
+    );
   }
 
   .publication-body {
