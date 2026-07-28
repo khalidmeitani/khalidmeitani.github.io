@@ -512,6 +512,112 @@ img {
   text-transform: uppercase;
 }
 
+.publication-details {
+  max-width: 960px;
+  margin-top: 19px;
+}
+
+.publication-details summary {
+  display: inline-flex;
+  min-height: 38px;
+  padding: 8px 12px;
+  align-items: center;
+  color: var(--accent-dark);
+  background: transparent;
+  border: 1px solid rgba(44, 98, 69, 0.28);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  gap: 10px;
+  letter-spacing: 0.06em;
+  list-style: none;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.publication-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.publication-details summary::after {
+  color: var(--accent-dark);
+  content: "+";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.publication-details[open] summary::after {
+  content: "−";
+}
+
+.publication-details summary:hover,
+.publication-details summary:focus-visible {
+  background: rgba(142, 170, 152, 0.12);
+  border-color: rgba(44, 98, 69, 0.55);
+}
+
+.publication-details-panel {
+  margin-top: 18px;
+  padding: clamp(22px, 3.2vw, 36px);
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(23, 35, 30, 0.11);
+  border-left: 3px solid var(--accent);
+}
+
+.publication-details-panel h4 {
+  margin: 0 0 12px;
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.publication-abstract p {
+  max-width: 850px;
+  margin: 0;
+  color: #34413b;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.publication-media {
+  margin-top: 28px;
+  padding-top: 27px;
+  border-top: 1px solid var(--line);
+}
+
+.publication-figure {
+  margin: 0;
+}
+
+.publication-figure a {
+  display: block;
+  padding: clamp(10px, 2vw, 20px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.publication-figure a:hover,
+.publication-figure a:focus-visible {
+  border-color: rgba(44, 98, 69, 0.45);
+  box-shadow: 0 12px 32px rgba(22, 45, 35, 0.09);
+}
+
+.publication-figure img {
+  width: 100%;
+}
+
+.publication-figure figcaption {
+  margin-top: 11px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .section-dark {
   color: var(--paper);
   background: var(--forest);
@@ -784,6 +890,14 @@ img {
   .publication {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .publication-details-panel {
+    padding: 20px;
+  }
+
+  .publication-abstract p {
+    font-size: 15px;
   }
 
   .video-grid {
