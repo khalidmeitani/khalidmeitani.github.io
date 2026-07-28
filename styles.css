@@ -634,12 +634,20 @@ html[data-theme="dark"] .research-card:hover {
   --publication-thumbnail-width: 340px;
 }
 
+.publication-thumbnail-portrait {
+  grid-template-rows: calc(var(--publication-thumbnail-width) * 0.9) auto;
+}
+
 .publication-thumbnail img {
   width: 100%;
   height: calc(var(--publication-thumbnail-width) * 0.64);
   padding: 6px;
   background: #ffffff;
   object-fit: contain;
+}
+
+.publication-thumbnail-portrait img {
+  height: calc(var(--publication-thumbnail-width) * 0.9);
 }
 
 .publication-thumbnail figcaption {
