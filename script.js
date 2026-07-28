@@ -75,6 +75,19 @@ document.querySelectorAll("[data-adaptive-figure]").forEach((viewport) => {
   }
 });
 
+document.querySelectorAll("[data-video-frame]").forEach((frame) => {
+  const playButton = frame.querySelector("[data-video-play]");
+  const video = frame.querySelector("video");
+
+  if (!playButton || !video) return;
+
+  playButton.addEventListener("click", () => {
+    playButton.hidden = true;
+    video.hidden = false;
+    video.play();
+  });
+});
+
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const slides = [...carousel.querySelectorAll("[data-carousel-slide]")];
   const dots = [...carousel.querySelectorAll("[data-carousel-dot]")];
@@ -83,6 +96,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const toggleButton = carousel.querySelector("[data-carousel-toggle]");
   const announcement = carousel.querySelector("[data-carousel-announcement]");
   const disclosure = carousel.closest("details");
+  const videos = [...carousel.querySelectorAll("video")];
 
   if (
     slides.length < 2 ||
@@ -99,6 +113,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   let timerId;
   let interactionPaused = false;
   let manuallyPaused = reduceMotion;
+  let mediaPlaying = false;
   let inViewport = true;
 
   const stopTimer = () => {
@@ -109,6 +124,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const canAutoplay = () =>
     !manuallyPaused &&
     !interactionPaused &&
+    !mediaPlaying &&
     !document.hidden &&
     inViewport &&
     (!disclosure || disclosure.open) &&
@@ -133,6 +149,9 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       slide.hidden = !isActive;
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", String(!isActive));
+      if (!isActive) {
+        slide.querySelectorAll("video").forEach((video) => video.pause());
+      }
     });
 
     dots.forEach((dot, dotIndex) => {
@@ -151,6 +170,21 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   nextButton.addEventListener("click", () => showSlide(currentIndex + 1));
   dots.forEach((dot, dotIndex) => {
     dot.addEventListener("click", () => showSlide(dotIndex));
+  });
+
+  videos.forEach((video) => {
+    video.addEventListener("play", () => {
+      mediaPlaying = true;
+      stopTimer();
+    });
+
+    const resumeSlideshow = () => {
+      mediaPlaying = videos.some((item) => !item.paused && !item.ended);
+      scheduleNextSlide();
+    };
+
+    video.addEventListener("pause", resumeSlideshow);
+    video.addEventListener("ended", resumeSlideshow);
   });
 
   toggleButton.addEventListener("click", () => {

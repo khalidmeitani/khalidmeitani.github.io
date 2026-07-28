@@ -747,6 +747,71 @@ img {
   object-fit: contain;
 }
 
+.publication-video-frame {
+  position: relative;
+  display: grid;
+  height: var(--carousel-figure-height);
+  overflow: hidden;
+  padding: 14px;
+  background: #101712;
+  border: 1px solid var(--line);
+  place-items: center;
+}
+
+.publication-video-poster {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: var(--white);
+  border: 0;
+  cursor: pointer;
+  place-items: center;
+}
+
+.publication-video-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.publication-video-poster span {
+  position: absolute;
+  display: grid;
+  width: 66px;
+  height: 66px;
+  padding-left: 4px;
+  color: var(--white);
+  background: rgba(20, 72, 48, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(17, 35, 27, 0.24);
+  font-size: 21px;
+  place-items: center;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.publication-video-poster:hover span,
+.publication-video-poster:focus-visible span {
+  background: var(--forest);
+  transform: scale(1.07);
+}
+
+.publication-video-poster[hidden],
+.publication-video[hidden] {
+  display: none;
+}
+
+.publication-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #101712;
+  object-fit: contain;
+}
+
 .carousel-slide .figure-controls {
   justify-content: flex-end;
 }
@@ -925,6 +990,17 @@ img {
   padding: 22px 24px;
   background: var(--paper);
   border-left: 2px solid var(--accent);
+}
+
+.publication-abstract .abstract-source {
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 11px;
+}
+
+.abstract-source a {
+  color: var(--accent-dark);
+  font-weight: 600;
 }
 
 .figure-dialog {
