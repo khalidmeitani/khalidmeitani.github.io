@@ -75,6 +75,132 @@ document.querySelectorAll("[data-adaptive-figure]").forEach((viewport) => {
   }
 });
 
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const slides = [...carousel.querySelectorAll("[data-carousel-slide]")];
+  const dots = [...carousel.querySelectorAll("[data-carousel-dot]")];
+  const previousButton = carousel.querySelector("[data-carousel-prev]");
+  const nextButton = carousel.querySelector("[data-carousel-next]");
+  const toggleButton = carousel.querySelector("[data-carousel-toggle]");
+  const announcement = carousel.querySelector("[data-carousel-announcement]");
+  const disclosure = carousel.closest("details");
+
+  if (
+    slides.length < 2 ||
+    dots.length !== slides.length ||
+    !previousButton ||
+    !nextButton ||
+    !toggleButton
+  ) {
+    return;
+  }
+
+  const interval = 5000;
+  let currentIndex = 0;
+  let timerId;
+  let interactionPaused = false;
+  let manuallyPaused = reduceMotion;
+  let inViewport = true;
+
+  const stopTimer = () => {
+    window.clearTimeout(timerId);
+    timerId = undefined;
+  };
+
+  const canAutoplay = () =>
+    !manuallyPaused &&
+    !interactionPaused &&
+    !document.hidden &&
+    inViewport &&
+    (!disclosure || disclosure.open) &&
+    !document.querySelector(".figure-dialog[open]");
+
+  const scheduleNextSlide = () => {
+    stopTimer();
+    if (!canAutoplay()) return;
+    timerId = window.setTimeout(() => showSlide(currentIndex + 1, false), interval);
+  };
+
+  const updateToggleButton = () => {
+    toggleButton.setAttribute("aria-pressed", String(manuallyPaused));
+    toggleButton.textContent = manuallyPaused ? "Play slideshow" : "Pause slideshow";
+  };
+
+  function showSlide(index, announce = true) {
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === currentIndex;
+      slide.hidden = !isActive;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      dot.setAttribute("aria-current", String(dotIndex === currentIndex));
+    });
+
+    if (announce && announcement) {
+      const label = slides[currentIndex].dataset.carouselLabel || "Publication figure";
+      announcement.textContent = `Figure ${currentIndex + 1} of ${slides.length}: ${label}`;
+    }
+
+    scheduleNextSlide();
+  }
+
+  previousButton.addEventListener("click", () => showSlide(currentIndex - 1));
+  nextButton.addEventListener("click", () => showSlide(currentIndex + 1));
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => showSlide(dotIndex));
+  });
+
+  toggleButton.addEventListener("click", () => {
+    manuallyPaused = !manuallyPaused;
+    updateToggleButton();
+    scheduleNextSlide();
+  });
+
+  carousel.addEventListener("mouseenter", () => {
+    interactionPaused = true;
+    stopTimer();
+  });
+
+  carousel.addEventListener("mouseleave", () => {
+    interactionPaused = false;
+    scheduleNextSlide();
+  });
+
+  carousel.addEventListener("focusin", () => {
+    interactionPaused = true;
+    stopTimer();
+  });
+
+  carousel.addEventListener("focusout", () => {
+    window.setTimeout(() => {
+      interactionPaused = carousel.contains(document.activeElement);
+      scheduleNextSlide();
+    });
+  });
+
+  disclosure?.addEventListener("toggle", scheduleNextSlide);
+  document.addEventListener("visibilitychange", scheduleNextSlide);
+  document.addEventListener("figure-dialog-opened", stopTimer);
+  document.addEventListener("figure-dialog-closed", scheduleNextSlide);
+
+  if ("IntersectionObserver" in window) {
+    const carouselObserver = new IntersectionObserver(
+      ([entry]) => {
+        inViewport = entry.isIntersecting;
+        scheduleNextSlide();
+      },
+      { threshold: 0.2 },
+    );
+    carouselObserver.observe(carousel);
+  }
+
+  updateToggleButton();
+  showSlide(0, false);
+});
+
 document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
   const dialog = document.querySelector(`#${button.dataset.figureDialog}`);
   const closeButton = dialog?.querySelector(".figure-close");
@@ -84,7 +210,10 @@ document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
 
   if (!dialog || !closeButton || !zoomButton || !canvas || !image) return;
 
-  button.addEventListener("click", () => dialog.showModal());
+  button.addEventListener("click", () => {
+    dialog.showModal();
+    document.dispatchEvent(new CustomEvent("figure-dialog-opened"));
+  });
   closeButton.addEventListener("click", () => dialog.close());
 
   zoomButton.addEventListener("click", () => {
@@ -105,5 +234,6 @@ document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
     canvas.classList.remove("is-zoomed");
     zoomButton.textContent = "View actual size";
     canvas.scrollTo({ top: 0, left: 0 });
+    document.dispatchEvent(new CustomEvent("figure-dialog-closed"));
   });
 });

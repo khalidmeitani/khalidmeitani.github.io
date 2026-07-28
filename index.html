@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#f7f8f5" />
     <link rel="canonical" href="https://khalidmeitani.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260728-7" />
+    <link rel="stylesheet" href="styles.css?v=20260728-9" />
     <title>Khalid Meitani — Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -236,106 +236,179 @@
 
                   <section class="publication-media" aria-labelledby="spatial-stiffness-media">
                     <h4 id="spatial-stiffness-media">Figures</h4>
-                    <figure class="publication-figure">
-                      <div
-                        class="adaptive-figure is-panoramic"
-                        data-adaptive-figure
-                        tabindex="0"
-                        aria-label="Panoramic figure; scroll horizontally to see the full image"
-                      >
-                        <img
-                          src="assets/publications/2026-spatial-stiffness-tuning/spatialLocomotion.png"
-                          alt="Three-stage diagram showing the soft crawling robot bending and returning to its resting shape to move forward."
-                          width="1702"
-                          height="402"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div class="figure-controls">
-                        <p class="figure-scroll-hint">
-                          <span aria-hidden="true">↔</span> Scroll to explore the full figure
-                        </p>
-                      <button
-                        class="figure-open"
-                        type="button"
-                        data-figure-dialog="spatial-figure-dialog"
-                        aria-label="Open the forward locomotion sequence figure at full size"
-                      >
-                          Open large figure <span aria-hidden="true">↗</span>
-                      </button>
-                      </div>
-                      <figcaption>
-                        Forward locomotion sequence of the soft crawling robot.
-                      </figcaption>
-                    </figure>
+                    <div
+                      class="publication-carousel"
+                      data-carousel
+                      role="region"
+                      aria-roledescription="carousel"
+                      aria-label="Spatial stiffness tuning publication figures"
+                    >
+                      <p class="sr-only" data-carousel-announcement aria-live="polite">
+                        Figure 1 of 3: Foamed TPU stiffness tuning
+                      </p>
 
-                    <div class="publication-media-grid">
-                      <figure class="publication-figure">
-                        <div
-                          class="adaptive-figure"
-                          data-adaptive-figure
-                          tabindex="-1"
-                          aria-label="Publication figure"
+                      <div class="carousel-slides">
+                        <figure
+                          class="publication-figure carousel-slide is-active"
+                          data-carousel-slide
+                          data-carousel-label="Foamed TPU stiffness tuning"
+                          aria-hidden="false"
                         >
-                          <img
-                            src="assets/publications/2026-spatial-stiffness-tuning/meita2.png"
-                            alt="Diagram comparing high-foaming and low-foaming TPU printing conditions, microstructures, densities, and resulting stiffness."
-                            width="1597"
-                            height="985"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="figure-controls">
-                          <p class="figure-scroll-hint" hidden>
-                            <span aria-hidden="true">↔</span> Scroll to explore the full figure
-                          </p>
-                          <button
-                            class="figure-open"
-                            type="button"
-                            data-figure-dialog="foaming-figure-dialog"
-                            aria-label="Open the TPU stiffness-tuning figure at full size"
+                          <div
+                            class="adaptive-figure"
+                            data-adaptive-figure
+                            tabindex="-1"
+                            aria-label="Publication figure"
                           >
-                            Open large figure <span aria-hidden="true">↗</span>
-                          </button>
-                        </div>
-                        <figcaption>
-                          Stiffness tuning in foaming TPU through extrusion temperature and
-                          flow-rate control.
-                        </figcaption>
-                      </figure>
+                            <img
+                              src="assets/publications/2026-spatial-stiffness-tuning/meita2.png"
+                              alt="Diagram comparing high-foaming and low-foaming TPU printing conditions, microstructures, densities, and resulting stiffness."
+                              width="1597"
+                              height="985"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div class="figure-controls">
+                            <button
+                              class="figure-open"
+                              type="button"
+                              data-figure-dialog="foaming-figure-dialog"
+                              aria-label="Open the TPU stiffness-tuning figure at full size"
+                            >
+                              Open large figure <span aria-hidden="true">↗</span>
+                            </button>
+                          </div>
+                          <figcaption>
+                            <span>Figure 1</span>
+                            Stiffness tuning in foaming TPU through extrusion temperature and
+                            flow-rate control.
+                          </figcaption>
+                        </figure>
 
-                      <figure class="publication-figure">
-                        <div
-                          class="adaptive-figure"
-                          data-adaptive-figure
-                          tabindex="-1"
-                          aria-label="Publication figure"
+                        <figure
+                          class="publication-figure carousel-slide"
+                          data-carousel-slide
+                          data-carousel-label="Untethered robot components"
+                          aria-hidden="true"
+                          hidden
                         >
-                          <img
-                            src="assets/publications/2026-spatial-stiffness-tuning/untethered360.png"
-                            alt="Top-view sequence of the untethered soft crawling robot rotating at zero, six, and fifteen seconds."
-                            width="1024"
-                            height="1024"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="figure-controls">
-                          <p class="figure-scroll-hint" hidden>
-                            <span aria-hidden="true">↔</span> Scroll to explore the full figure
-                          </p>
-                          <button
-                            class="figure-open"
-                            type="button"
-                            data-figure-dialog="rotation-figure-dialog"
-                            aria-label="Open the untethered rotation figure at full size"
+                          <div
+                            class="adaptive-figure"
+                            data-adaptive-figure
+                            tabindex="-1"
+                            aria-label="Publication figure"
                           >
-                            Open large figure <span aria-hidden="true">↗</span>
-                          </button>
+                            <img
+                              src="assets/publications/2026-spatial-stiffness-tuning/spatialUntethered.png"
+                              alt="Side and top views of the untethered crawler labeled with its battery, TPU body, friction layer, microcontroller, permanent magnets, and electromagnets."
+                              width="1062"
+                              height="747"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div class="figure-controls">
+                            <button
+                              class="figure-open"
+                              type="button"
+                              data-figure-dialog="robot-figure-dialog"
+                              aria-label="Open the untethered robot components figure at full size"
+                            >
+                              Open large figure <span aria-hidden="true">↗</span>
+                            </button>
+                          </div>
+                          <figcaption>
+                            <span>Figure 2</span>
+                            Components of the untethered soft crawling robot.
+                          </figcaption>
+                        </figure>
+
+                        <figure
+                          class="publication-figure carousel-slide"
+                          data-carousel-slide
+                          data-carousel-label="Untethered rotational locomotion"
+                          aria-hidden="true"
+                          hidden
+                        >
+                          <div
+                            class="adaptive-figure"
+                            data-adaptive-figure
+                            tabindex="-1"
+                            aria-label="Publication figure"
+                          >
+                            <img
+                              src="assets/publications/2026-spatial-stiffness-tuning/untethered360.png"
+                              alt="Top-view sequence of the untethered soft crawling robot rotating at zero, six, and fifteen seconds."
+                              width="1024"
+                              height="1024"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div class="figure-controls">
+                            <button
+                              class="figure-open"
+                              type="button"
+                              data-figure-dialog="rotation-figure-dialog"
+                              aria-label="Open the untethered rotation figure at full size"
+                            >
+                              Open large figure <span aria-hidden="true">↗</span>
+                            </button>
+                          </div>
+                          <figcaption>
+                            <span>Figure 3</span>
+                            Untethered robot shown at three points during rotational locomotion.
+                          </figcaption>
+                        </figure>
+                      </div>
+
+                      <div class="carousel-navigation">
+                        <button
+                          class="carousel-arrow"
+                          type="button"
+                          data-carousel-prev
+                          aria-label="Show previous figure"
+                        >
+                          <span aria-hidden="true">←</span> Previous
+                        </button>
+
+                        <div class="carousel-dots" aria-label="Choose a figure">
+                          <button
+                            type="button"
+                            data-carousel-dot
+                            aria-label="Show figure 1"
+                            aria-current="true"
+                          ></button>
+                          <button
+                            type="button"
+                            data-carousel-dot
+                            aria-label="Show figure 2"
+                            aria-current="false"
+                          ></button>
+                          <button
+                            type="button"
+                            data-carousel-dot
+                            aria-label="Show figure 3"
+                            aria-current="false"
+                          ></button>
                         </div>
-                        <figcaption>
-                          Untethered robot shown at three points during rotational locomotion.
-                        </figcaption>
-                      </figure>
+
+                        <button
+                          class="carousel-arrow"
+                          type="button"
+                          data-carousel-next
+                          aria-label="Show next figure"
+                        >
+                          Next <span aria-hidden="true">→</span>
+                        </button>
+
+                        <button
+                          class="carousel-toggle"
+                          type="button"
+                          data-carousel-toggle
+                          aria-pressed="false"
+                        >
+                          Pause slideshow
+                        </button>
+                      </div>
                     </div>
                   </section>
 
@@ -521,12 +594,12 @@
     </main>
 
     <dialog
-      id="spatial-figure-dialog"
+      id="robot-figure-dialog"
       class="figure-dialog"
-      aria-labelledby="spatial-figure-title"
+      aria-labelledby="robot-figure-title"
     >
       <div class="figure-dialog-toolbar">
-        <p id="spatial-figure-title">Forward locomotion sequence</p>
+        <p id="robot-figure-title">Untethered robot components</p>
         <div>
           <button class="figure-zoom" type="button">View actual size</button>
           <button class="figure-close" type="button">Close</button>
@@ -535,14 +608,14 @@
       <div class="figure-dialog-canvas">
         <img
           class="figure-dialog-image"
-          src="assets/publications/2026-spatial-stiffness-tuning/spatialLocomotion.png"
-          alt="Three-stage diagram showing the soft crawling robot bending and returning to its resting shape to move forward."
-          width="1702"
-          height="402"
+          src="assets/publications/2026-spatial-stiffness-tuning/spatialUntethered.png"
+          alt="Side and top views of the untethered crawler labeled with its battery, TPU body, friction layer, microcontroller, permanent magnets, and electromagnets."
+          width="1062"
+          height="747"
         />
       </div>
       <p class="figure-dialog-caption">
-        Forward locomotion sequence of the soft crawling robot.
+        Components of the untethered soft crawling robot.
       </p>
     </dialog>
 
