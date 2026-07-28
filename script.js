@@ -1,6 +1,52 @@
 const menuButton = document.querySelector(".menu-button");
 const navigation = document.querySelector(".site-nav");
 const header = document.querySelector(".site-header");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeColor = document.querySelector("#theme-color");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+const themeStorageKey = "khalid-theme";
+
+const readSavedTheme = () => {
+  try {
+    return localStorage.getItem(themeStorageKey);
+  } catch {
+    return null;
+  }
+};
+
+const applyTheme = (theme, persist = false) => {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  themeToggle?.setAttribute("aria-pressed", String(isDark));
+  themeToggle?.setAttribute(
+    "aria-label",
+    isDark ? "Switch to light mode" : "Switch to dark mode",
+  );
+  if (themeToggle) {
+    themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+  }
+  themeColor?.setAttribute("content", isDark ? "#101613" : "#f7f8f5");
+
+  if (persist) {
+    try {
+      localStorage.setItem(themeStorageKey, isDark ? "dark" : "light");
+    } catch {
+      // The visual preference still applies when storage is unavailable.
+    }
+  }
+};
+
+applyTheme(document.documentElement.dataset.theme || "light");
+
+themeToggle?.addEventListener("click", () => {
+  const nextTheme =
+    document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme, true);
+});
+
+systemTheme.addEventListener("change", (event) => {
+  if (!readSavedTheme()) applyTheme(event.matches ? "dark" : "light");
+});
 
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";

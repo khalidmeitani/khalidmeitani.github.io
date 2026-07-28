@@ -20,10 +20,23 @@
       content="https://khalidmeitani.github.io/assets/images/figures/personal%20picture.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#f7f8f5" />
+    <meta id="theme-color" name="theme-color" content="#f7f8f5" />
     <link rel="canonical" href="https://khalidmeitani.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260728-12" />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("khalid-theme");
+          const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+          document.documentElement.dataset.theme = savedTheme || systemTheme;
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20260728-13" />
     <title>Khalid Meitani — Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -52,17 +65,48 @@
           <span>Khalid Meitani</span>
         </a>
 
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
-          <span class="sr-only">Open navigation</span>
-          <span></span><span></span><span></span>
-        </button>
+        <div class="nav-controls">
+          <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
+          </nav>
 
-        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#contact">Contact</a>
-        </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+            title="Switch to dark mode"
+          >
+            <svg
+              class="theme-icon theme-icon-sun"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+            </svg>
+            <svg
+              class="theme-icon theme-icon-moon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path>
+            </svg>
+          </button>
+
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span class="sr-only">Open navigation</span>
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -987,6 +1031,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260728-4"></script>
+    <script src="script.js?v=20260728-5"></script>
   </body>
 </html>
