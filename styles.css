@@ -558,7 +558,7 @@ html[data-theme="dark"] .research-card:hover {
   display: grid;
   min-width: 0;
   align-items: start;
-  grid-template-columns: minmax(0, 1fr) 152px;
+  grid-template-columns: minmax(0, 1fr) max-content;
   column-gap: 28px;
 }
 
@@ -571,8 +571,9 @@ html[data-theme="dark"] .research-card:hover {
 }
 
 .publication-thumbnail {
+  --publication-thumbnail-width: 205px;
   display: grid;
-  width: 152px;
+  width: var(--publication-thumbnail-width);
   margin: 0;
   overflow: hidden;
   align-self: start;
@@ -581,12 +582,24 @@ html[data-theme="dark"] .research-card:hover {
   grid-column: 2;
   grid-row: 1 / span 4;
   justify-self: end;
-  grid-template-rows: 98px auto;
+  grid-template-rows: calc(var(--publication-thumbnail-width) * 0.64) auto;
+}
+
+.publication-thumbnail-compact {
+  --publication-thumbnail-width: 180px;
+}
+
+.publication-thumbnail-medium {
+  --publication-thumbnail-width: 205px;
+}
+
+.publication-thumbnail-large {
+  --publication-thumbnail-width: 230px;
 }
 
 .publication-thumbnail img {
   width: 100%;
-  height: 98px;
+  height: calc(var(--publication-thumbnail-width) * 0.64);
   padding: 6px;
   background: #ffffff;
   object-fit: contain;
