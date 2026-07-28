@@ -567,33 +567,18 @@ html[data-theme="dark"] .research-card:hover {
 }
 
 .publication-feature-background::before {
+  left: 540px;
   background:
     url("assets/publications/2025-haptic-mixed-reality-telemanipulation/system-overview-web.png")
-    center / cover no-repeat;
+    right 20px center / contain no-repeat;
 }
 
 .publication-feature-background::after {
-  background: linear-gradient(
-    90deg,
-    rgba(247, 248, 245, 0.99) 0%,
-    rgba(247, 248, 245, 0.96) 47%,
-    rgba(247, 248, 245, 0.72) 68%,
-    rgba(247, 248, 245, 0.18) 100%
-  );
-}
-
-html[data-theme="dark"] .publication-feature-background::after {
-  background: linear-gradient(
-    90deg,
-    rgba(16, 22, 19, 0.99) 0%,
-    rgba(16, 22, 19, 0.96) 47%,
-    rgba(16, 22, 19, 0.76) 68%,
-    rgba(16, 22, 19, 0.28) 100%
-  );
+  display: none;
 }
 
 .publication-feature-background .publication-body {
-  grid-template-columns: minmax(0, 720px) 1fr;
+  grid-template-columns: minmax(0, 390px) 1fr;
 }
 
 .publication-feature-background .publication-thumbnail {
@@ -1649,18 +1634,24 @@ body:has(.figure-dialog[open]) {
   }
 
   .publication-feature-background::before {
+    left: 0;
     background-position: top center;
     background-size: 100% auto;
   }
 
   .publication-feature-background::after,
   html[data-theme="dark"] .publication-feature-background::after {
+    display: block;
     background: linear-gradient(
       180deg,
       rgba(247, 248, 245, 0.08) 0,
       rgba(247, 248, 245, 0.18) 118px,
       var(--paper) 162px
     );
+  }
+
+  .publication-feature-background .publication-body {
+    grid-template-columns: 1fr;
   }
 
   .publication-body {
