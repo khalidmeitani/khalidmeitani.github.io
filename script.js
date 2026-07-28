@@ -165,11 +165,30 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
     slides.forEach((slide, slideIndex) => {
       const isActive = slideIndex === currentIndex;
+      const slideVideo = slide.querySelector("video");
+      const slidePlayButton = slide.querySelector("[data-video-play]");
+
       slide.hidden = !isActive;
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", String(!isActive));
-      if (!isActive) {
-        slide.querySelectorAll("video").forEach((video) => video.pause());
+
+      if (!slideVideo) return;
+
+      if (isActive) {
+        if (slidePlayButton) slidePlayButton.hidden = true;
+        slideVideo.hidden = false;
+        slideVideo.muted = true;
+        const playback = slideVideo.play();
+
+        playback?.catch(() => {
+          slideVideo.hidden = true;
+          if (slidePlayButton) slidePlayButton.hidden = false;
+        });
+      } else {
+        slideVideo.pause();
+        if (slideVideo.readyState > 0) slideVideo.currentTime = 0;
+        slideVideo.hidden = true;
+        if (slidePlayButton) slidePlayButton.hidden = false;
       }
     });
 
