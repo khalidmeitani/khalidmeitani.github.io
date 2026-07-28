@@ -658,6 +658,14 @@ img {
   min-width: 0;
 }
 
+.publication-carousel {
+  --carousel-figure-height: clamp(340px, 43vw, 510px);
+}
+
+.carousel-slides {
+  position: relative;
+}
+
 .carousel-slide[hidden] {
   display: none;
 }
@@ -727,7 +735,7 @@ img {
 
 .carousel-slide .adaptive-figure:not(.is-panoramic) {
   position: relative;
-  height: clamp(340px, 43vw, 510px);
+  height: var(--carousel-figure-height);
   padding: 0;
 }
 
@@ -763,11 +771,12 @@ img {
   margin-top: 22px;
   padding-top: 18px;
   align-items: center;
+  justify-content: center;
+  position: relative;
   border-top: 1px solid var(--line);
   gap: 12px;
 }
 
-.carousel-arrow,
 .carousel-toggle {
   min-height: 38px;
   padding: 8px 12px;
@@ -783,12 +792,46 @@ img {
   transition: background 180ms ease, border-color 180ms ease;
 }
 
-.carousel-arrow:hover,
-.carousel-arrow:focus-visible,
 .carousel-toggle:hover,
 .carousel-toggle:focus-visible {
   background: rgba(142, 170, 152, 0.12);
   border-color: rgba(44, 98, 69, 0.5);
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: calc(var(--carousel-figure-height) / 2);
+  z-index: 2;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--forest);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(44, 98, 69, 0.26);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(17, 35, 27, 0.16);
+  cursor: pointer;
+  font: inherit;
+  font-size: 20px;
+  place-items: center;
+  transform: translateY(-50%);
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.carousel-arrow-previous {
+  left: 14px;
+}
+
+.carousel-arrow-next {
+  right: 14px;
+}
+
+.carousel-arrow:hover,
+.carousel-arrow:focus-visible {
+  color: var(--white);
+  background: var(--forest);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .carousel-dots {
@@ -813,7 +856,8 @@ img {
 }
 
 .carousel-toggle {
-  margin-left: auto;
+  position: absolute;
+  right: 0;
 }
 
 .figure-controls {
@@ -1276,7 +1320,7 @@ body:has(.figure-dialog[open]) {
   }
 
   .carousel-slide .adaptive-figure:not(.is-panoramic) {
-    height: 300px;
+    height: var(--carousel-figure-height);
   }
 
   .figure-controls {
@@ -1294,7 +1338,25 @@ body:has(.figure-dialog[open]) {
     flex-wrap: wrap;
   }
 
+  .publication-carousel {
+    --carousel-figure-height: 300px;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow-previous {
+    left: 8px;
+  }
+
+  .carousel-arrow-next {
+    right: 8px;
+  }
+
   .carousel-toggle {
+    position: static;
     width: 100%;
     margin-left: 0;
   }

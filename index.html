@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#f7f8f5" />
     <link rel="canonical" href="https://khalidmeitani.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260728-9" />
+    <link rel="stylesheet" href="styles.css?v=20260728-10" />
     <title>Khalid Meitani — Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -358,18 +358,27 @@
                             Untethered robot shown at three points during rotational locomotion.
                           </figcaption>
                         </figure>
-                      </div>
 
-                      <div class="carousel-navigation">
                         <button
-                          class="carousel-arrow"
+                          class="carousel-arrow carousel-arrow-previous"
                           type="button"
                           data-carousel-prev
                           aria-label="Show previous figure"
                         >
-                          <span aria-hidden="true">←</span> Previous
+                          <span aria-hidden="true">←</span>
                         </button>
 
+                        <button
+                          class="carousel-arrow carousel-arrow-next"
+                          type="button"
+                          data-carousel-next
+                          aria-label="Show next figure"
+                        >
+                          <span aria-hidden="true">→</span>
+                        </button>
+                      </div>
+
+                      <div class="carousel-navigation">
                         <div class="carousel-dots" aria-label="Choose a figure">
                           <button
                             type="button"
@@ -390,15 +399,6 @@
                             aria-current="false"
                           ></button>
                         </div>
-
-                        <button
-                          class="carousel-arrow"
-                          type="button"
-                          data-carousel-next
-                          aria-label="Show next figure"
-                        >
-                          Next <span aria-hidden="true">→</span>
-                        </button>
 
                         <button
                           class="carousel-toggle"
