@@ -27,13 +27,21 @@
       (() => {
         try {
           const savedTheme = localStorage.getItem("khalid-theme");
+          const savedLanguage = localStorage.getItem("khalid-language");
+          const language = ["en", "ja", "ar"].includes(savedLanguage)
+            ? savedLanguage
+            : "en";
           document.documentElement.dataset.theme = savedTheme || "light";
+          document.documentElement.dataset.language = language;
+          document.documentElement.lang = language;
+          document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
         } catch {
           document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.language = "en";
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260729-7" />
+    <link rel="stylesheet" href="styles.css?v=20260731-1" />
     <title>Khalid Meitani — Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -69,6 +77,15 @@
             <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
           </nav>
+
+          <label class="language-control">
+            <span class="sr-only">Language</span>
+            <select class="language-select" aria-label="Language">
+              <option value="en" lang="en">EN</option>
+              <option value="ja" lang="ja">日本語</option>
+              <option value="ar" lang="ar">العربية</option>
+            </select>
+          </label>
 
           <button
             class="theme-toggle"
@@ -1839,6 +1856,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260729-3"></script>
+    <script src="translations.js?v=20260731-1"></script>
+    <script src="script.js?v=20260731-1"></script>
   </body>
 </html>

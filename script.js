@@ -1,3 +1,159 @@
+const languageSelect = document.querySelector(".language-select");
+const languageStorageKey = "khalid-language";
+const supportedLanguages = ["en", "ja", "ar"];
+const originalTextValues = new WeakMap();
+const originalAttributeValues = new WeakMap();
+const translatedAttributes = [
+  "aria-label",
+  "aria-roledescription",
+  "title",
+  "alt",
+  "data-carousel-label",
+];
+
+let currentLanguage = supportedLanguages.includes(
+  document.documentElement.dataset.language,
+)
+  ? document.documentElement.dataset.language
+  : "en";
+
+const normalizePhrase = (value = "") => value.replace(/\s+/g, " ").trim();
+
+const getLanguageDictionary = (language = currentLanguage) =>
+  window.siteTranslations?.[language] || null;
+
+const translatePhrase = (phrase, language = currentLanguage) => {
+  if (language === "en") return phrase;
+  const normalized = normalizePhrase(phrase);
+  const dictionary = getLanguageDictionary(language);
+  return (
+    dictionary?.text?.[normalized] ||
+    dictionary?.attributes?.[normalized] ||
+    phrase
+  );
+};
+
+const formatCarouselAnnouncement = (index, total, label) => {
+  if (currentLanguage === "ja") {
+    return `${total}件中${index}件目：${label}`;
+  }
+  if (currentLanguage === "ar") {
+    return `العنصر ${index} من ${total}: ${label}`;
+  }
+  return `Figure ${index} of ${total}: ${label}`;
+};
+
+const preserveOuterWhitespace = (source, replacement) => {
+  const leading = source.match(/^\s*/)?.[0] || "";
+  const trailing = source.match(/\s*$/)?.[0] || "";
+  return `${leading}${replacement}${trailing}`;
+};
+
+const translateTextNodes = (language) => {
+  const dictionary = getLanguageDictionary(language);
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parentName = node.parentElement?.tagName;
+      if (!parentName || ["SCRIPT", "STYLE", "NOSCRIPT"].includes(parentName)) {
+        return NodeFilter.FILTER_REJECT;
+      }
+      return normalizePhrase(node.nodeValue)
+        ? NodeFilter.FILTER_ACCEPT
+        : NodeFilter.FILTER_REJECT;
+    },
+  });
+
+  let node = walker.nextNode();
+  while (node) {
+    if (!originalTextValues.has(node)) {
+      originalTextValues.set(node, node.nodeValue);
+    }
+
+    const original = originalTextValues.get(node);
+    const source = normalizePhrase(original);
+    const translated = language === "en" ? source : dictionary?.text?.[source];
+    node.nodeValue = translated
+      ? preserveOuterWhitespace(original, translated)
+      : original;
+    node = walker.nextNode();
+  }
+};
+
+const translateElementAttributes = (language) => {
+  const dictionary = getLanguageDictionary(language);
+  document
+    .querySelectorAll(translatedAttributes.map((name) => `[${name}]`).join(","))
+    .forEach((element) => {
+      if (!originalAttributeValues.has(element)) {
+        const values = {};
+        translatedAttributes.forEach((name) => {
+          if (element.hasAttribute(name)) values[name] = element.getAttribute(name);
+        });
+        originalAttributeValues.set(element, values);
+      }
+
+      const originals = originalAttributeValues.get(element);
+      Object.entries(originals).forEach(([name, original]) => {
+        const source = normalizePhrase(original);
+        const translated =
+          language === "en"
+            ? original
+            : dictionary?.attributes?.[source] ||
+              dictionary?.text?.[source] ||
+              original;
+        element.setAttribute(name, translated);
+      });
+    });
+};
+
+const applyLanguage = (language, persist = false) => {
+  currentLanguage = supportedLanguages.includes(language) ? language : "en";
+  const dictionary = getLanguageDictionary(currentLanguage);
+
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+  document.documentElement.dataset.language = currentLanguage;
+  if (languageSelect) languageSelect.value = currentLanguage;
+
+  translateTextNodes(currentLanguage);
+  translateElementAttributes(currentLanguage);
+
+  document.title =
+    currentLanguage === "en"
+      ? "Khalid Meitani — Soft Robotics Researcher"
+      : dictionary?.pageTitle || document.title;
+
+  const description = document.querySelector('meta[name="description"]');
+  const openGraphTitle = document.querySelector('meta[property="og:title"]');
+  const openGraphDescription = document.querySelector(
+    'meta[property="og:description"]',
+  );
+  if (description) {
+    description.content =
+      currentLanguage === "en"
+        ? "The academic website of Khalid Meitani, a master's student researching 3D-printed, bio-inspired soft robotic systems at Kyoto University of Advanced Science."
+        : dictionary?.metaDescription || description.content;
+  }
+  if (openGraphTitle) openGraphTitle.content = document.title;
+  if (openGraphDescription && description) {
+    openGraphDescription.content = description.content;
+  }
+
+  if (persist) {
+    try {
+      localStorage.setItem(languageStorageKey, currentLanguage);
+    } catch {
+      // The language still changes when storage is unavailable.
+    }
+  }
+
+  document.dispatchEvent(
+    new CustomEvent("languagechange", { detail: { language: currentLanguage } }),
+  );
+};
+
+applyLanguage(currentLanguage);
+
 const menuButton = document.querySelector(".menu-button");
 const navigation = document.querySelector(".site-nav");
 const header = document.querySelector(".site-header");
@@ -11,10 +167,12 @@ const applyTheme = (theme, persist = false) => {
   themeToggle?.setAttribute("aria-pressed", String(isDark));
   themeToggle?.setAttribute(
     "aria-label",
-    isDark ? "Switch to light mode" : "Switch to dark mode",
+    translatePhrase(isDark ? "Switch to light mode" : "Switch to dark mode"),
   );
   if (themeToggle) {
-    themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+    themeToggle.title = translatePhrase(
+      isDark ? "Switch to light mode" : "Switch to dark mode",
+    );
   }
   themeColor?.setAttribute("content", isDark ? "#101613" : "#f7f8f5");
 
@@ -28,6 +186,11 @@ const applyTheme = (theme, persist = false) => {
 };
 
 applyTheme(document.documentElement.dataset.theme || "light");
+
+languageSelect?.addEventListener("change", () => {
+  applyLanguage(languageSelect.value, true);
+  applyTheme(document.documentElement.dataset.theme || "light");
+});
 
 themeToggle?.addEventListener("click", () => {
   const nextTheme =
@@ -93,9 +256,11 @@ document.querySelectorAll("[data-adaptive-figure]").forEach((viewport) => {
     viewport.tabIndex = isPanoramic ? 0 : -1;
     viewport.setAttribute(
       "aria-label",
-      isPanoramic
-        ? "Panoramic figure; scroll horizontally to see the full image"
-        : "Publication figure",
+      translatePhrase(
+        isPanoramic
+          ? "Panoramic figure; scroll horizontally to see the full image"
+          : "Publication figure",
+      ),
     );
 
     if (hint) hint.hidden = !isPanoramic;
@@ -106,6 +271,7 @@ document.querySelectorAll("[data-adaptive-figure]").forEach((viewport) => {
   } else {
     image.addEventListener("load", updateFigureLayout, { once: true });
   }
+  document.addEventListener("languagechange", updateFigureLayout);
 });
 
 document.querySelectorAll("[data-video-frame]").forEach((frame) => {
@@ -172,7 +338,9 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   const updateToggleButton = () => {
     toggleButton.setAttribute("aria-pressed", String(manuallyPaused));
-    toggleButton.textContent = manuallyPaused ? "Play slideshow" : "Pause slideshow";
+    toggleButton.textContent = translatePhrase(
+      manuallyPaused ? "Play slideshow" : "Pause slideshow",
+    );
   };
 
   const updateArrowPosition = () => {
@@ -229,9 +397,13 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       dot.setAttribute("aria-current", String(dotIndex === currentIndex));
     });
 
-    if (announce && announcement) {
+    if (announcement) {
       const label = slides[currentIndex].dataset.carouselLabel || "Publication figure";
-      announcement.textContent = `Figure ${currentIndex + 1} of ${slides.length}: ${label}`;
+      announcement.textContent = formatCarouselAnnouncement(
+        currentIndex + 1,
+        slides.length,
+        label,
+      );
     }
 
     window.requestAnimationFrame(updateArrowPosition);
@@ -295,6 +467,10 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   document.addEventListener("visibilitychange", scheduleNextSlide);
   document.addEventListener("figure-dialog-opened", stopTimer);
   document.addEventListener("figure-dialog-closed", scheduleNextSlide);
+  document.addEventListener("languagechange", () => {
+    updateToggleButton();
+    showSlide(currentIndex, false);
+  });
 
   if ("IntersectionObserver" in window) {
     const carouselObserver = new IntersectionObserver(
@@ -329,7 +505,9 @@ document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
   zoomButton.addEventListener("click", () => {
     const isZoomed = image.classList.toggle("is-zoomed");
     canvas.classList.toggle("is-zoomed", isZoomed);
-    zoomButton.textContent = isZoomed ? "Fit to screen" : "View actual size";
+    zoomButton.textContent = translatePhrase(
+      isZoomed ? "Fit to screen" : "View actual size",
+    );
     if (!isZoomed) {
       canvas.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
     }
@@ -342,8 +520,16 @@ document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
   dialog.addEventListener("close", () => {
     image.classList.remove("is-zoomed");
     canvas.classList.remove("is-zoomed");
-    zoomButton.textContent = "View actual size";
+    zoomButton.textContent = translatePhrase("View actual size");
     canvas.scrollTo({ top: 0, left: 0 });
     document.dispatchEvent(new CustomEvent("figure-dialog-closed"));
+  });
+
+  document.addEventListener("languagechange", () => {
+    zoomButton.textContent = translatePhrase(
+      image.classList.contains("is-zoomed")
+        ? "Fit to screen"
+        : "View actual size",
+    );
   });
 });
