@@ -539,3 +539,173 @@ document.querySelectorAll("[data-figure-dialog]").forEach((button) => {
     );
   });
 });
+
+const softFieldCanvas = document.querySelector("[data-soft-field]");
+
+if (softFieldCanvas instanceof HTMLCanvasElement) {
+  const context = softFieldCanvas.getContext("2d");
+  const heroStage = softFieldCanvas.closest(".hero-stage");
+
+  if (context && heroStage) {
+    let fieldWidth = 0;
+    let fieldHeight = 0;
+    let pixelRatio = 1;
+    let animationFrame = 0;
+    let lastDrawTime = 0;
+    let isPageVisible = !document.hidden;
+    let isFieldVisible = true;
+    const pointer = {
+      x: 0,
+      y: 0,
+      targetX: 0,
+      targetY: 0,
+    };
+
+    const setDefaultPointer = () => {
+      pointer.targetX = fieldWidth * 0.74;
+      pointer.targetY = fieldHeight * 0.34;
+      if (!pointer.x && !pointer.y) {
+        pointer.x = pointer.targetX;
+        pointer.y = pointer.targetY;
+      }
+    };
+
+    const resizeSoftField = () => {
+      const bounds = heroStage.getBoundingClientRect();
+      fieldWidth = Math.max(1, Math.round(bounds.width));
+      fieldHeight = Math.max(1, Math.round(bounds.height));
+      pixelRatio = Math.min(
+        window.devicePixelRatio || 1,
+        fieldWidth < 700 ? 1.4 : 2,
+      );
+      softFieldCanvas.width = Math.round(fieldWidth * pixelRatio);
+      softFieldCanvas.height = Math.round(fieldHeight * pixelRatio);
+      softFieldCanvas.style.width = `${fieldWidth}px`;
+      softFieldCanvas.style.height = `${fieldHeight}px`;
+      setDefaultPointer();
+    };
+
+    const drawSoftField = (time = 0) => {
+      const columns = Math.max(12, Math.ceil(fieldWidth / 88));
+      const rows = Math.max(8, Math.ceil(fieldHeight / 118));
+      const clock = time * 0.00024;
+
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      context.clearRect(0, 0, fieldWidth, fieldHeight);
+
+      const pointAt = (row, column) => {
+        const baseX = (column / (columns - 1)) * fieldWidth;
+        const baseY = ((row + 0.45) / rows) * fieldHeight;
+        const deltaX = baseX - pointer.x;
+        const deltaY = baseY - pointer.y;
+        const distance = Math.hypot(deltaX, deltaY);
+        const influence = Math.max(0, 1 - distance / Math.max(230, fieldWidth * 0.28));
+        const wave = Math.sin(column * 0.7 + row * 0.76 + clock) * 7;
+        const crossWave = Math.cos(column * 0.34 - row * 0.52 + clock * 0.82) * 4;
+
+        return {
+          x: baseX + Math.sin(row * 0.72 + clock) * 3 - deltaX * influence * 0.025,
+          y: baseY + wave + crossWave - deltaY * influence * 0.14,
+        };
+      };
+
+      context.lineWidth = 1;
+      for (let row = 0; row < rows; row += 1) {
+        context.beginPath();
+        for (let column = 0; column < columns; column += 1) {
+          const point = pointAt(row, column);
+          if (column === 0) context.moveTo(point.x, point.y);
+          else context.lineTo(point.x, point.y);
+        }
+        context.strokeStyle = row % 2
+          ? "rgba(202, 255, 106, 0.085)"
+          : "rgba(236, 248, 238, 0.075)";
+        context.stroke();
+      }
+
+      for (let column = 1; column < columns; column += 2) {
+        context.beginPath();
+        for (let row = 0; row < rows; row += 1) {
+          const point = pointAt(row, column);
+          if (row === 0) context.moveTo(point.x, point.y);
+          else context.lineTo(point.x, point.y);
+        }
+        context.strokeStyle = "rgba(236, 248, 238, 0.035)";
+        context.stroke();
+      }
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let column = 0; column < columns; column += 2) {
+          const point = pointAt(row, column);
+          context.beginPath();
+          context.arc(point.x, point.y, row % 3 === 0 ? 1.45 : 0.9, 0, Math.PI * 2);
+          context.fillStyle = row % 3 === 0
+            ? "rgba(202, 255, 106, 0.24)"
+            : "rgba(236, 248, 238, 0.13)";
+          context.fill();
+        }
+      }
+    };
+
+    const animateSoftField = (time) => {
+      if (time - lastDrawTime >= 30) {
+        pointer.x += (pointer.targetX - pointer.x) * 0.075;
+        pointer.y += (pointer.targetY - pointer.y) * 0.075;
+        drawSoftField(time);
+        lastDrawTime = time;
+      }
+      if (isPageVisible && isFieldVisible) {
+        animationFrame = window.requestAnimationFrame(animateSoftField);
+      }
+    };
+
+    heroStage.addEventListener(
+      "pointermove",
+      (event) => {
+        const bounds = heroStage.getBoundingClientRect();
+        pointer.targetX = event.clientX - bounds.left;
+        pointer.targetY = event.clientY - bounds.top;
+      },
+      { passive: true },
+    );
+
+    heroStage.addEventListener("pointerleave", setDefaultPointer, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      isPageVisible = !document.hidden;
+      window.cancelAnimationFrame(animationFrame);
+      if (isPageVisible && isFieldVisible && !reduceMotion) {
+        animationFrame = window.requestAnimationFrame(animateSoftField);
+      }
+    });
+
+    if ("ResizeObserver" in window) {
+      const fieldResizeObserver = new ResizeObserver(() => {
+        resizeSoftField();
+        if (reduceMotion) drawSoftField(0);
+      });
+      fieldResizeObserver.observe(heroStage);
+    } else {
+      window.addEventListener("resize", resizeSoftField, { passive: true });
+    }
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const fieldVisibilityObserver = new IntersectionObserver(
+        ([entry]) => {
+          isFieldVisible = entry.isIntersecting;
+          window.cancelAnimationFrame(animationFrame);
+          if (isFieldVisible && isPageVisible) {
+            animationFrame = window.requestAnimationFrame(animateSoftField);
+          }
+        },
+        { threshold: 0.01 },
+      );
+      fieldVisibilityObserver.observe(heroStage);
+    }
+
+    resizeSoftField();
+
+    if (reduceMotion) drawSoftField(0);
+    else animationFrame = window.requestAnimationFrame(animateSoftField);
+  }
+}

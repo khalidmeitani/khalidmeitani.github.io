@@ -420,3 +420,151 @@ window.siteTranslations = {
     },
   },
 };
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Khalid Meitani · Soft robotics · Kyoto": "Khalid Meitani · ソフトロボティクス · 京都",
+  Programming: "柔らかさを",
+  "softness, structure,": "構造に組み、",
+  "and motion.": "動きを生む。",
+  "Through additive manufacturing, material design, and embodied intelligence, I build soft robotic systems that turn compliance into capability.":
+    "積層造形、材料設計、身体知能を通じて、柔軟性を機能へと変えるソフトロボットシステムを開発しています。",
+  "Explore selected work": "研究プロジェクトを見る",
+  "Research direction": "研究の方向性",
+  "M.S. researcher": "修士課程研究者",
+  "Nisar Lab · Kyoto, Japan": "Nisar研究室 · 京都",
+  "01 · Material system": "01 · 材料システム",
+  "Low-hardness TPU": "低硬度TPU",
+  "02 · Locomotion": "02 · 移動機構",
+  "Stiffness-tuned crawler": "剛性調整型クローラ",
+  "03 · Wearable": "03 · ウェアラブル",
+  "Rehabilitation glove": "リハビリテーショングローブ",
+  "Low-hardness TPU grades": "低硬度TPUグレード",
+  "Maximum speed increase": "最高速度の向上",
+  "Energy per distance": "単位距離当たりのエネルギー",
+  "Wrist-mounted tendon drives": "手首搭載の腱駆動部",
+  "02 / Research system": "02 / 研究システム",
+  "From printable matter": "印刷可能な材料から",
+  "to capable machines.": "高機能な機械へ。",
+  "A design loop that moves from material behavior to adaptable robotic function.":
+    "材料挙動から適応的なロボット機能へ進む設計ループです。",
+  Material: "材料",
+  "Characterize printable elastomers": "印刷可能なエラストマーを特性評価",
+  "Measure hyperelastic behavior and establish reliable parameters for low-hardness TPU.":
+    "低硬度TPUの超弾性挙動を測定し、信頼できる材料パラメータを確立します。",
+  "Reliable models": "信頼できるモデル",
+  Structure: "構造",
+  "Program stiffness into the print": "造形物に剛性をプログラム",
+  "Tune material, geometry, and process settings to place compliance exactly where it matters.":
+    "材料、形状、造形条件を調整し、必要な場所に柔軟性を配置します。",
+  "Spatial stiffness": "空間剛性",
+  Motion: "動き",
+  "Shape deformation into function": "変形を機能へ変換",
+  "Translate controlled bending and body mechanics into grasping, crawling, and wearable assistance.":
+    "制御された曲げと身体力学を、把持、走行、装着支援へつなげます。",
+  "Functional movement": "機能的な動作",
+  Intelligence: "知能",
+  "Build toward adaptive control": "適応制御を目指す",
+  "Explore sensing and learning methods that let soft systems respond to people and environments.":
+    "人や環境に応答できるよう、センシングと学習手法を探究します。",
+  "Adaptive behavior": "適応的な挙動",
+  "A continuous design loop for capable soft machines.":
+    "高機能なソフトマシンのための継続的な設計ループ。",
+  "03 / Selected work": "03 / 代表研究",
+  "Three research stories showing how material decisions become measurable robotic performance.":
+    "材料の選択が測定可能なロボット性能へつながる、3つの研究ストーリーです。",
+  "TPU grades": "TPUグレード",
+  "FDM build": "FDM造形",
+  Monolithic: "一体造形",
+  Validation: "検証",
+  "FEA + tests": "FEA＋実験",
+  "Maximum speed": "最高速度",
+  "Energy / distance": "エネルギー／距離",
+  "Untethered rotation": "無線回転",
+  "Tendon drives": "腱駆動部",
+  "Actuator location": "駆動部の位置",
+  Wrist: "手首",
+  "Soft structure": "ソフト構造",
+  "3D-printable": "3Dプリント可能",
+  "August 2026": "2026年8月",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Programming softness, structure, and motion.": "柔らかさを構造に組み、動きを生む。",
+  "Selected research prototypes": "代表的な研究プロトタイプ",
+  "Research at a glance": "研究成果の概要",
+  "Material to intelligence research loop": "材料から知能へ至る研究ループ",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Khalid Meitani · Soft robotics · Kyoto": "خالد ميتاني · الروبوتات اللينة · كيوتو",
+  Programming: "أصمّم",
+  "softness, structure,": "المرونة والبنية،",
+  "and motion.": "وأحوّلهما إلى حركة.",
+  "Through additive manufacturing, material design, and embodied intelligence, I build soft robotic systems that turn compliance into capability.":
+    "من خلال التصنيع بالإضافة وتصميم المواد والذكاء المتجسد، أبني أنظمة روبوتية لينة تحوّل المرونة إلى قدرة عملية.",
+  "Explore selected work": "استكشف الأعمال المختارة",
+  "Research direction": "اتجاه البحث",
+  "M.S. researcher": "باحث ماجستير",
+  "Nisar Lab · Kyoto, Japan": "مختبر نِسار · كيوتو، اليابان",
+  "01 · Material system": "01 · نظام المواد",
+  "Low-hardness TPU": "TPU منخفض الصلادة",
+  "02 · Locomotion": "02 · الحركة",
+  "Stiffness-tuned crawler": "روبوت زاحف مضبوط الصلابة",
+  "03 · Wearable": "03 · روبوت قابل للارتداء",
+  "Rehabilitation glove": "قفاز لإعادة التأهيل",
+  "Low-hardness TPU grades": "درجات TPU منخفضة الصلادة",
+  "Maximum speed increase": "زيادة السرعة القصوى",
+  "Energy per distance": "الطاقة لكل مسافة",
+  "Wrist-mounted tendon drives": "مشغلات أوتار مثبتة على المعصم",
+  "02 / Research system": "02 / منظومة البحث",
+  "From printable matter": "من مادة قابلة للطباعة",
+  "to capable machines.": "إلى آلات أكثر قدرة.",
+  "A design loop that moves from material behavior to adaptable robotic function.":
+    "حلقة تصميم تنتقل من سلوك المادة إلى وظيفة روبوتية قابلة للتكيف.",
+  Material: "المادة",
+  "Characterize printable elastomers": "توصيف المطاطيات القابلة للطباعة",
+  "Measure hyperelastic behavior and establish reliable parameters for low-hardness TPU.":
+    "قياس السلوك فائق المرونة ووضع معاملات موثوقة لمادة TPU منخفضة الصلادة.",
+  "Reliable models": "نماذج موثوقة",
+  Structure: "البنية",
+  "Program stiffness into the print": "برمجة الصلابة داخل الطباعة",
+  "Tune material, geometry, and process settings to place compliance exactly where it matters.":
+    "ضبط المادة والهندسة وإعدادات العملية لوضع المرونة حيث تكون أكثر فاعلية.",
+  "Spatial stiffness": "صلابة مكانية",
+  Motion: "الحركة",
+  "Shape deformation into function": "تحويل التشوّه إلى وظيفة",
+  "Translate controlled bending and body mechanics into grasping, crawling, and wearable assistance.":
+    "تحويل الانحناء المتحكم فيه وميكانيكا الجسم إلى إمساك وزحف ومساعدة قابلة للارتداء.",
+  "Functional movement": "حركة وظيفية",
+  Intelligence: "الذكاء",
+  "Build toward adaptive control": "التوجّه نحو تحكم متكيف",
+  "Explore sensing and learning methods that let soft systems respond to people and environments.":
+    "استكشاف أساليب الاستشعار والتعلم التي تمكّن الأنظمة اللينة من الاستجابة للناس والبيئات.",
+  "Adaptive behavior": "سلوك متكيف",
+  "A continuous design loop for capable soft machines.":
+    "حلقة تصميم مستمرة لآلات لينة أكثر قدرة.",
+  "03 / Selected work": "03 / أعمال مختارة",
+  "Three research stories showing how material decisions become measurable robotic performance.":
+    "ثلاث قصص بحثية توضّح كيف تتحول قرارات المواد إلى أداء روبوتي قابل للقياس.",
+  "TPU grades": "درجات TPU",
+  "FDM build": "بناء FDM",
+  Monolithic: "قطعة واحدة",
+  Validation: "التحقق",
+  "FEA + tests": "FEA + اختبارات",
+  "Maximum speed": "السرعة القصوى",
+  "Energy / distance": "الطاقة / المسافة",
+  "Untethered rotation": "دوران غير مقيّد",
+  "Tendon drives": "مشغلات الأوتار",
+  "Actuator location": "موضع المشغلات",
+  Wrist: "المعصم",
+  "Soft structure": "بنية لينة",
+  "3D-printable": "قابل للطباعة ثلاثية الأبعاد",
+  "August 2026": "أغسطس 2026",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Programming softness, structure, and motion.": "تصميم المرونة والبنية والحركة.",
+  "Selected research prototypes": "نماذج بحثية مختارة",
+  "Research at a glance": "لمحة عن البحث",
+  "Material to intelligence research loop": "حلقة البحث من المادة إلى الذكاء",
+});

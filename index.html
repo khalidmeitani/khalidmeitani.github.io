@@ -41,7 +41,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260802-2" />
+    <link rel="stylesheet" href="styles.css?v=20260802-3" />
     <title>Khalid Meitani — Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -157,47 +157,124 @@
     </header>
 
     <main id="main-content">
-      <section id="top" class="hero shell">
-        <div class="hero-copy">
-          <p class="eyebrow">M.S. Student · Soft Robotics</p>
-          <h1>Khalid Meitani</h1>
-          <p class="hero-intro">
-            I develop <strong>3D-printed soft robots</strong> inspired by nature, with
-            new actuation and intelligence for more
-            <strong>adaptable robotic systems</strong>.
-          </p>
-          <p class="hero-note">
-            M.S. student in the
-            <span>Graduate School of Engineering</span> at
-            Kyoto University of Advanced Science. Researcher at
-            <a href="https://nisarlab.org/">Nisar Lab</a>.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#publications">View publications</a>
+      <section id="top" class="hero-stage">
+        <canvas class="soft-field" data-soft-field aria-hidden="true"></canvas>
+        <div class="hero-aura" aria-hidden="true"></div>
+
+        <div class="shell hero-layout">
+          <div class="hero-copy">
+            <p class="hero-overline">
+              <span class="signal-dot" aria-hidden="true"></span>
+              Khalid Meitani · Soft robotics · Kyoto
+            </p>
+            <h1 aria-label="Programming softness, structure, and motion.">
+              <span>Programming</span>
+              <span class="hero-title-accent">softness, structure,</span>
+              <span>and motion.</span>
+            </h1>
+            <p class="hero-intro">
+              Through additive manufacturing, material design, and embodied intelligence,
+              I build soft robotic systems that turn compliance into capability.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-signal" href="#projects">
+                Explore selected work <span aria-hidden="true">↘</span>
+              </a>
+              <a class="button button-ghost" href="#research">Research direction</a>
+            </div>
+
+            <div class="hero-meta-row">
+              <div class="hero-researcher">
+                <img
+                  src="assets/images/figures/personal%20picture.webp"
+                  width="640"
+                  height="760"
+                  alt="Portrait of Khalid Meitani"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+                <p>
+                  <strong>M.S. researcher</strong>
+                  <span>Nisar Lab · Kyoto, Japan</span>
+                </p>
+              </div>
+              <nav class="hero-profile-links" aria-label="External profiles">
+                <a href="https://orcid.org/0009-0007-6092-2073">ORCID</a>
+                <a href="https://www.researchgate.net/profile/Khalid-Meitani">ResearchGate</a>
+                <a href="https://scholar.google.com/scholar?q=author%3A%22Khalid+Meitani%22">Scholar</a>
+              </nav>
+            </div>
           </div>
-          <div class="profile-links" aria-label="External profiles">
-            <a href="https://scholar.google.com/scholar?q=author%3A%22Khalid+Meitani%22">Google Scholar</a>
-            <a href="https://orcid.org/0009-0007-6092-2073">ORCID</a>
-            <a href="https://www.researchgate.net/profile/Khalid-Meitani">ResearchGate</a>
-            <a href="https://nisarlab.org/">Nisar Lab</a>
+
+          <div class="hero-lab-visual" aria-label="Selected research prototypes">
+            <article class="hero-visual-card hero-visual-primary">
+              <img
+                src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
+                width="782"
+                height="522"
+                alt="Low-hardness TPU soft gripper holding several objects"
+                decoding="async"
+                fetchpriority="high"
+              />
+              <div class="hero-visual-caption">
+                <span>01 · Material system</span>
+                <strong>Low-hardness TPU</strong>
+              </div>
+            </article>
+
+            <article class="hero-visual-card hero-visual-secondary">
+              <img
+                src="assets/publications/2026-spatial-stiffness-tuning/untethered360.webp"
+                width="1024"
+                height="1024"
+                alt="Stiffness-tuned soft crawling robot shown during rotational locomotion"
+                decoding="async"
+              />
+              <div class="hero-visual-caption">
+                <span>02 · Locomotion</span>
+                <strong>Stiffness-tuned crawler</strong>
+              </div>
+            </article>
+
+            <article class="hero-visual-card hero-visual-tertiary">
+              <img
+                src="assets/publications/2026-tendon-driven-soft-robotic-glove/neutralgrasping.webp"
+                width="1188"
+                height="848"
+                alt="Tendon-driven soft rehabilitation glove in neutral and grasping postures"
+                decoding="async"
+              />
+              <div class="hero-visual-caption">
+                <span>03 · Wearable</span>
+                <strong>Rehabilitation glove</strong>
+              </div>
+            </article>
+
+            <span class="hero-coordinate hero-coordinate-top" aria-hidden="true">35.0116° N</span>
+            <span class="hero-coordinate hero-coordinate-side" aria-hidden="true">135.7681° E</span>
           </div>
         </div>
 
-        <div class="portrait-wrap">
-          <div class="portrait-backdrop" aria-hidden="true"></div>
-          <img
-            class="portrait"
-            src="assets/images/figures/personal%20picture.webp"
-            width="640"
-            height="760"
-            alt="Portrait of Khalid Meitani"
-            decoding="async"
-            fetchpriority="high"
-          />
-          <p class="portrait-caption">
-            <span class="status-dot" aria-hidden="true"></span>
-            Nisar Lab · Kyoto, Japan
-          </p>
+        <div class="shell hero-ledger" aria-label="Research at a glance">
+          <dl>
+            <div>
+              <dt>Low-hardness TPU grades</dt>
+              <dd>60A / 70A</dd>
+            </div>
+            <div>
+              <dt>Maximum speed increase</dt>
+              <dd>≈200%</dd>
+            </div>
+            <div>
+              <dt>Energy per distance</dt>
+              <dd>−64%</dd>
+            </div>
+            <div>
+              <dt>Wrist-mounted tendon drives</dt>
+              <dd>5</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -235,44 +312,87 @@
         </div>
       </section>
 
-      <section id="research" class="section section-tint">
+      <section id="research" class="section research-system">
         <div class="shell">
-          <div class="section-heading reveal">
+          <div class="section-heading research-heading reveal">
             <div>
-              <p class="section-number">02</p>
-              <h2>Research</h2>
+              <p class="section-number">02 / Research system</p>
+              <h2>From printable matter<br />to capable machines.</h2>
             </div>
-            <p>Research spanning fabrication, actuation, and intelligent soft robotic systems.</p>
+            <p>A design loop that moves from material behavior to adaptable robotic function.</p>
           </div>
 
-          <div class="research-grid">
-            <article class="research-card reveal">
-              <p class="card-index">A</p>
-              <h3>Additive manufacturing for soft robotics</h3>
-              <p>
-                Using FDM 3D printing and highly flexible materials to fabricate
-                customizable, monolithic soft robots and grippers.
-              </p>
-              <a href="#publications">Related publications <span aria-hidden="true">→</span></a>
+          <div class="research-flow" role="list">
+            <article class="research-step reveal" role="listitem">
+              <div class="research-step-head">
+                <span>01</span>
+                <p>Material</p>
+              </div>
+              <div class="research-step-body">
+                <h3>Characterize printable elastomers</h3>
+                <p>
+                  Measure hyperelastic behavior and establish reliable parameters for
+                  low-hardness TPU.
+                </p>
+              </div>
+              <p class="research-output">Reliable models</p>
             </article>
-            <article class="research-card reveal">
-              <p class="card-index">B</p>
-              <h3>Bio-inspired soft robotic systems</h3>
-              <p>
-                Translating principles from biological movement and adaptation into
-                compliant robotic mechanisms.
-              </p>
-              <a href="#publications">Related publications <span aria-hidden="true">→</span></a>
+
+            <article class="research-step reveal" role="listitem">
+              <div class="research-step-head">
+                <span>02</span>
+                <p>Structure</p>
+              </div>
+              <div class="research-step-body">
+                <h3>Program stiffness into the print</h3>
+                <p>
+                  Tune material, geometry, and process settings to place compliance
+                  exactly where it matters.
+                </p>
+              </div>
+              <p class="research-output">Spatial stiffness</p>
             </article>
-            <article class="research-card reveal">
-              <p class="card-index">C</p>
-              <h3>Actuation &amp; embodied intelligence</h3>
-              <p>
-                Exploring novel actuation methods and ML/AI approaches to improve soft
-                robots’ control, functionality, and performance.
-              </p>
-              <a href="#publications">Related publications <span aria-hidden="true">→</span></a>
+
+            <article class="research-step reveal" role="listitem">
+              <div class="research-step-head">
+                <span>03</span>
+                <p>Motion</p>
+              </div>
+              <div class="research-step-body">
+                <h3>Shape deformation into function</h3>
+                <p>
+                  Translate controlled bending and body mechanics into grasping,
+                  crawling, and wearable assistance.
+                </p>
+              </div>
+              <p class="research-output">Functional movement</p>
             </article>
+
+            <article class="research-step reveal" role="listitem">
+              <div class="research-step-head">
+                <span>04</span>
+                <p>Intelligence</p>
+              </div>
+              <div class="research-step-body">
+                <h3>Build toward adaptive control</h3>
+                <p>
+                  Explore sensing and learning methods that let soft systems respond
+                  to people and environments.
+                </p>
+              </div>
+              <p class="research-output">Adaptive behavior</p>
+            </article>
+          </div>
+
+          <div class="research-loop reveal" aria-label="Material to intelligence research loop">
+            <span>Material</span>
+            <i aria-hidden="true"></i>
+            <span>Structure</span>
+            <i aria-hidden="true"></i>
+            <span>Motion</span>
+            <i aria-hidden="true"></i>
+            <span>Intelligence</span>
+            <p>A continuous design loop for capable soft machines.</p>
           </div>
         </div>
       </section>
@@ -280,15 +400,15 @@
       <section id="projects" class="section shell selected-projects">
         <div class="section-heading reveal">
           <div>
-            <p class="section-number">03</p>
+            <p class="section-number">03 / Selected work</p>
             <h2>Selected projects</h2>
           </div>
-          <p>A closer look at three projects spanning materials, mobile robots, and wearable systems.</p>
+          <p>Three research stories showing how material decisions become measurable robotic performance.</p>
         </div>
 
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <a class="project-media" href="#project-low-hardness-tpu">
+        <div class="project-stories">
+          <article class="project-story reveal">
+            <a class="project-story-media" href="#project-low-hardness-tpu">
               <img
                 src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
                 alt="Low-hardness TPU soft gripper holding several objects"
@@ -297,24 +417,38 @@
                 loading="lazy"
                 decoding="async"
               />
-              <span class="project-number" aria-hidden="true">01</span>
+              <span class="project-index" aria-hidden="true">01</span>
             </a>
-            <div class="project-content">
+            <div class="project-story-content">
               <p class="project-kicker">Materials · Fabrication · FEA</p>
               <h3><a href="#project-low-hardness-tpu">Low-hardness TPU soft grippers</a></h3>
-              <p>
+              <p class="project-deck">
                 Material characterization and printing methods for monolithic pneumatic
                 grippers in highly flexible 60A–70A TPU, validated through simulation
                 and grasping tests.
               </p>
+              <dl class="project-metrics">
+                <div>
+                  <dt>TPU grades</dt>
+                  <dd>60A / 70A</dd>
+                </div>
+                <div>
+                  <dt>FDM build</dt>
+                  <dd>Monolithic</dd>
+                </div>
+                <div>
+                  <dt>Validation</dt>
+                  <dd>FEA + tests</dd>
+                </div>
+              </dl>
               <a class="project-link" href="#project-low-hardness-tpu">
                 View publication <span aria-hidden="true">↓</span>
               </a>
             </div>
           </article>
 
-          <article class="project-card reveal">
-            <a class="project-media" href="#project-soft-crawler">
+          <article class="project-story reveal">
+            <a class="project-story-media" href="#project-soft-crawler">
               <img
                 src="assets/publications/2026-spatial-stiffness-tuning/untethered360.webp"
                 alt="Stiffness-tuned soft crawling robot shown during rotational locomotion"
@@ -323,24 +457,38 @@
                 loading="lazy"
                 decoding="async"
               />
-              <span class="project-number" aria-hidden="true">02</span>
+              <span class="project-index" aria-hidden="true">02</span>
             </a>
-            <div class="project-content">
+            <div class="project-story-content">
               <p class="project-kicker">Locomotion · Foamed TPU</p>
               <h3><a href="#project-soft-crawler">Spatial stiffness-tuned soft crawling robot</a></h3>
-              <p>
+              <p class="project-deck">
                 A monolithic FDM-printed crawler whose local stiffness is programmed
                 during printing to improve speed, efficiency, turning, and untethered
                 locomotion.
               </p>
+              <dl class="project-metrics">
+                <div>
+                  <dt>Maximum speed</dt>
+                  <dd>≈200%</dd>
+                </div>
+                <div>
+                  <dt>Energy / distance</dt>
+                  <dd>−64%</dd>
+                </div>
+                <div>
+                  <dt>Untethered rotation</dt>
+                  <dd>360°</dd>
+                </div>
+              </dl>
               <a class="project-link" href="#project-soft-crawler">
                 View publication <span aria-hidden="true">↓</span>
               </a>
             </div>
           </article>
 
-          <article class="project-card reveal">
-            <a class="project-media" href="#project-rehabilitation-glove">
+          <article class="project-story reveal">
+            <a class="project-story-media" href="#project-rehabilitation-glove">
               <img
                 src="assets/publications/2026-tendon-driven-soft-robotic-glove/neutralgrasping.webp"
                 alt="Tendon-driven soft rehabilitation glove in neutral and grasping postures"
@@ -349,16 +497,30 @@
                 loading="lazy"
                 decoding="async"
               />
-              <span class="project-number" aria-hidden="true">03</span>
+              <span class="project-index" aria-hidden="true">03</span>
             </a>
-            <div class="project-content">
+            <div class="project-story-content">
               <p class="project-kicker">Wearable robotics · Rehabilitation</p>
               <h3><a href="#project-rehabilitation-glove">Tendon-driven rehabilitation glove</a></h3>
-              <p>
+              <p class="project-deck">
                 A compact 3D-printable soft glove with five wrist-mounted tendon drives,
                 reducing hand mass while supporting functional grasping for home
                 rehabilitation.
               </p>
+              <dl class="project-metrics">
+                <div>
+                  <dt>Tendon drives</dt>
+                  <dd>5</dd>
+                </div>
+                <div>
+                  <dt>Actuator location</dt>
+                  <dd>Wrist</dd>
+                </div>
+                <div>
+                  <dt>Soft structure</dt>
+                  <dd>3D-printable</dd>
+                </div>
+              </dl>
               <a class="project-link" href="#project-rehabilitation-glove">
                 View publication <span aria-hidden="true">↓</span>
               </a>
@@ -1989,12 +2151,12 @@
     <footer class="site-footer">
       <div class="shell footer-inner">
         <p>© <span id="current-year"></span> Khalid Meitani</p>
-        <p>Last updated <span id="last-updated">July 2026</span></p>
+        <p>Last updated <span id="last-updated">August 2026</span></p>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
 
-    <script src="translations.js?v=20260802-2"></script>
-    <script src="script.js?v=20260731-1"></script>
+    <script src="translations.js?v=20260802-3"></script>
+    <script src="script.js?v=20260802-3"></script>
   </body>
 </html>
