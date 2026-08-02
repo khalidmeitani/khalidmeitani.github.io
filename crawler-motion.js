@@ -89,7 +89,7 @@
       },
     );
 
-    const length = Math.max(0.0001, bounds.maximumZ - bounds.minimumZ);
+    const length = Math.max(0.0001, bounds.maximumX - bounds.minimumX);
     const scale = 2 / length;
     const centerX = (bounds.minimumX + bounds.maximumX) / 2;
     const centerZ = (bounds.minimumZ + bounds.maximumZ) / 2;
@@ -171,8 +171,9 @@
       Body81: [119, 139, 127],
     };
     const electromagnetGroups = ["Body37", "Body82"];
-    const fixedYaw = -Math.PI / 2;
-    const fixedPitch = 0.18;
+    // Broadside camera: the crawler's negative-X forward end faces screen right.
+    const fixedYaw = Math.PI;
+    const fixedPitch = 0;
     const gaitCount = 4;
     const travelStart = -2.15;
     const travelDistance = 4.3;
@@ -300,10 +301,11 @@
 
     const projectVertex = (vertex, bend, travel, pixelsPerUnit, groundY) => {
       const [baseX, baseY, baseZ] = vertex;
-      const archProfile = Math.pow(Math.max(0, 1 - Math.abs(baseZ)), 1.45);
-      const x = baseX;
+      const archProfile = Math.pow(Math.max(0, 1 - Math.abs(baseX)), 1.45);
+      // Advancing in negative X maps to left-to-right motion in the fixed camera.
+      const x = baseX * (1 - bend * 0.105) - travel;
       const y = baseY + bend * 0.56 * archProfile;
-      const z = baseZ * (1 - bend * 0.105) + travel;
+      const z = baseZ;
 
       const cosineYaw = Math.cos(yaw);
       const sineYaw = Math.sin(yaw);

@@ -772,3 +772,23 @@ Object.assign(window.siteTranslations.ar.attributes, {
   "Animated fixed horizontal-plane view of the soft crawler moving from left to right along its long body axis.":
     "منظور أفقي ثابت ومتحرك للروبوت الزاحف اللين وهو يتحرك من اليسار إلى اليمين على طول محوره الطولي.",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Fixed side view": "固定側面ビュー",
+  "Forward end · to the right": "前進側 · 右方向",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Animated fixed side view of the soft crawler, with its longer forward end facing right and moving from left to right.":
+    "長い前進側を右に向け、左から右へ移動するソフトクローラの固定側面アニメーション。",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Fixed side view": "منظر جانبي ثابت",
+  "Forward end · to the right": "الطرف الأمامي · نحو اليمين",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Animated fixed side view of the soft crawler, with its longer forward end facing right and moving from left to right.":
+    "منظر جانبي ثابت ومتحرك للروبوت الزاحف اللين، مع توجيه طرفه الأمامي الأطول إلى اليمين وتحركه من اليسار إلى اليمين.",
+});
