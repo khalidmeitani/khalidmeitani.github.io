@@ -752,3 +752,23 @@ Object.assign(window.siteTranslations.ar.attributes, {
     "افتح النموذج التفاعلي للروبوت الزاحف اللين",
   "Close crawler motion lab": "أغلق مختبر حركة الروبوت الزاحف",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Fixed horizontal-plane view": "固定水平面ビュー",
+  "Long body axis · left to right": "長手軸 · 左から右へ",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Animated fixed horizontal-plane view of the soft crawler moving from left to right along its long body axis.":
+    "ソフトクローラが長手軸に沿って左から右へ移動する、固定水平面ビューのアニメーション。",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Fixed horizontal-plane view": "منظور أفقي ثابت",
+  "Long body axis · left to right": "المحور الطولي للجسم · من اليسار إلى اليمين",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Animated fixed horizontal-plane view of the soft crawler moving from left to right along its long body axis.":
+    "منظور أفقي ثابت ومتحرك للروبوت الزاحف اللين وهو يتحرك من اليسار إلى اليمين على طول محوره الطولي.",
+});

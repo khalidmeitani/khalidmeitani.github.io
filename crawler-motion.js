@@ -89,7 +89,7 @@
       },
     );
 
-    const length = Math.max(0.0001, bounds.maximumX - bounds.minimumX);
+    const length = Math.max(0.0001, bounds.maximumZ - bounds.minimumZ);
     const scale = 2 / length;
     const centerX = (bounds.minimumX + bounds.maximumX) / 2;
     const centerZ = (bounds.minimumZ + bounds.maximumZ) / 2;
@@ -171,8 +171,8 @@
       Body81: [119, 139, 127],
     };
     const electromagnetGroups = ["Body37", "Body82"];
-    const defaultYaw = 0;
-    const defaultPitch = 0.34;
+    const fixedYaw = -Math.PI / 2;
+    const fixedPitch = 0.18;
     const gaitCount = 4;
     const travelStart = -2.15;
     const travelDistance = 4.3;
@@ -183,8 +183,8 @@
     let height = 0;
     let pixelRatio = 1;
     let progress = 0;
-    let yaw = defaultYaw;
-    let pitch = defaultPitch;
+    const yaw = fixedYaw;
+    const pitch = fixedPitch;
     let playing = !prefersReducedMotion;
     let animationFrame = 0;
     let previousTime = 0;
@@ -193,9 +193,6 @@
     let modelRequested = false;
     let activePhase = -1;
     let currentIsOn = null;
-    let dragging = false;
-    let pointerX = 0;
-    let pointerY = 0;
     let lastDialogTrigger = null;
 
     const phaseFromLocalProgress = (localProgress) => {
@@ -303,10 +300,10 @@
 
     const projectVertex = (vertex, bend, travel, pixelsPerUnit, groundY) => {
       const [baseX, baseY, baseZ] = vertex;
-      const archProfile = Math.pow(Math.max(0, 1 - Math.abs(baseX)), 1.45);
-      const x = baseX * (1 - bend * 0.105) + travel;
+      const archProfile = Math.pow(Math.max(0, 1 - Math.abs(baseZ)), 1.45);
+      const x = baseX;
       const y = baseY + bend * 0.56 * archProfile;
-      const z = baseZ;
+      const z = baseZ * (1 - bend * 0.105) + travel;
 
       const cosineYaw = Math.cos(yaw);
       const sineYaw = Math.sin(yaw);
@@ -330,16 +327,16 @@
 
     const drawTrack = (groundY, pixelsPerUnit) => {
       const trackStart = projectVertex(
-        [travelStart - 1.25, 0, 0],
+        [0, 0, 0],
         0,
-        0,
+        travelStart - 1.25,
         pixelsPerUnit,
         groundY,
       );
       const trackEnd = projectVertex(
-        [travelStart + travelDistance + 1.25, 0, 0],
+        [0, 0, 0],
         0,
-        0,
+        travelStart + travelDistance + 1.25,
         pixelsPerUnit,
         groundY,
       );
@@ -362,8 +359,14 @@
 
       context.fillStyle = "rgba(202, 255, 106, 0.25)";
       for (let index = 0; index <= gaitCount; index += 1) {
-        const worldX = travelStart + (index / gaitCount) * travelDistance;
-        const marker = projectVertex([worldX, 0, 0], 0, 0, pixelsPerUnit, groundY);
+        const worldForward = travelStart + (index / gaitCount) * travelDistance;
+        const marker = projectVertex(
+          [0, 0, 0],
+          0,
+          worldForward,
+          pixelsPerUnit,
+          groundY,
+        );
         context.fillRect(
           Math.round(marker.screenX),
           Math.round(marker.screenY + 1),
@@ -545,8 +548,6 @@
 
     resetButton.addEventListener("click", () => {
       progress = 0;
-      yaw = defaultYaw;
-      pitch = defaultPitch;
       setPlaying(true);
       updateInterface(getMotionState(), true);
     });
@@ -566,54 +567,6 @@
         updateInterface(getMotionState(), true);
         requestDraw();
       });
-    });
-
-    canvas.addEventListener("pointerdown", (event) => {
-      dragging = true;
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      canvas.classList.add("is-dragging");
-      canvas.setPointerCapture(event.pointerId);
-    });
-
-    canvas.addEventListener("pointermove", (event) => {
-      if (!dragging) return;
-      const deltaX = event.clientX - pointerX;
-      const deltaY = event.clientY - pointerY;
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      yaw = clamp(yaw + deltaX * 0.008, -1.08, 1.08);
-      pitch = clamp(pitch + deltaY * 0.006, 0.08, 0.74);
-      event.preventDefault();
-      requestDraw();
-    });
-
-    const endDrag = (event) => {
-      if (!dragging) return;
-      dragging = false;
-      canvas.classList.remove("is-dragging");
-      if (canvas.hasPointerCapture(event.pointerId)) {
-        canvas.releasePointerCapture(event.pointerId);
-      }
-    };
-
-    canvas.addEventListener("pointerup", endDrag);
-    canvas.addEventListener("pointercancel", endDrag);
-
-    canvas.addEventListener("keydown", (event) => {
-      const keyAdjustments = {
-        ArrowLeft: () => { yaw = clamp(yaw - 0.08, -1.08, 1.08); },
-        ArrowRight: () => { yaw = clamp(yaw + 0.08, -1.08, 1.08); },
-        ArrowUp: () => { pitch = clamp(pitch - 0.06, 0.08, 0.74); },
-        ArrowDown: () => { pitch = clamp(pitch + 0.06, 0.08, 0.74); },
-        Home: () => { yaw = defaultYaw; pitch = defaultPitch; },
-        " ": () => { setPlaying(!playing); },
-      };
-      const adjustment = keyAdjustments[event.key];
-      if (!adjustment) return;
-      event.preventDefault();
-      adjustment();
-      requestDraw();
     });
 
     if ("ResizeObserver" in window) {
@@ -712,7 +665,6 @@
           window.requestAnimationFrame(() => {
             resizeCanvas();
             requestDraw();
-            canvas.focus({ preventScroll: true });
           });
           document.dispatchEvent(new CustomEvent("figure-dialog-opened"));
         });
