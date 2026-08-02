@@ -626,7 +626,7 @@ html[data-theme="dark"] .research-card:hover {
 .publication-feature-background::before {
   left: 540px;
   background:
-    url("assets/publications/2025-haptic-mixed-reality-telemanipulation/system-overview-web.png")
+    url("assets/publications/2025-haptic-mixed-reality-telemanipulation/system-overview-web.webp")
     right 20px center / contain no-repeat;
 }
 
@@ -1639,19 +1639,22 @@ body:has(.figure-dialog[open]) {
 
   .hero {
     min-height: auto;
-    grid-template-columns: 1fr;
+    padding-block: 72px 92px;
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(32px, 6vw, 56px);
   }
 
   .hero-copy {
-    order: 2;
+    order: 1;
   }
 
   .portrait-wrap {
     width: auto;
-    margin: 0 0 12px;
+    margin: 8px 0 0;
     margin-inline-end: 8px;
     justify-self: end;
-    order: 1;
+    order: 2;
   }
 
   .portrait {
@@ -1709,11 +1712,69 @@ body:has(.figure-dialog[open]) {
   }
 
   .hero {
-    padding-block: 58px 74px;
+    padding-block: 42px 68px;
+    grid-template-areas:
+      "eyebrow portrait"
+      "name portrait"
+      "intro intro"
+      "note note"
+      "actions actions"
+      "profiles profiles";
+    grid-template-columns: minmax(0, 1fr) 112px;
+    column-gap: 20px;
+    row-gap: 0;
+  }
+
+  .hero-copy {
+    display: contents;
+  }
+
+  .hero .eyebrow {
+    margin: 2px 0 12px;
+    align-self: end;
+    grid-area: eyebrow;
   }
 
   .hero h1 {
-    font-size: clamp(52px, 16vw, 76px);
+    font-size: clamp(50px, 14vw, 72px);
+    grid-area: name;
+  }
+
+  .hero-intro {
+    margin-top: 30px;
+    grid-area: intro;
+  }
+
+  .hero-note {
+    grid-area: note;
+  }
+
+  .hero-actions {
+    grid-area: actions;
+  }
+
+  .profile-links {
+    margin-top: 24px;
+    grid-area: profiles;
+    gap: 14px 20px;
+  }
+
+  .portrait-wrap {
+    margin: 0;
+    justify-self: end;
+    grid-area: portrait;
+  }
+
+  .portrait {
+    width: 112px;
+    height: 112px;
+  }
+
+  .portrait-caption {
+    max-width: 122px;
+    margin: 12px -5px 0;
+    line-height: 1.35;
+    white-space: normal;
   }
 
   .section {
@@ -1886,5 +1947,23 @@ body:has(.figure-dialog[open]) {
 
   .wordmark {
     gap: 0;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 94px;
+    column-gap: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 14vw, 60px);
+  }
+
+  .portrait {
+    width: 94px;
+    height: 94px;
+  }
+
+  .portrait-caption {
+    display: none;
   }
 }
