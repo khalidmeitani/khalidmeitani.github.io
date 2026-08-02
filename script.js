@@ -1,4 +1,4 @@
-const languageSelect = document.querySelector(".language-select");
+const languageButtons = document.querySelectorAll(".language-button");
 const languageStorageKey = "khalid-language";
 const supportedLanguages = ["en", "ja", "ar"];
 const originalTextValues = new WeakMap();
@@ -113,7 +113,11 @@ const applyLanguage = (language, persist = false) => {
   document.documentElement.lang = currentLanguage;
   document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
   document.documentElement.dataset.language = currentLanguage;
-  if (languageSelect) languageSelect.value = currentLanguage;
+  languageButtons.forEach((button) => {
+    const isActive = button.dataset.language === currentLanguage;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
 
   translateTextNodes(currentLanguage);
   translateElementAttributes(currentLanguage);
@@ -187,9 +191,11 @@ const applyTheme = (theme, persist = false) => {
 
 applyTheme(document.documentElement.dataset.theme || "light");
 
-languageSelect?.addEventListener("change", () => {
-  applyLanguage(languageSelect.value, true);
-  applyTheme(document.documentElement.dataset.theme || "light");
+languageButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyLanguage(button.dataset.language, true);
+    applyTheme(document.documentElement.dataset.theme || "light");
+  });
 });
 
 themeToggle?.addEventListener("click", () => {

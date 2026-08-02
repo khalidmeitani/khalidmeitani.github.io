@@ -78,14 +78,41 @@
             <a href="#contact">Contact</a>
           </nav>
 
-          <label class="language-control">
-            <span class="sr-only">Language</span>
-            <select class="language-select" aria-label="Language">
-              <option value="en" lang="en">EN</option>
-              <option value="ja" lang="ja">日本語</option>
-              <option value="ar" lang="ar">العربية</option>
-            </select>
-          </label>
+          <div class="language-switcher" role="group" aria-label="Language">
+            <button
+              class="language-button"
+              type="button"
+              data-language="en"
+              lang="en"
+              aria-label="English"
+              aria-pressed="false"
+            >
+              <span class="language-label-full">English</span>
+              <span class="language-label-compact" aria-hidden="true">EN</span>
+            </button>
+            <button
+              class="language-button"
+              type="button"
+              data-language="ja"
+              lang="ja"
+              aria-label="日本語"
+              aria-pressed="false"
+            >
+              <span class="language-label-full">日本語</span>
+              <span class="language-label-compact" aria-hidden="true">日</span>
+            </button>
+            <button
+              class="language-button"
+              type="button"
+              data-language="ar"
+              lang="ar"
+              aria-label="العربية"
+              aria-pressed="false"
+            >
+              <span class="language-label-full">العربية</span>
+              <span class="language-label-compact" aria-hidden="true">ع</span>
+            </button>
+          </div>
 
           <button
             class="theme-toggle"
