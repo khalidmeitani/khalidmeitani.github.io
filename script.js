@@ -124,7 +124,7 @@ const applyLanguage = (language, persist = false) => {
 
   document.title =
     currentLanguage === "en"
-      ? "Khalid Meitani — Soft Robotics Researcher"
+      ? "Khalid Meitani | M.S. Student & Soft Robotics Researcher"
       : dictionary?.pageTitle || document.title;
 
   const description = document.querySelector('meta[name="description"]');
@@ -135,7 +135,7 @@ const applyLanguage = (language, persist = false) => {
   if (description) {
     description.content =
       currentLanguage === "en"
-        ? "The academic website of Khalid Meitani, a master's student researching 3D-printed, bio-inspired soft robotic systems at Kyoto University of Advanced Science."
+        ? "Khalid Meitani is an M.S. student and soft robotics researcher at Kyoto University of Advanced Science, working on 3D-printed TPU grippers, crawling robots, and rehabilitation systems."
         : dictionary?.metaDescription || description.content;
   }
   if (openGraphTitle) openGraphTitle.content = document.title;
@@ -222,6 +222,154 @@ window.addEventListener(
   () => header?.classList.toggle("scrolled", window.scrollY > 8),
   { passive: true },
 );
+
+document.querySelectorAll("[data-prototype-explorer]").forEach((explorer) => {
+  const tabs = [...explorer.querySelectorAll("[data-prototype-tab]")];
+  const panels = tabs
+    .map((tab) => document.querySelector(`#${tab.getAttribute("aria-controls")}`))
+    .filter(Boolean);
+
+  const activatePrototype = (activeTab, moveFocus = false) => {
+    tabs.forEach((tab) => {
+      const isActive = tab === activeTab;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.id === activeTab.getAttribute("aria-controls");
+      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
+    });
+
+    if (moveFocus) activeTab.focus();
+  };
+
+  tabs.forEach((tab, tabIndex) => {
+    tab.addEventListener("click", () => activatePrototype(tab));
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = tabIndex;
+      if (["ArrowRight", "ArrowDown"].includes(event.key)) {
+        nextIndex = (tabIndex + 1) % tabs.length;
+      } else if (["ArrowLeft", "ArrowUp"].includes(event.key)) {
+        nextIndex = (tabIndex - 1 + tabs.length) % tabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      activatePrototype(tabs[nextIndex], true);
+    });
+  });
+});
+
+const readingProgress = document.querySelector(".reading-progress span");
+const trackedNavigationLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')]
+  .map((link) => ({
+    link,
+    section: document.querySelector(link.getAttribute("href")),
+  }))
+  .filter(({ section }) => section);
+let pageUpdateFrame = 0;
+
+const updatePagePosition = () => {
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0
+    ? Math.min(1, Math.max(0, window.scrollY / scrollableHeight))
+    : 0;
+  if (readingProgress) readingProgress.style.transform = `scaleX(${progress})`;
+
+  const marker = window.scrollY + Math.min(window.innerHeight * 0.36, 320);
+  let currentSection = null;
+  trackedNavigationLinks.forEach(({ section }) => {
+    if (section.offsetTop <= marker) currentSection = section;
+  });
+
+  trackedNavigationLinks.forEach(({ link, section }) => {
+    const isCurrent = section === currentSection;
+    link.classList.toggle("is-current", isCurrent);
+    if (isCurrent) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+
+  pageUpdateFrame = 0;
+};
+
+const requestPagePositionUpdate = () => {
+  if (!pageUpdateFrame) {
+    pageUpdateFrame = window.requestAnimationFrame(updatePagePosition);
+  }
+};
+
+window.addEventListener("scroll", requestPagePositionUpdate, { passive: true });
+window.addEventListener("resize", requestPagePositionUpdate, { passive: true });
+updatePagePosition();
+
+const copyText = async (value) => {
+  if (navigator.clipboard?.writeText && window.isSecureContext) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+};
+
+document.querySelectorAll(".project-share").forEach((button) => {
+  const label = button.querySelector("[data-share-label]");
+  let confirmationTimer = 0;
+
+  const showConfirmation = () => {
+    window.clearTimeout(confirmationTimer);
+    button.classList.add("is-confirmed");
+    if (label) label.textContent = translatePhrase("Link copied");
+    confirmationTimer = window.setTimeout(() => {
+      button.classList.remove("is-confirmed");
+      if (label) label.textContent = translatePhrase("Share project");
+    }, 2200);
+  };
+
+  button.addEventListener("click", async () => {
+    const shareUrl = new URL(window.location.href);
+    shareUrl.search = "";
+    shareUrl.hash = button.dataset.shareTarget;
+    const shareTitle = translatePhrase(button.dataset.shareTitle || document.title);
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: shareTitle, url: shareUrl.href });
+        return;
+      } catch (error) {
+        if (error?.name === "AbortError") return;
+      }
+    }
+
+    try {
+      await copyText(shareUrl.href);
+      showConfirmation();
+    } catch {
+      window.location.hash = button.dataset.shareTarget;
+    }
+  });
+
+  document.addEventListener("languagechange", () => {
+    window.clearTimeout(confirmationTimer);
+    button.classList.remove("is-confirmed");
+    if (label) label.textContent = translatePhrase("Share project");
+  });
+});
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealElements = document.querySelectorAll(".reveal");

@@ -1,8 +1,8 @@
 window.siteTranslations = {
   ja: {
-    pageTitle: "Khalid Meitani — ソフトロボティクス研究者",
+    pageTitle: "Khalid Meitani | 修士課程・ソフトロボティクス研究",
     metaDescription:
-      "京都先端科学大学で3Dプリントと生物規範型ソフトロボットを研究するKhalid Meitaniの研究者ウェブサイトです。",
+      "Khalid Meitaniは京都先端科学大学の修士課程で、3DプリントTPUグリッパ、ソフトクローラ、リハビリテーションロボットを研究しています。",
     text: {
       "Skip to content": "本文へ移動",
       About: "自己紹介",
@@ -210,9 +210,9 @@ window.siteTranslations = {
     },
   },
   ar: {
-    pageTitle: "خالد ميتاني — باحث في الروبوتات اللينة",
+    pageTitle: "خالد ميتاني | طالب ماجستير وباحث في الروبوتات اللينة",
     metaDescription:
-      "الموقع الأكاديمي لخالد ميتاني، طالب ماجستير في جامعة كيوتو للعلوم المتقدمة وباحث في الروبوتات اللينة المطبوعة ثلاثية الأبعاد والمستوحاة من الطبيعة.",
+      "خالد ميتاني طالب ماجستير وباحث في جامعة كيوتو للعلوم المتقدمة، يعمل على مقابض TPU المطبوعة ثلاثيًّا والروبوتات الزاحفة وأنظمة إعادة التأهيل اللينة.",
     text: {
       "Skip to content": "انتقل إلى المحتوى",
       About: "نبذة عني",
@@ -567,4 +567,72 @@ Object.assign(window.siteTranslations.ar.attributes, {
   "Selected research prototypes": "نماذج بحثية مختارة",
   "Research at a glance": "لمحة عن البحث",
   "Material to intelligence research loop": "حلقة البحث من المادة إلى الذكاء",
+});
+
+Object.assign(window.siteTranslations.ja.text, {
+  "M.S. Student · Soft Robotics Researcher": "修士課程 · ソフトロボティクス研究",
+  "Nisar Lab · Kyoto University of Advanced Science": "Nisar研究室 · 京都先端科学大学",
+  "From material to motion": "材料から動きへ",
+  "I research": "私の研究は",
+  "3D-printed soft robots.": "3Dプリント・ソフトロボット。",
+  "My work connects printable elastomers, programmable stiffness, and novel actuation to develop soft grippers, crawling robots, and wearable rehabilitation systems.":
+    "印刷可能なエラストマー、プログラム可能な剛性、新しい駆動方法を結び付け、ソフトグリッパ、クローラ、ウェアラブルリハビリテーションシステムを開発しています。",
+  "Explore my research": "研究を見る",
+  "My research · Materials & fabrication": "私の研究 · 材料・造形",
+  "Characterizing and printing 60A–70A TPU for monolithic pneumatic grippers.":
+    "60A–70A TPUの特性評価と造形により、一体型空気圧グリッパを開発しています。",
+  "Open project": "プロジェクトを見る",
+  "My research · Locomotion": "私の研究 · 移動ロボット",
+  "Programming stiffness during printing to improve crawling, turning, and efficiency.":
+    "造形中に剛性を設定し、走行、旋回、効率を向上させます。",
+  "My research · Wearable rehabilitation": "私の研究 · ウェアラブルリハビリ",
+  "Moving five tendon drives to the wrist for a lighter, 3D-printable soft glove.":
+    "5つの腱駆動部を手首に配置し、軽量で3Dプリント可能なソフトグローブを開発しています。",
+  Grippers: "グリッパ",
+  Crawler: "クローラ",
+  Glove: "グローブ",
+  "Share project": "共有する",
+  "Link copied": "リンクをコピーしました",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "I research 3D-printed soft robots.": "3Dプリント・ソフトロボットを研究しています。",
+  "Choose a research project": "研究プロジェクトを選択",
+  "Share the low-hardness TPU soft grippers project": "低硬度TPUソフトグリッパ研究を共有",
+  "Share the spatial stiffness-tuned soft crawling robot project": "空間剛性調整型ソフトクローラ研究を共有",
+  "Share the tendon-driven rehabilitation glove project": "腱駆動リハビリテーショングローブ研究を共有",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "M.S. Student · Soft Robotics Researcher": "طالب ماجستير · باحث في الروبوتات اللينة",
+  "Nisar Lab · Kyoto University of Advanced Science": "مختبر نِسار · جامعة كيوتو للعلوم المتقدمة",
+  "From material to motion": "من المادة إلى الحركة",
+  "I research": "أبحث في",
+  "3D-printed soft robots.": "الروبوتات اللينة المطبوعة ثلاثيًّا.",
+  "My work connects printable elastomers, programmable stiffness, and novel actuation to develop soft grippers, crawling robots, and wearable rehabilitation systems.":
+    "يربط عملي بين المطاطيات القابلة للطباعة والصلابة القابلة للبرمجة وطرق التشغيل الجديدة لتطوير مقابض لينة وروبوتات زاحفة وأنظمة تأهيل قابلة للارتداء.",
+  "Explore my research": "استكشف أبحاثي",
+  "My research · Materials & fabrication": "أبحاثي · المواد والتصنيع",
+  "Characterizing and printing 60A–70A TPU for monolithic pneumatic grippers.":
+    "توصيف وطباعة TPU بدرجتي 60A و70A لتطوير مقابض هوائية من قطعة واحدة.",
+  "Open project": "افتح المشروع",
+  "My research · Locomotion": "أبحاثي · الحركة",
+  "Programming stiffness during printing to improve crawling, turning, and efficiency.":
+    "برمجة الصلابة أثناء الطباعة لتحسين الزحف والانعطاف والكفاءة.",
+  "My research · Wearable rehabilitation": "أبحاثي · إعادة التأهيل القابلة للارتداء",
+  "Moving five tendon drives to the wrist for a lighter, 3D-printable soft glove.":
+    "نقل خمسة مشغلات أوتار إلى المعصم لتطوير قفاز لين أخف وقابل للطباعة ثلاثيًّا.",
+  Grippers: "المقابض",
+  Crawler: "الروبوت الزاحف",
+  Glove: "القفاز",
+  "Share project": "شارك المشروع",
+  "Link copied": "تم نسخ الرابط",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "I research 3D-printed soft robots.": "أبحث في الروبوتات اللينة المطبوعة ثلاثيًّا.",
+  "Choose a research project": "اختر مشروعًا بحثيًّا",
+  "Share the low-hardness TPU soft grippers project": "شارك مشروع مقابض TPU اللينة منخفضة الصلادة",
+  "Share the spatial stiffness-tuned soft crawling robot project": "شارك مشروع الروبوت الزاحف اللين مضبوط الصلابة المكانية",
+  "Share the tendon-driven rehabilitation glove project": "شارك مشروع قفاز إعادة التأهيل العامل بالأوتار",
 });

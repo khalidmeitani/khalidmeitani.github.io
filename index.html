@@ -5,21 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="The academic website of Khalid Meitani, a master's student researching 3D-printed, bio-inspired soft robotic systems at Kyoto University of Advanced Science."
+      content="Khalid Meitani is an M.S. student and soft robotics researcher at Kyoto University of Advanced Science, working on 3D-printed TPU grippers, crawling robots, and rehabilitation systems."
     />
     <meta name="author" content="Khalid Meitani" />
-    <meta property="og:title" content="Khalid Meitani — Soft Robotics Researcher" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:title" content="Khalid Meitani | M.S. Student &amp; Soft Robotics Researcher" />
     <meta
       property="og:description"
-      content="Research and publications in 3D-printed soft robots, bio-inspired systems, novel actuation, and AI for soft robotics."
+      content="Research and publications in 3D-printed TPU soft robots, material design, locomotion, and wearable rehabilitation systems."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Khalid Meitani — Research" />
     <meta property="og:url" content="https://khalidmeitani.github.io/" />
     <meta
       property="og:image"
-      content="https://khalidmeitani.github.io/assets/images/figures/personal%20picture.webp"
+      content="https://khalidmeitani.github.io/assets/images/khalid-meitani-soft-robotics-og.png"
     />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="Khalid Meitani — M.S. student and soft robotics researcher" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Khalid Meitani | Soft Robotics Research" />
+    <meta
+      name="twitter:description"
+      content="3D-printed soft robots: materials, structure, motion, and rehabilitation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://khalidmeitani.github.io/assets/images/khalid-meitani-soft-robotics-og.png"
+    />
     <meta id="theme-color" name="theme-color" content="#f7f8f5" />
     <link rel="canonical" href="https://khalidmeitani.github.io/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -41,8 +55,8 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260802-3" />
-    <title>Khalid Meitani — Soft Robotics Researcher</title>
+    <link rel="stylesheet" href="styles.css?v=20260802-4" />
+    <title>Khalid Meitani | M.S. Student &amp; Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
       {
@@ -50,9 +64,16 @@
         "@type": "Person",
         "name": "Khalid Meitani",
         "url": "https://khalidmeitani.github.io/",
-        "jobTitle": "M.S. Student in Mechanical and Electrical Systems Engineering",
-        "description": "Researcher in 3D-printed and bio-inspired soft robotic systems, novel actuation methods, and machine learning for soft robotics.",
+        "jobTitle": "M.S. Student and Soft Robotics Researcher",
+        "description": "Researcher developing 3D-printed TPU soft grippers, stiffness-tuned crawling robots, and wearable rehabilitation systems.",
         "email": "mailto:khalidmeitani@outlook.com",
+        "knowsAbout": [
+          "Soft robotics",
+          "Additive manufacturing",
+          "Thermoplastic polyurethane",
+          "Bio-inspired robotics",
+          "Robotic rehabilitation"
+        ],
         "affiliation": {
           "@type": "Organization",
           "name": "Kyoto University of Advanced Science"
@@ -154,6 +175,7 @@
           </button>
         </div>
       </div>
+      <div class="reading-progress" aria-hidden="true"><span></span></div>
     </header>
 
     <main id="main-content">
@@ -163,27 +185,6 @@
 
         <div class="shell hero-layout">
           <div class="hero-copy">
-            <p class="hero-overline">
-              <span class="signal-dot" aria-hidden="true"></span>
-              Khalid Meitani · Soft robotics · Kyoto
-            </p>
-            <h1 aria-label="Programming softness, structure, and motion.">
-              <span>Programming</span>
-              <span class="hero-title-accent">softness, structure,</span>
-              <span>and motion.</span>
-            </h1>
-            <p class="hero-intro">
-              Through additive manufacturing, material design, and embodied intelligence,
-              I build soft robotic systems that turn compliance into capability.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button button-signal" href="#projects">
-                Explore selected work <span aria-hidden="true">↘</span>
-              </a>
-              <a class="button button-ghost" href="#research">Research direction</a>
-            </div>
-
             <div class="hero-meta-row">
               <div class="hero-researcher">
                 <img
@@ -194,87 +195,159 @@
                   decoding="async"
                   fetchpriority="high"
                 />
-                <p>
-                  <strong>M.S. researcher</strong>
-                  <span>Nisar Lab · Kyoto, Japan</span>
-                </p>
+                <div class="hero-identity-copy">
+                  <p class="hero-role">
+                    <span class="signal-dot" aria-hidden="true"></span>
+                    M.S. Student · Soft Robotics Researcher
+                  </p>
+                  <h1>Khalid Meitani</h1>
+                  <p class="hero-affiliation">Nisar Lab · Kyoto University of Advanced Science</p>
+                </div>
               </div>
               <nav class="hero-profile-links" aria-label="External profiles">
-                <a href="https://orcid.org/0009-0007-6092-2073">ORCID</a>
-                <a href="https://www.researchgate.net/profile/Khalid-Meitani">ResearchGate</a>
-                <a href="https://scholar.google.com/scholar?q=author%3A%22Khalid+Meitani%22">Scholar</a>
+                <a rel="me" href="https://orcid.org/0009-0007-6092-2073">ORCID</a>
+                <a rel="me" href="https://www.researchgate.net/profile/Khalid-Meitani">ResearchGate</a>
+                <a rel="me" href="https://scholar.google.com/scholar?q=author%3A%22Khalid+Meitani%22">Google Scholar</a>
               </nav>
             </div>
+
+            <p class="hero-overline">
+              From material to motion
+            </p>
+            <h2 aria-label="I research 3D-printed soft robots.">
+              <span>I research</span>
+              <span class="hero-title-accent">3D-printed soft robots.</span>
+            </h2>
+            <p class="hero-intro">
+              My work connects printable elastomers, programmable stiffness, and novel
+              actuation to develop soft grippers, crawling robots, and wearable
+              rehabilitation systems.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-signal" href="#projects">
+                Explore my research <span aria-hidden="true">↘</span>
+              </a>
+              <a class="button button-ghost" href="#publications">View publications</a>
+            </div>
           </div>
 
-          <div class="hero-lab-visual" aria-label="Selected research prototypes">
-            <article class="hero-visual-card hero-visual-primary">
-              <img
-                src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
-                width="782"
-                height="522"
-                alt="Low-hardness TPU soft gripper holding several objects"
-                decoding="async"
-                fetchpriority="high"
-              />
-              <div class="hero-visual-caption">
-                <span>01 · Material system</span>
-                <strong>Low-hardness TPU</strong>
-              </div>
-            </article>
+          <div class="hero-prototype-explorer" data-prototype-explorer>
+            <div class="hero-prototype-panels">
+              <article
+                id="prototype-grippers"
+                class="hero-prototype-panel is-active"
+                role="tabpanel"
+                aria-labelledby="prototype-tab-grippers"
+              >
+                <a class="hero-prototype-media" href="#project-low-hardness-tpu">
+                  <img
+                    src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
+                    width="782"
+                    height="522"
+                    alt="Low-hardness TPU soft gripper holding several objects"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                  <span aria-hidden="true">01</span>
+                </a>
+                <div class="hero-prototype-copy">
+                  <p>My research · Materials &amp; fabrication</p>
+                  <h3>Low-hardness TPU soft grippers</h3>
+                  <p>Characterizing and printing 60A–70A TPU for monolithic pneumatic grippers.</p>
+                  <a href="#project-low-hardness-tpu">Open project <span aria-hidden="true">↓</span></a>
+                </div>
+              </article>
 
-            <article class="hero-visual-card hero-visual-secondary">
-              <img
-                src="assets/publications/2026-spatial-stiffness-tuning/untethered360.webp"
-                width="1024"
-                height="1024"
-                alt="Stiffness-tuned soft crawling robot shown during rotational locomotion"
-                decoding="async"
-              />
-              <div class="hero-visual-caption">
-                <span>02 · Locomotion</span>
-                <strong>Stiffness-tuned crawler</strong>
-              </div>
-            </article>
+              <article
+                id="prototype-crawler"
+                class="hero-prototype-panel"
+                role="tabpanel"
+                aria-labelledby="prototype-tab-crawler"
+                hidden
+              >
+                <a class="hero-prototype-media" href="#project-soft-crawler">
+                  <img
+                    src="assets/publications/2026-spatial-stiffness-tuning/untethered360.webp"
+                    width="1024"
+                    height="1024"
+                    alt="Stiffness-tuned soft crawling robot shown during rotational locomotion"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span aria-hidden="true">02</span>
+                </a>
+                <div class="hero-prototype-copy">
+                  <p>My research · Locomotion</p>
+                  <h3>Spatial stiffness-tuned soft crawling robot</h3>
+                  <p>Programming stiffness during printing to improve crawling, turning, and efficiency.</p>
+                  <a href="#project-soft-crawler">Open project <span aria-hidden="true">↓</span></a>
+                </div>
+              </article>
 
-            <article class="hero-visual-card hero-visual-tertiary">
-              <img
-                src="assets/publications/2026-tendon-driven-soft-robotic-glove/neutralgrasping.webp"
-                width="1188"
-                height="848"
-                alt="Tendon-driven soft rehabilitation glove in neutral and grasping postures"
-                decoding="async"
-              />
-              <div class="hero-visual-caption">
-                <span>03 · Wearable</span>
-                <strong>Rehabilitation glove</strong>
-              </div>
-            </article>
+              <article
+                id="prototype-glove"
+                class="hero-prototype-panel"
+                role="tabpanel"
+                aria-labelledby="prototype-tab-glove"
+                hidden
+              >
+                <a class="hero-prototype-media" href="#project-rehabilitation-glove">
+                  <img
+                    src="assets/publications/2026-tendon-driven-soft-robotic-glove/neutralgrasping.webp"
+                    width="1188"
+                    height="848"
+                    alt="Tendon-driven soft rehabilitation glove in neutral and grasping postures"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span aria-hidden="true">03</span>
+                </a>
+                <div class="hero-prototype-copy">
+                  <p>My research · Wearable rehabilitation</p>
+                  <h3>Tendon-driven rehabilitation glove</h3>
+                  <p>Moving five tendon drives to the wrist for a lighter, 3D-printable soft glove.</p>
+                  <a href="#project-rehabilitation-glove">Open project <span aria-hidden="true">↓</span></a>
+                </div>
+              </article>
+            </div>
 
-            <span class="hero-coordinate hero-coordinate-top" aria-hidden="true">35.0116° N</span>
-            <span class="hero-coordinate hero-coordinate-side" aria-hidden="true">135.7681° E</span>
+            <div class="hero-prototype-tabs" role="tablist" aria-label="Choose a research project">
+              <button
+                id="prototype-tab-grippers"
+                class="is-active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="prototype-grippers"
+                data-prototype-tab
+              >
+                <span>01</span> Grippers
+              </button>
+              <button
+                id="prototype-tab-crawler"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="prototype-crawler"
+                data-prototype-tab
+                tabindex="-1"
+              >
+                <span>02</span> Crawler
+              </button>
+              <button
+                id="prototype-tab-glove"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="prototype-glove"
+                data-prototype-tab
+                tabindex="-1"
+              >
+                <span>03</span> Glove
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div class="shell hero-ledger" aria-label="Research at a glance">
-          <dl>
-            <div>
-              <dt>Low-hardness TPU grades</dt>
-              <dd>60A / 70A</dd>
-            </div>
-            <div>
-              <dt>Maximum speed increase</dt>
-              <dd>≈200%</dd>
-            </div>
-            <div>
-              <dt>Energy per distance</dt>
-              <dd>−64%</dd>
-            </div>
-            <div>
-              <dt>Wrist-mounted tendon drives</dt>
-              <dd>5</dd>
-            </div>
-          </dl>
         </div>
       </section>
 
@@ -441,9 +514,21 @@
                   <dd>FEA + tests</dd>
                 </div>
               </dl>
-              <a class="project-link" href="#project-low-hardness-tpu">
-                View publication <span aria-hidden="true">↓</span>
-              </a>
+              <div class="project-actions">
+                <a class="project-link" href="#project-low-hardness-tpu">
+                  View publication <span aria-hidden="true">↓</span>
+                </a>
+                <button
+                  class="project-share"
+                  type="button"
+                  data-share-target="project-low-hardness-tpu"
+                  data-share-title="Low-hardness TPU soft grippers"
+                  aria-label="Share the low-hardness TPU soft grippers project"
+                >
+                  <span data-share-label>Share project</span>
+                  <span aria-hidden="true">↗</span>
+                </button>
+              </div>
             </div>
           </article>
 
@@ -481,9 +566,21 @@
                   <dd>360°</dd>
                 </div>
               </dl>
-              <a class="project-link" href="#project-soft-crawler">
-                View publication <span aria-hidden="true">↓</span>
-              </a>
+              <div class="project-actions">
+                <a class="project-link" href="#project-soft-crawler">
+                  View publication <span aria-hidden="true">↓</span>
+                </a>
+                <button
+                  class="project-share"
+                  type="button"
+                  data-share-target="project-soft-crawler"
+                  data-share-title="Spatial stiffness-tuned soft crawling robot"
+                  aria-label="Share the spatial stiffness-tuned soft crawling robot project"
+                >
+                  <span data-share-label>Share project</span>
+                  <span aria-hidden="true">↗</span>
+                </button>
+              </div>
             </div>
           </article>
 
@@ -521,9 +618,21 @@
                   <dd>3D-printable</dd>
                 </div>
               </dl>
-              <a class="project-link" href="#project-rehabilitation-glove">
-                View publication <span aria-hidden="true">↓</span>
-              </a>
+              <div class="project-actions">
+                <a class="project-link" href="#project-rehabilitation-glove">
+                  View publication <span aria-hidden="true">↓</span>
+                </a>
+                <button
+                  class="project-share"
+                  type="button"
+                  data-share-target="project-rehabilitation-glove"
+                  data-share-title="Tendon-driven rehabilitation glove"
+                  aria-label="Share the tendon-driven rehabilitation glove project"
+                >
+                  <span data-share-label>Share project</span>
+                  <span aria-hidden="true">↗</span>
+                </button>
+              </div>
             </div>
           </article>
         </div>
@@ -2156,7 +2265,7 @@
       </div>
     </footer>
 
-    <script src="translations.js?v=20260802-3"></script>
-    <script src="script.js?v=20260802-3"></script>
+    <script src="translations.js?v=20260802-4"></script>
+    <script src="script.js?v=20260802-4"></script>
   </body>
 </html>
