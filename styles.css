@@ -2480,18 +2480,27 @@ html[data-theme="dark"] .button-ghost:hover {
 
 .hero-visual-card {
   position: absolute;
+  display: block;
   overflow: hidden;
+  color: inherit;
   background: #15221c;
   border: 1px solid rgba(236, 250, 238, 0.2);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
   transition: border-color 240ms ease, transform 240ms ease;
   animation: lab-drift 8s ease-in-out infinite;
 }
 
-.hero-visual-card:hover {
+.hero-visual-card:hover,
+.hero-visual-card:focus-visible {
   z-index: 6;
   border-color: rgba(202, 255, 106, 0.72);
   transform: scale(1.018);
+}
+
+.hero-visual-card:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 4px;
 }
 
 .hero-visual-card img {
@@ -2656,6 +2665,38 @@ html[data-theme="dark"] .button-ghost:hover {
   background: linear-gradient(90deg, var(--accent-dark), transparent 64%);
   content: "";
   opacity: 0.4;
+}
+
+.about-portrait {
+  position: relative;
+  width: min(100%, 270px);
+  margin: 38px 0 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: 3px 58px 3px 3px;
+  box-shadow: 0 22px 48px rgba(26, 47, 37, 0.13);
+}
+
+.about-portrait::after {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 10px;
+  height: 10px;
+  background: var(--signal);
+  border: 3px solid rgba(9, 20, 15, 0.86);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(202, 255, 106, 0.2);
+  content: "";
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .about-grid .section-number,
@@ -3201,6 +3242,11 @@ html[lang="ar"] .project-metrics dt {
 
   .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-portrait {
+    width: min(100%, 310px);
+    margin-top: 28px;
   }
 
   .research-flow {
