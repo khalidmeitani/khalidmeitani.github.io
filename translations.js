@@ -724,3 +724,31 @@ Object.assign(window.siteTranslations.ar.attributes, {
     "منظر جانبي وعلوي للروبوت اللين الزاحف غير الموصول",
   "Choose a locomotion phase": "اختر مرحلة الحركة",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Explore interactive model": "インタラクティブモデルを見る",
+  "Interactive project · 02": "インタラクティブプロジェクト · 02",
+  "Spatial stiffness-tuned soft crawler": "空間剛性調整型ソフトクローラ",
+  "Interactive mechanism": "インタラクティブ機構",
+  "Longitudinal forward motion": "長手方向への前進",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Open the interactive soft crawler model":
+    "ソフトクローラのインタラクティブモデルを開く",
+  "Close crawler motion lab": "クローラ動作ラボを閉じる",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Explore interactive model": "استكشف النموذج التفاعلي",
+  "Interactive project · 02": "مشروع تفاعلي · 02",
+  "Spatial stiffness-tuned soft crawler": "روبوت زاحف لين مضبوط الصلابة مكانياً",
+  "Interactive mechanism": "آلية تفاعلية",
+  "Longitudinal forward motion": "حركة أمامية على المحور الطولي",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Open the interactive soft crawler model":
+    "افتح النموذج التفاعلي للروبوت الزاحف اللين",
+  "Close crawler motion lab": "أغلق مختبر حركة الروبوت الزاحف",
+});

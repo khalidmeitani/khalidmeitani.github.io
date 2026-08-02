@@ -116,6 +116,13 @@
   };
 
   crawlerLabs.forEach((lab) => {
+    const dialog = lab.closest("[data-crawler-dialog]");
+    const dialogCloseButton = dialog?.querySelector("[data-crawler-close]");
+    const dialogOpeners = dialog
+      ? [...document.querySelectorAll("[data-crawler-open]")].filter(
+          (button) => button.dataset.crawlerOpen === dialog.id,
+        )
+      : [];
     const consoleElement = lab.querySelector(".crawler-motion-console");
     const canvas = lab.querySelector("[data-crawler-canvas]");
     const stage = lab.querySelector("[data-crawler-stage]");
@@ -145,7 +152,8 @@
       !phaseTitle ||
       !currentState ||
       !currentLabel ||
-      !context
+      !context ||
+      (dialog && !dialogCloseButton)
     ) {
       return;
     }
@@ -163,8 +171,8 @@
       Body81: [119, 139, 127],
     };
     const electromagnetGroups = ["Body37", "Body82"];
-    const defaultYaw = -0.34;
-    const defaultPitch = 0.38;
+    const defaultYaw = 0;
+    const defaultPitch = 0.34;
     const gaitCount = 4;
     const travelStart = -2.15;
     const travelDistance = 4.3;
@@ -180,13 +188,15 @@
     let playing = !prefersReducedMotion;
     let animationFrame = 0;
     let previousTime = 0;
-    let isVisible = true;
+    let isVisible = !dialog;
     let loadState = "loading";
+    let modelRequested = false;
     let activePhase = -1;
     let currentIsOn = null;
     let dragging = false;
     let pointerX = 0;
     let pointerY = 0;
+    let lastDialogTrigger = null;
 
     const phaseFromLocalProgress = (localProgress) => {
       if (localProgress >= 0.14 && localProgress < 0.56) return 1;
@@ -294,7 +304,7 @@
     const projectVertex = (vertex, bend, travel, pixelsPerUnit, groundY) => {
       const [baseX, baseY, baseZ] = vertex;
       const archProfile = Math.pow(Math.max(0, 1 - Math.abs(baseX)), 1.45);
-      const x = baseX * (1 - bend * 0.105);
+      const x = baseX * (1 - bend * 0.105) + travel;
       const y = baseY + bend * 0.56 * archProfile;
       const z = baseZ;
 
@@ -310,7 +320,7 @@
       const perspective = clamp(1 / (1 + viewZ * 0.085), 0.78, 1.24);
 
       return {
-        screenX: width / 2 + (yawX + travel) * pixelsPerUnit * perspective,
+        screenX: width / 2 + yawX * pixelsPerUnit * perspective,
         screenY: groundY - viewY * pixelsPerUnit * perspective,
         viewX: yawX,
         viewY,
@@ -319,7 +329,26 @@
     };
 
     const drawTrack = (groundY, pixelsPerUnit) => {
-      const gradient = context.createLinearGradient(0, 0, width, 0);
+      const trackStart = projectVertex(
+        [travelStart - 1.25, 0, 0],
+        0,
+        0,
+        pixelsPerUnit,
+        groundY,
+      );
+      const trackEnd = projectVertex(
+        [travelStart + travelDistance + 1.25, 0, 0],
+        0,
+        0,
+        pixelsPerUnit,
+        groundY,
+      );
+      const gradient = context.createLinearGradient(
+        trackStart.screenX,
+        trackStart.screenY,
+        trackEnd.screenX,
+        trackEnd.screenY,
+      );
       gradient.addColorStop(0, "rgba(202, 255, 106, 0)");
       gradient.addColorStop(0.15, "rgba(202, 255, 106, 0.16)");
       gradient.addColorStop(0.85, "rgba(202, 255, 106, 0.16)");
@@ -327,16 +356,26 @@
       context.strokeStyle = gradient;
       context.lineWidth = 1;
       context.beginPath();
-      context.moveTo(0, groundY + 4);
-      context.lineTo(width, groundY + 4);
+      context.moveTo(trackStart.screenX, trackStart.screenY + 4);
+      context.lineTo(trackEnd.screenX, trackEnd.screenY + 4);
       context.stroke();
 
       context.fillStyle = "rgba(202, 255, 106, 0.25)";
       for (let index = 0; index <= gaitCount; index += 1) {
         const worldX = travelStart + (index / gaitCount) * travelDistance;
-        const x = width / 2 + worldX * pixelsPerUnit;
-        context.fillRect(Math.round(x), groundY + 1, 1, 8);
+        const marker = projectVertex([worldX, 0, 0], 0, 0, pixelsPerUnit, groundY);
+        context.fillRect(
+          Math.round(marker.screenX),
+          Math.round(marker.screenY + 1),
+          1,
+          8,
+        );
       }
+
+      return Math.atan2(
+        trackEnd.screenY - trackStart.screenY,
+        trackEnd.screenX - trackStart.screenX,
+      );
     };
 
     const drawGlow = (center, color, radius) => {
@@ -365,19 +404,25 @@
       const motionState = getMotionState();
       const groundY = height * (width < 560 ? 0.71 : 0.73);
       const pixelsPerUnit = width / (width < 560 ? 5.65 : 6.45);
-      drawTrack(groundY, pixelsPerUnit);
+      const trackAngle = drawTrack(groundY, pixelsPerUnit);
 
-      const shadowCenterX = width / 2 + motionState.travel * pixelsPerUnit;
+      const shadowCenter = projectVertex(
+        [0, 0, 0],
+        0,
+        motionState.travel,
+        pixelsPerUnit,
+        groundY,
+      );
       context.save();
       context.filter = "blur(8px)";
       context.fillStyle = `rgba(0, 0, 0, ${0.24 - motionState.bend * 0.07})`;
       context.beginPath();
       context.ellipse(
-        shadowCenterX,
-        groundY + 7,
+        shadowCenter.screenX,
+        shadowCenter.screenY + 7,
         pixelsPerUnit * (0.92 - motionState.bend * 0.12),
         pixelsPerUnit * 0.13,
-        0,
+        trackAngle,
         0,
         Math.PI * 2,
       );
@@ -591,7 +636,7 @@
     if ("IntersectionObserver" in window) {
       const visibilityObserver = new IntersectionObserver(
         ([entry]) => {
-          isVisible = entry.isIntersecting;
+          isVisible = entry.isIntersecting && (!dialog || dialog.open);
           if (isVisible) requestDraw();
           else if (animationFrame) {
             window.cancelAnimationFrame(animationFrame);
@@ -606,7 +651,7 @@
 
     document.addEventListener("visibilitychange", () => {
       previousTime = 0;
-      if (!document.hidden) requestDraw();
+      if (!document.hidden && isVisible) requestDraw();
     });
 
     document.addEventListener("languagechange", () => {
@@ -627,27 +672,69 @@
     updateToggle();
     setStatus("Loading crawler geometry…");
 
-    fetch(lab.dataset.modelUrl)
-      .then((response) => {
-        if (!response.ok) throw new Error(`Model request failed: ${response.status}`);
-        return response.text();
-      })
-      .then((source) => {
-        model = parseObj(source);
-        loadState = "ready";
-        consoleElement.classList.add("is-ready");
-        setControlsEnabled(true);
-        setStatus("OBJ model ready");
-        resizeCanvas();
-        updateInterface(getMotionState(), true);
-        requestDraw();
-      })
-      .catch(() => {
-        loadState = "error";
-        playing = false;
-        setControlsEnabled(false);
-        setStatus("Model preview unavailable");
-        updateToggle();
+    const loadModel = () => {
+      if (modelRequested) return;
+      modelRequested = true;
+
+      fetch(lab.dataset.modelUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error(`Model request failed: ${response.status}`);
+          return response.text();
+        })
+        .then((source) => {
+          model = parseObj(source);
+          loadState = "ready";
+          consoleElement.classList.add("is-ready");
+          setControlsEnabled(true);
+          setStatus("OBJ model ready");
+          resizeCanvas();
+          updateInterface(getMotionState(), true);
+          requestDraw();
+        })
+        .catch(() => {
+          loadState = "error";
+          playing = false;
+          setControlsEnabled(false);
+          setStatus("Model preview unavailable");
+          updateToggle();
+        });
+    };
+
+    if (dialog) {
+      dialogOpeners.forEach((button) => {
+        button.addEventListener("click", () => {
+          lastDialogTrigger = button;
+          if (!dialog.open) dialog.showModal();
+          document.body.classList.add("crawler-dialog-open");
+          dialog.querySelector(".crawler-dialog-frame")?.scrollTo(0, 0);
+          isVisible = true;
+          loadModel();
+          window.requestAnimationFrame(() => {
+            resizeCanvas();
+            requestDraw();
+            canvas.focus({ preventScroll: true });
+          });
+          document.dispatchEvent(new CustomEvent("figure-dialog-opened"));
+        });
       });
+
+      dialogCloseButton.addEventListener("click", () => dialog.close());
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener("close", () => {
+        document.body.classList.remove("crawler-dialog-open");
+        isVisible = false;
+        previousTime = 0;
+        if (animationFrame) {
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = 0;
+        }
+        document.dispatchEvent(new CustomEvent("figure-dialog-closed"));
+        lastDialogTrigger?.focus({ preventScroll: true });
+      });
+    } else {
+      loadModel();
+    }
   });
 })();
