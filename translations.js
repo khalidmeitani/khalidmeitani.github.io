@@ -636,3 +636,91 @@ Object.assign(window.siteTranslations.ar.attributes, {
   "Share the spatial stiffness-tuned soft crawling robot project": "شارك مشروع الروبوت الزاحف اللين مضبوط الصلابة المكانية",
   "Share the tendon-driven rehabilitation glove project": "شارك مشروع قفاز إعادة التأهيل العامل بالأوتار",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "04 / Interactive mechanism": "04 / インタラクティブ機構",
+  "Crawler motion lab": "クローラ動作ラボ",
+  "Bend. Release. Advance.": "曲がる。戻る。前進する。",
+  "Based on the paper’s forward-locomotion principle, both electromagnets repel their paired permanent magnets to bend the TPU body. When current is removed, the body unbends; the directional sawtooth layer turns those rapid cycles into forward stick–slip motion.":
+    "論文の前進移動原理に基づき、2つの電磁石が対応する永久磁石と反発してTPU本体を屈曲させます。通電を止めると本体が元に戻り、方向性を持つ鋸歯状層がこの高速サイクルを前進方向のスティックスリップ運動へ変換します。",
+  "Foamed TPU body": "発泡TPU本体",
+  Electromagnets: "電磁石",
+  "Permanent magnets": "永久磁石",
+  "Live OBJ model": "OBJモデル",
+  "Loading crawler geometry…": "クローラ形状を読み込み中…",
+  "OBJ model ready": "OBJモデルの準備完了",
+  "Model preview unavailable": "モデルプレビューを表示できません",
+  "Current off": "通電オフ",
+  "Current on": "通電オン",
+  "Drag to rotate · Use arrow keys": "ドラッグで回転 · 矢印キーでも操作できます",
+  "Forward motion": "前進運動",
+  "Pause motion": "動きを停止",
+  "Play motion": "動きを再生",
+  Restart: "最初から",
+  "Path progress": "移動の進捗",
+  "Body relaxed": "本体が復元",
+  "The TPU body is straight and ready for the next current pulse.":
+    "TPU本体はまっすぐに戻り、次の通電パルスに備えます。",
+  "Repulsion & bend": "反発・屈曲",
+  "Both electromagnets energize and repel the paired permanent magnets.":
+    "2つの電磁石に通電し、対応する永久磁石と反発させます。",
+  "Release & advance": "解放・前進",
+  "Elastic recovery and directional friction create a net forward step.":
+    "弾性回復と方向性摩擦によって正味の前進が生まれます。",
+  "Geometry is loaded from the project OBJ. The deformation explains the paper’s locomotion principle and is not a finite-element simulation.":
+    "形状は研究プロジェクトのOBJから読み込んでいます。変形は論文の移動原理を説明するもので、有限要素解析ではありません。",
+  "Read the paper": "論文を読む",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Crawler model color key": "クローラモデルの色分け",
+  "Interactive 3D crawler model. Drag to rotate and use the controls to inspect its forward locomotion cycle.":
+    "インタラクティブな3Dクローラモデル。ドラッグで回転し、操作ボタンで前進サイクルを確認できます。",
+  "Side and top views of the untethered soft crawling robot":
+    "無線ソフトクローラの側面図と上面図",
+  "Choose a locomotion phase": "移動フェーズを選択",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "04 / Interactive mechanism": "04 / آلية تفاعلية",
+  "Crawler motion lab": "مختبر حركة الروبوت الزاحف",
+  "Bend. Release. Advance.": "ينحني. يتحرر. يتقدم.",
+  "Based on the paper’s forward-locomotion principle, both electromagnets repel their paired permanent magnets to bend the TPU body. When current is removed, the body unbends; the directional sawtooth layer turns those rapid cycles into forward stick–slip motion.":
+    "استنادًا إلى مبدأ الحركة الأمامية في الورقة، يتنافر المغناطيسان الكهربائيان مع المغناطيسين الدائمين المقابلين فينحني جسم TPU. عند قطع التيار يعود الجسم إلى شكله، وتحول طبقة الاحتكاك المسننة الاتجاهية هذه الدورات السريعة إلى حركة أمامية بنمط الالتصاق والانزلاق.",
+  "Foamed TPU body": "جسم TPU رغوي",
+  Electromagnets: "مغانط كهربائية",
+  "Permanent magnets": "مغانط دائمة",
+  "Live OBJ model": "نموذج OBJ مباشر",
+  "Loading crawler geometry…": "جارٍ تحميل هندسة الروبوت الزاحف…",
+  "OBJ model ready": "نموذج OBJ جاهز",
+  "Model preview unavailable": "تعذرت معاينة النموذج",
+  "Current off": "التيار متوقف",
+  "Current on": "التيار يعمل",
+  "Drag to rotate · Use arrow keys": "اسحب للتدوير · استخدم مفاتيح الأسهم",
+  "Forward motion": "حركة أمامية",
+  "Pause motion": "إيقاف الحركة مؤقتًا",
+  "Play motion": "تشغيل الحركة",
+  Restart: "إعادة البدء",
+  "Path progress": "تقدم المسار",
+  "Body relaxed": "الجسم في وضع الاسترخاء",
+  "The TPU body is straight and ready for the next current pulse.":
+    "يكون جسم TPU مستقيمًا ومستعدًا لنبضة التيار التالية.",
+  "Repulsion & bend": "تنافر وانحناء",
+  "Both electromagnets energize and repel the paired permanent magnets.":
+    "يعمل المغناطيسان الكهربائيان ويتنافران مع المغناطيسين الدائمين المقابلين.",
+  "Release & advance": "تحرير وتقدم",
+  "Elastic recovery and directional friction create a net forward step.":
+    "يولد الاسترجاع المرن والاحتكاك الاتجاهي خطوة أمامية صافية.",
+  "Geometry is loaded from the project OBJ. The deformation explains the paper’s locomotion principle and is not a finite-element simulation.":
+    "تُحمّل الهندسة من ملف OBJ الخاص بالمشروع. يشرح التشوه مبدأ الحركة في الورقة وليس محاكاة بالعناصر المحددة.",
+  "Read the paper": "اقرأ الورقة",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Crawler model color key": "مفتاح ألوان نموذج الروبوت الزاحف",
+  "Interactive 3D crawler model. Drag to rotate and use the controls to inspect its forward locomotion cycle.":
+    "نموذج ثلاثي الأبعاد تفاعلي للروبوت الزاحف. اسحب للتدوير واستخدم عناصر التحكم لفحص دورة الحركة الأمامية.",
+  "Side and top views of the untethered soft crawling robot":
+    "منظر جانبي وعلوي للروبوت اللين الزاحف غير الموصول",
+  "Choose a locomotion phase": "اختر مرحلة الحركة",
+});

@@ -55,7 +55,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260802-7" />
+    <link rel="stylesheet" href="styles.css?v=20260802-8" />
     <title>Khalid Meitani | M.S. Student &amp; Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -588,10 +588,132 @@
         </div>
       </section>
 
+      <section
+        id="crawler-motion"
+        class="crawler-motion-section"
+        data-crawler-lab
+        data-model-url="assets/models/soft-crawler/soft-crawler.obj"
+      >
+        <div class="shell crawler-motion-shell">
+          <div class="crawler-motion-heading reveal">
+            <div>
+              <p class="section-number">04 / Interactive mechanism</p>
+              <p class="crawler-motion-kicker">Crawler motion lab</p>
+              <h2>Bend. Release.<br />Advance.</h2>
+            </div>
+            <div class="crawler-motion-intro">
+              <p>
+                Based on the paper’s forward-locomotion principle, both electromagnets
+                repel their paired permanent magnets to bend the TPU body. When current
+                is removed, the body unbends; the directional sawtooth layer turns those
+                rapid cycles into forward stick–slip motion.
+              </p>
+              <div class="crawler-model-legend" aria-label="Crawler model color key">
+                <span><i class="legend-tpu" aria-hidden="true"></i>Foamed TPU body</span>
+                <span><i class="legend-coil" aria-hidden="true"></i>Electromagnets</span>
+                <span><i class="legend-magnet" aria-hidden="true"></i>Permanent magnets</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="crawler-motion-console reveal">
+            <div class="crawler-console-bar">
+              <p><span class="signal-dot" aria-hidden="true"></span>Live OBJ model</p>
+              <p data-crawler-status aria-live="polite">Loading crawler geometry…</p>
+            </div>
+
+            <div class="crawler-motion-stage" data-crawler-stage>
+              <canvas
+                data-crawler-canvas
+                tabindex="0"
+                aria-label="Interactive 3D crawler model. Drag to rotate and use the controls to inspect its forward locomotion cycle."
+              ></canvas>
+              <img
+                class="crawler-motion-fallback"
+                data-crawler-fallback
+                src="assets/publications/2026-spatial-stiffness-tuning/spatialUntethered.webp"
+                width="1062"
+                height="747"
+                alt="Side and top views of the untethered soft crawling robot"
+                loading="lazy"
+              />
+              <div class="crawler-current-state" data-crawler-current>
+                <i aria-hidden="true"></i>
+                <span data-crawler-current-label>Current off</span>
+              </div>
+              <p class="crawler-drag-hint">Drag to rotate · Use arrow keys</p>
+              <div class="crawler-direction" aria-hidden="true">
+                <span></span>
+                <p>Forward motion</p>
+              </div>
+            </div>
+
+            <div class="crawler-motion-controls">
+              <div class="crawler-control-buttons">
+                <button type="button" data-crawler-toggle>
+                  <span data-crawler-toggle-label>Pause motion</span>
+                  <span aria-hidden="true">Ⅱ</span>
+                </button>
+                <button type="button" data-crawler-reset>
+                  Restart <span aria-hidden="true">↺</span>
+                </button>
+              </div>
+              <label class="crawler-progress-control">
+                <span>Path progress</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  value="0"
+                  step="1"
+                  data-crawler-progress
+                />
+              </label>
+              <p class="crawler-phase-readout">
+                <span data-crawler-phase-index>01</span>
+                <strong data-crawler-phase-title>Body relaxed</strong>
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="crawler-phase-grid reveal"
+            role="group"
+            aria-label="Choose a locomotion phase"
+          >
+            <button class="is-active" type="button" data-crawler-phase="0.06">
+              <span>01</span>
+              <strong>Body relaxed</strong>
+              <span class="crawler-phase-description">The TPU body is straight and ready for the next current pulse.</span>
+            </button>
+            <button type="button" data-crawler-phase="0.36">
+              <span>02</span>
+              <strong>Repulsion &amp; bend</strong>
+              <span class="crawler-phase-description">Both electromagnets energize and repel the paired permanent magnets.</span>
+            </button>
+            <button type="button" data-crawler-phase="0.68">
+              <span>03</span>
+              <strong>Release &amp; advance</strong>
+              <span class="crawler-phase-description">Elastic recovery and directional friction create a net forward step.</span>
+            </button>
+          </div>
+
+          <div class="crawler-motion-note reveal">
+            <p>
+              Geometry is loaded from the project OBJ. The deformation explains the
+              paper’s locomotion principle and is not a finite-element simulation.
+            </p>
+            <a href="https://doi.org/10.1109/ACCESS.2026.3697215">
+              Read the paper <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section id="publications" class="section shell">
         <div class="section-heading reveal">
           <div>
-            <p class="section-number">04</p>
+            <p class="section-number">05</p>
             <h2>Publications &amp; presentations</h2>
           </div>
             <a class="text-link" href="https://scholar.google.com/scholar?q=author%3A%22Khalid+Meitani%22">
@@ -1892,7 +2014,7 @@
       </section>
 
       <section id="contact" class="section contact-section shell reveal">
-        <p class="section-number">05</p>
+        <p class="section-number">06</p>
         <p class="contact-kicker">Have a question or an idea?</p>
         <h2>Let’s talk about research.</h2>
         <p>
@@ -2215,7 +2337,8 @@
       </div>
     </footer>
 
-    <script src="translations.js?v=20260802-5"></script>
-    <script src="script.js?v=20260802-5"></script>
+    <script src="translations.js?v=20260802-8"></script>
+    <script src="script.js?v=20260802-8"></script>
+    <script src="crawler-motion.js?v=20260802-8"></script>
   </body>
 </html>
