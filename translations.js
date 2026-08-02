@@ -7,6 +7,7 @@ window.siteTranslations = {
       "Skip to content": "本文へ移動",
       About: "自己紹介",
       Research: "研究",
+      Projects: "プロジェクト",
       Publications: "研究業績",
       Contact: "お問い合わせ",
       Language: "言語",
@@ -45,6 +46,22 @@ window.siteTranslations = {
       "Exploring novel actuation methods and ML/AI approaches to improve soft robots’ control, functionality, and performance.":
         "新しい駆動方式と機械学習・AIを活用し、ソフトロボットの制御性、機能性、性能の向上を目指します。",
       "Related publications": "関連する研究業績",
+      "Selected projects": "主要プロジェクト",
+      "A closer look at three projects spanning materials, mobile robots, and wearable systems.":
+        "材料、移動ロボット、ウェアラブルシステムにわたる代表的な3つのプロジェクト。",
+      "Materials · Fabrication · FEA": "材料 · 造形 · 有限要素解析",
+      "Low-hardness TPU soft grippers": "低硬度TPUソフトグリッパ",
+      "Material characterization and printing methods for monolithic pneumatic grippers in highly flexible 60A–70A TPU, validated through simulation and grasping tests.":
+        "高柔軟な60A・70A TPUを用いた一体造形空気圧グリッパに向け、材料特性、造形条件、シミュレーション手法を確立し、把持試験で検証しました。",
+      "Locomotion · Foamed TPU": "移動機構 · 発泡TPU",
+      "Spatial stiffness-tuned soft crawling robot": "空間剛性を調整したソフトクローラ",
+      "A monolithic FDM-printed crawler whose local stiffness is programmed during printing to improve speed, efficiency, turning, and untethered locomotion.":
+        "造形中に局所剛性を設定できる一体造形FDMソフトクローラを開発し、速度、効率、旋回、無線移動性能を向上させました。",
+      "Wearable robotics · Rehabilitation": "ウェアラブルロボティクス · リハビリテーション",
+      "Tendon-driven rehabilitation glove": "腱駆動式リハビリテーション用グローブ",
+      "A compact 3D-printable soft glove with five wrist-mounted tendon drives, reducing hand mass while supporting functional grasping for home rehabilitation.":
+        "5個の腱駆動モータを手首部に集約したコンパクトな3Dプリント・ソフトグローブで、手部の軽量化と在宅リハビリテーションのための機能的な把持動作を両立しました。",
+      "View publication": "関連業績を見る",
       "Publications & presentations": "論文・発表",
       "Find on Google Scholar": "Google Scholarで見る",
       "Peer-reviewed journal articles": "査読付き学術論文",
@@ -171,6 +188,12 @@ window.siteTranslations = {
       "Switch to dark mode": "ダークモードに切り替える",
       "Switch to light mode": "ライトモードに切り替える",
       "Portrait of Khalid Meitani": "Khalid Meitaniの顔写真",
+      "Low-hardness TPU soft gripper holding several objects":
+        "複数の物体を把持する低硬度TPUソフトグリッパ",
+      "Stiffness-tuned soft crawling robot shown during rotational locomotion":
+        "旋回移動中の剛性調整型ソフトクローラ",
+      "Tendon-driven soft rehabilitation glove in neutral and grasping postures":
+        "自然位と把持姿勢の腱駆動式リハビリテーション用ソフトグローブ",
       carousel: "カルーセル",
       "Publication figure": "論文図",
       "Panoramic figure; scroll horizontally to see the full image":
@@ -194,6 +217,7 @@ window.siteTranslations = {
       "Skip to content": "انتقل إلى المحتوى",
       About: "نبذة عني",
       Research: "الأبحاث",
+      Projects: "المشاريع",
       Publications: "المنشورات",
       Contact: "التواصل",
       Language: "اللغة",
@@ -232,6 +256,22 @@ window.siteTranslations = {
       "Exploring novel actuation methods and ML/AI approaches to improve soft robots’ control, functionality, and performance.":
         "استكشاف أساليب تشغيل جديدة وتقنيات تعلم آلي وذكاء اصطناعي لتحسين التحكم في الروبوتات اللينة ووظائفها وأدائها.",
       "Related publications": "منشورات ذات صلة",
+      "Selected projects": "مشاريع مختارة",
+      "A closer look at three projects spanning materials, mobile robots, and wearable systems.":
+        "نظرة مركّزة على ثلاثة مشاريع تشمل المواد والروبوتات المتنقلة والأنظمة القابلة للارتداء.",
+      "Materials · Fabrication · FEA": "المواد · التصنيع · تحليل العناصر المحددة",
+      "Low-hardness TPU soft grippers": "قوابض لينة من TPU منخفض الصلادة",
+      "Material characterization and printing methods for monolithic pneumatic grippers in highly flexible 60A–70A TPU, validated through simulation and grasping tests.":
+        "توصيف المواد وطرق الطباعة لقوابض هوائية أحادية البنية مصنوعة من TPU شديد المرونة بدرجتي 60A و70A، مع التحقق بالمحاكاة واختبارات الإمساك.",
+      "Locomotion · Foamed TPU": "الحركة · TPU الرغوي",
+      "Spatial stiffness-tuned soft crawling robot": "روبوت زاحف لين بضبط مكاني للصلابة",
+      "A monolithic FDM-printed crawler whose local stiffness is programmed during printing to improve speed, efficiency, turning, and untethered locomotion.":
+        "روبوت زاحف أحادي البنية مطبوع بتقنية FDM، تُبرمج صلابته الموضعية أثناء الطباعة لتحسين السرعة والكفاءة والدوران والحركة اللاسلكية.",
+      "Wearable robotics · Rehabilitation": "الروبوتات القابلة للارتداء · إعادة التأهيل",
+      "Tendon-driven rehabilitation glove": "قفاز لين لإعادة التأهيل يعمل بالأوتار",
+      "A compact 3D-printable soft glove with five wrist-mounted tendon drives, reducing hand mass while supporting functional grasping for home rehabilitation.":
+        "قفاز لين مدمج وقابل للطباعة ثلاثية الأبعاد، يضع محركات الأوتار الخمسة عند الرسغ لتخفيف وزن اليد ودعم حركات الإمساك في التأهيل المنزلي.",
+      "View publication": "عرض المنشور",
       "Publications & presentations": "المنشورات والعروض العلمية",
       "Find on Google Scholar": "العثور عليها في Google Scholar",
       "Peer-reviewed journal articles": "مقالات علمية محكّمة",
@@ -358,6 +398,12 @@ window.siteTranslations = {
       "Switch to dark mode": "التبديل إلى الوضع الداكن",
       "Switch to light mode": "التبديل إلى الوضع الفاتح",
       "Portrait of Khalid Meitani": "صورة شخصية لخالد ميتاني",
+      "Low-hardness TPU soft gripper holding several objects":
+        "قابض لين من TPU منخفض الصلادة يمسك عدة أجسام",
+      "Stiffness-tuned soft crawling robot shown during rotational locomotion":
+        "روبوت زاحف لين مضبوط الصلابة أثناء الحركة الدورانية",
+      "Tendon-driven soft rehabilitation glove in neutral and grasping postures":
+        "قفاز تأهيل لين يعمل بالأوتار في وضعي الراحة والإمساك",
       carousel: "عارض شرائح",
       "Publication figure": "شكل من المنشور",
       "Panoramic figure; scroll horizontally to see the full image":
