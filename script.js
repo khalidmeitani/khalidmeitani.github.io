@@ -223,51 +223,6 @@ window.addEventListener(
   { passive: true },
 );
 
-document.querySelectorAll("[data-prototype-explorer]").forEach((explorer) => {
-  const tabs = [...explorer.querySelectorAll("[data-prototype-tab]")];
-  const panels = tabs
-    .map((tab) => document.querySelector(`#${tab.getAttribute("aria-controls")}`))
-    .filter(Boolean);
-
-  const activatePrototype = (activeTab, moveFocus = false) => {
-    tabs.forEach((tab) => {
-      const isActive = tab === activeTab;
-      tab.classList.toggle("is-active", isActive);
-      tab.setAttribute("aria-selected", String(isActive));
-      tab.tabIndex = isActive ? 0 : -1;
-    });
-
-    panels.forEach((panel) => {
-      const isActive = panel.id === activeTab.getAttribute("aria-controls");
-      panel.hidden = !isActive;
-      panel.classList.toggle("is-active", isActive);
-    });
-
-    if (moveFocus) activeTab.focus();
-  };
-
-  tabs.forEach((tab, tabIndex) => {
-    tab.addEventListener("click", () => activatePrototype(tab));
-    tab.addEventListener("keydown", (event) => {
-      let nextIndex = tabIndex;
-      if (["ArrowRight", "ArrowDown"].includes(event.key)) {
-        nextIndex = (tabIndex + 1) % tabs.length;
-      } else if (["ArrowLeft", "ArrowUp"].includes(event.key)) {
-        nextIndex = (tabIndex - 1 + tabs.length) % tabs.length;
-      } else if (event.key === "Home") {
-        nextIndex = 0;
-      } else if (event.key === "End") {
-        nextIndex = tabs.length - 1;
-      } else {
-        return;
-      }
-
-      event.preventDefault();
-      activatePrototype(tabs[nextIndex], true);
-    });
-  });
-});
-
 const readingProgress = document.querySelector(".reading-progress span");
 const trackedNavigationLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')]
   .map((link) => ({
