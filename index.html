@@ -55,7 +55,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260803-14" />
+    <link rel="stylesheet" href="styles.css?v=20260803-15" />
     <title>Khalid Meitani | M.S. Student &amp; Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -234,17 +234,40 @@
 
           <div class="hero-lab-visual" aria-label="Selected research prototypes">
             <a
-              class="hero-visual-card hero-visual-primary"
+              class="hero-visual-card hero-visual-primary project-motion-preview project-motion-gripper"
               href="#project-low-hardness-tpu"
+              data-motion-preview="video"
             >
-              <img
-                src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
-                width="782"
-                height="522"
-                alt="Low-hardness TPU soft gripper holding several objects"
-                decoding="async"
-                fetchpriority="high"
-              />
+              <span class="project-motion-visual">
+                <img
+                  class="project-motion-image"
+                  src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
+                  width="782"
+                  height="522"
+                  alt="Low-hardness TPU soft gripper holding several objects"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+                <video
+                  class="project-motion-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/publications/2025-materials-and-methods-tpu-grippers/cube-grasping-poster.webp"
+                  aria-hidden="true"
+                >
+                  <source
+                    src="assets/publications/2025-materials-and-methods-tpu-grippers/9cm cube grasping (1).mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <span class="project-motion-cue" aria-hidden="true">
+                  <span class="project-motion-cue-icon" aria-hidden="true"></span>
+                  <span class="project-motion-cue-idle">Real grasp test</span>
+                  <span class="project-motion-cue-touch">Tap again for paper</span>
+                </span>
+              </span>
               <div class="hero-visual-caption">
                 <span>01 · Material system</span>
                 <strong>Low-hardness TPU</strong>
@@ -257,13 +280,22 @@
               data-crawler-open="crawler-motion-dialog"
               aria-label="Open the interactive soft crawler model"
             >
-              <img
-                src="assets/publications/2026-spatial-stiffness-tuning/untethered360.webp"
-                width="1024"
-                height="1024"
-                alt="Stiffness-tuned soft crawling robot shown during rotational locomotion"
-                decoding="async"
-              />
+              <span class="project-motion-visual">
+                <img
+                  src="assets/publications/2026-spatial-stiffness-tuning/untethered360.webp"
+                  width="1024"
+                  height="1024"
+                  alt="Stiffness-tuned soft crawling robot shown during rotational locomotion"
+                  decoding="async"
+                />
+                <span
+                  class="project-motion-cue project-motion-cue-interactive"
+                  aria-hidden="true"
+                >
+                  <span class="project-motion-cue-icon" aria-hidden="true"></span>
+                  <span>Interactive model</span>
+                </span>
+              </span>
               <div class="hero-visual-caption">
                 <span>02 · Locomotion</span>
                 <strong>Stiffness-tuned crawler</strong>
@@ -271,16 +303,34 @@
             </button>
 
             <a
-              class="hero-visual-card hero-visual-tertiary"
+              class="hero-visual-card hero-visual-tertiary project-motion-preview project-motion-glove"
               href="#project-rehabilitation-glove"
+              data-motion-preview="crossfade"
             >
-              <img
-                src="assets/publications/2026-tendon-driven-soft-robotic-glove/neutralgrasping.webp"
-                width="1188"
-                height="848"
-                alt="Tendon-driven soft rehabilitation glove in neutral and grasping postures"
-                decoding="async"
-              />
+              <span class="project-motion-visual">
+                <img
+                  class="project-motion-image glove-motion-neutral"
+                  src="assets/publications/2026-tendon-driven-soft-robotic-glove/glove-neutral-motion.webp"
+                  width="760"
+                  height="560"
+                  alt="Tendon-driven rehabilitation glove in a neutral hand posture"
+                  decoding="async"
+                />
+                <img
+                  class="project-motion-image glove-motion-grasping"
+                  src="assets/publications/2026-tendon-driven-soft-robotic-glove/glove-grasping-motion.webp"
+                  width="760"
+                  height="560"
+                  alt=""
+                  decoding="async"
+                  aria-hidden="true"
+                />
+                <span class="project-motion-cue" aria-hidden="true">
+                  <span class="project-motion-cue-icon" aria-hidden="true"></span>
+                  <span class="project-motion-cue-idle">Neutral → grasp</span>
+                  <span class="project-motion-cue-touch">Tap again for paper</span>
+                </span>
+              </span>
               <div class="hero-visual-caption">
                 <span>03 · Wearable</span>
                 <strong>Rehabilitation glove</strong>
@@ -430,15 +480,41 @@
 
         <div class="project-stories">
           <article class="project-story reveal">
-            <a class="project-story-media" href="#project-low-hardness-tpu">
-              <img
-                src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
-                alt="Low-hardness TPU soft gripper holding several objects"
-                width="782"
-                height="522"
-                loading="lazy"
-                decoding="async"
-              />
+            <a
+              class="project-story-media project-motion-preview project-motion-gripper"
+              href="#project-low-hardness-tpu"
+              data-motion-preview="video"
+            >
+              <span class="project-motion-visual">
+                <img
+                  class="project-motion-image"
+                  src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
+                  alt="Low-hardness TPU soft gripper holding several objects"
+                  width="782"
+                  height="522"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <video
+                  class="project-motion-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/publications/2025-materials-and-methods-tpu-grippers/cube-grasping-poster.webp"
+                  aria-hidden="true"
+                >
+                  <source
+                    src="assets/publications/2025-materials-and-methods-tpu-grippers/9cm cube grasping (1).mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <span class="project-motion-cue" aria-hidden="true">
+                  <span class="project-motion-cue-icon" aria-hidden="true"></span>
+                  <span class="project-motion-cue-idle">Real grasp test</span>
+                  <span class="project-motion-cue-touch">Tap again for paper</span>
+                </span>
+              </span>
               <span class="project-index" aria-hidden="true">01</span>
             </a>
             <div class="project-story-content">
@@ -496,6 +572,13 @@
                 loading="lazy"
                 decoding="async"
               />
+              <span
+                class="project-motion-cue project-motion-cue-interactive"
+                aria-hidden="true"
+              >
+                <span class="project-motion-cue-icon"></span>
+                <span>Interactive model</span>
+              </span>
               <span class="project-index" aria-hidden="true">02</span>
             </button>
             <div class="project-story-content">
@@ -554,15 +637,37 @@
           </article>
 
           <article class="project-story reveal">
-            <a class="project-story-media" href="#project-rehabilitation-glove">
-              <img
-                src="assets/publications/2026-tendon-driven-soft-robotic-glove/neutralgrasping.webp"
-                alt="Tendon-driven soft rehabilitation glove in neutral and grasping postures"
-                width="1188"
-                height="848"
-                loading="lazy"
-                decoding="async"
-              />
+            <a
+              class="project-story-media project-motion-preview project-motion-glove"
+              href="#project-rehabilitation-glove"
+              data-motion-preview="crossfade"
+            >
+              <span class="project-motion-visual">
+                <img
+                  class="project-motion-image glove-motion-neutral"
+                  src="assets/publications/2026-tendon-driven-soft-robotic-glove/glove-neutral-motion.webp"
+                  alt="Tendon-driven rehabilitation glove in a neutral hand posture"
+                  width="760"
+                  height="560"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="project-motion-image glove-motion-grasping"
+                  src="assets/publications/2026-tendon-driven-soft-robotic-glove/glove-grasping-motion.webp"
+                  alt=""
+                  width="760"
+                  height="560"
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden="true"
+                />
+                <span class="project-motion-cue" aria-hidden="true">
+                  <span class="project-motion-cue-icon" aria-hidden="true"></span>
+                  <span class="project-motion-cue-idle">Neutral → grasp</span>
+                  <span class="project-motion-cue-touch">Tap again for paper</span>
+                </span>
+              </span>
               <span class="project-index" aria-hidden="true">03</span>
             </a>
             <div class="project-story-content">
@@ -2380,8 +2485,8 @@
       </div>
     </footer>
 
-    <script src="translations.js?v=20260803-13"></script>
-    <script src="script.js?v=20260803-13"></script>
+    <script src="translations.js?v=20260803-15"></script>
+    <script src="script.js?v=20260803-15"></script>
     <script src="crawler-motion.js?v=20260803-13"></script>
   </body>
 </html>

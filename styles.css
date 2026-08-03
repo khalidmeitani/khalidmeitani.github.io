@@ -2550,6 +2550,156 @@ html[data-theme="dark"] .button-ghost:hover {
   aspect-ratio: 1.42;
 }
 
+/* Real project motion: experimental video, interactive model, and posture change. */
+.project-motion-visual {
+  position: relative;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  background: #e8ece6;
+}
+
+.hero-visual-primary .project-motion-visual {
+  aspect-ratio: 1.48;
+}
+
+.hero-visual-secondary .project-motion-visual {
+  aspect-ratio: 1;
+}
+
+.hero-visual-tertiary .project-motion-visual {
+  aspect-ratio: 1.42;
+}
+
+.hero-visual-card .project-motion-visual > img,
+.hero-visual-card .project-motion-visual > video,
+.project-story-media .project-motion-visual > img,
+.project-story-media .project-motion-visual > video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.project-motion-video,
+.glove-motion-grasping {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 520ms ease, transform 720ms cubic-bezier(0.2, 0.72, 0.2, 1);
+}
+
+.project-motion-video {
+  background: #0b1510;
+  object-fit: contain !important;
+}
+
+.project-motion-glove .project-motion-image {
+  background: #fff;
+  filter: saturate(0.92) contrast(1.015);
+  object-fit: contain;
+}
+
+.project-motion-glove .glove-motion-neutral {
+  transition: opacity 520ms ease, transform 720ms cubic-bezier(0.2, 0.72, 0.2, 1);
+}
+
+.project-motion-glove .glove-motion-grasping {
+  transform: scale(0.985);
+  transition: opacity 520ms ease, transform 720ms cubic-bezier(0.2, 0.72, 0.2, 1);
+}
+
+.project-motion-gripper.is-motion-active .project-motion-video,
+.project-motion-glove.is-motion-active .glove-motion-grasping {
+  opacity: 1;
+}
+
+.project-motion-glove.is-motion-active .glove-motion-neutral {
+  opacity: 0;
+  transform: scale(1.018);
+}
+
+.project-motion-glove.is-motion-active .glove-motion-grasping {
+  transform: scale(1);
+}
+
+.project-motion-cue {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 24px);
+  gap: 7px;
+  padding: 7px 10px;
+  overflow: hidden;
+  color: rgba(250, 253, 248, 0.96);
+  background: rgba(7, 18, 12, 0.78);
+  border: 1px solid rgba(238, 249, 235, 0.24);
+  border-radius: 999px;
+  backdrop-filter: blur(9px);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.project-motion-cue-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  background: var(--signal);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(202, 255, 106, 0.14);
+}
+
+.project-motion-gripper.is-motion-active .project-motion-cue,
+.project-motion-glove.is-motion-active .project-motion-cue,
+.hero-visual-card:hover .project-motion-cue,
+.project-story-media:hover .project-motion-cue {
+  background: rgba(7, 18, 12, 0.9);
+  border-color: rgba(202, 255, 106, 0.58);
+  transform: translateY(-1px);
+}
+
+.project-motion-gripper.is-motion-active .project-motion-cue-icon {
+  animation: motion-live-pulse 1.35s ease-in-out infinite;
+}
+
+.project-motion-cue-interactive .project-motion-cue-icon {
+  background: var(--copper);
+  box-shadow: 0 0 0 4px rgba(217, 120, 73, 0.16);
+}
+
+.project-motion-cue-touch {
+  display: none;
+}
+
+.project-motion-preview.is-touch-preview .project-motion-cue-idle {
+  display: none;
+}
+
+.project-motion-preview.is-touch-preview .project-motion-cue-touch {
+  display: inline;
+}
+
+@keyframes motion-live-pulse {
+  50% {
+    opacity: 0.52;
+    transform: scale(0.72);
+  }
+}
+
 .hero-visual-caption {
   display: grid;
   min-height: 58px;
@@ -2920,6 +3070,11 @@ html[dir="rtl"] .research-loop p {
   box-shadow: 0 26px 64px rgba(20, 40, 31, 0.13);
 }
 
+.project-story-media > .project-motion-visual {
+  position: absolute;
+  inset: 0;
+}
+
 .project-story:nth-child(2) .project-story-media {
   border-radius: 76px 4px 4px 4px;
 }
@@ -2950,6 +3105,22 @@ html[dir="rtl"] .research-loop p {
 .project-story-media:hover img {
   filter: saturate(1.08) contrast(1.03);
   transform: scale(1.035);
+}
+
+.project-story-media.project-motion-preview:hover .project-motion-image {
+  transform: none;
+}
+
+.project-story-media.project-motion-glove:hover .glove-motion-neutral {
+  transform: none;
+}
+
+.project-story-media.project-motion-glove.is-motion-active .glove-motion-neutral {
+  transform: scale(1.018);
+}
+
+.project-story-media.project-motion-glove.is-motion-active .glove-motion-grasping {
+  transform: scale(1);
 }
 
 .project-index {
@@ -3141,15 +3312,41 @@ html[lang="ar"] .project-metrics dt {
 
 @media (prefers-reduced-motion: reduce) {
   .signal-dot::after,
-  .hero-visual-card {
+  .hero-visual-card,
+  .project-motion-cue-icon {
     animation: none;
   }
 
   .button-signal span,
   .hero-visual-card,
   .project-story-media img,
+  .project-motion-preview .project-motion-video,
+  .project-motion-glove .glove-motion-neutral,
+  .project-motion-glove .glove-motion-grasping,
   .research-step {
     transition: none;
+  }
+
+  .project-motion-preview .project-motion-cue {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .project-motion-cue {
+    top: 8px;
+    left: 8px;
+    max-width: calc(100% - 16px);
+    gap: 5px;
+    padding: 6px 8px;
+    font-size: 8.5px;
+    letter-spacing: 0.04em;
+  }
+
+  .project-motion-cue-icon {
+    width: 6px;
+    height: 6px;
+    box-shadow: 0 0 0 3px rgba(202, 255, 106, 0.13);
   }
 }
 
