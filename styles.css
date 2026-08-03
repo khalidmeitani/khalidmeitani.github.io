@@ -2573,26 +2573,6 @@ html[data-theme="dark"] .button-ghost:hover {
   font-weight: 500;
 }
 
-.hero-coordinate {
-  position: absolute;
-  z-index: 5;
-  color: rgba(202, 255, 106, 0.48);
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.08em;
-}
-
-.hero-coordinate-top {
-  top: 7px;
-  left: 7%;
-}
-
-.hero-coordinate-side {
-  top: 48%;
-  right: -28px;
-  transform: rotate(90deg);
-}
-
 @keyframes lab-drift {
   0%, 100% {
     translate: 0 0;
@@ -3362,10 +3342,6 @@ html[lang="ar"] .project-metrics dt {
     white-space: nowrap;
   }
 
-  .hero-coordinate-side {
-    display: none;
-  }
-
   .hero-ledger {
     padding-bottom: 22px;
   }
@@ -3497,10 +3473,6 @@ html[lang="ar"] .project-metrics dt {
     min-height: 345px;
   }
 
-  .hero-coordinate-top {
-    display: none;
-  }
-
   .hero-visual-primary {
     top: 49px;
   }
@@ -3619,7 +3591,7 @@ html[dir="rtl"] .reading-progress span {
   align-items: center;
   color: rgba(243, 247, 242, 0.61);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: clamp(9px, 0.8vw, 11px);
   font-weight: 500;
   gap: 9px;
   letter-spacing: 0.07em;
@@ -4603,7 +4575,7 @@ html[lang="ar"] .hero-stage h2 {
   }
 
   .hero-researcher .hero-role {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .hero-researcher .hero-affiliation {
