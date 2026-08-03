@@ -4196,6 +4196,21 @@ html[dir="rtl"] .reading-progress span {
   text-transform: none;
 }
 
+.hero-researcher .hero-affiliation a {
+  color: rgba(243, 247, 242, 0.78);
+  text-decoration: underline;
+  text-decoration-color: rgba(202, 255, 106, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.hero-researcher .hero-affiliation a:hover,
+.hero-researcher .hero-affiliation a:focus-visible {
+  color: var(--signal);
+  text-decoration-color: var(--signal);
+}
+
 .hero-profile-links {
   max-width: 260px;
   gap: 9px 17px;

@@ -24,10 +24,12 @@ window.siteTranslations = {
       "Nisar Lab": "Nisar研究室",
       "View publications": "研究業績を見る",
       "Nisar Lab · Kyoto, Japan": "Nisar研究室 · 京都",
-      "I am a first-year master’s student in Mechanical and Electrical Systems Engineering at Kyoto University of Advanced Science and a member of Nisar Lab.":
-        "京都先端科学大学の機械電気システム工学分野で修士課程1年に在籍し、Nisar研究室に所属しています。",
-      "I received my B.S. degree in Mechanical and Electrical Systems Engineering from Kyoto University of Advanced Science in 2025. My work focuses on fabricating soft robots through additive manufacturing, developing bio-inspired robotic systems, and exploring actuation and intelligent control methods that improve their functionality, adaptability, and performance.":
-        "2025年に京都先端科学大学で機械電気システム工学の学士号を取得しました。積層造形によるソフトロボットの製作、生物の仕組みに着想を得たロボットシステムの開発、そして機能性・適応性・性能を高める駆動方式と知能制御の研究に取り組んでいます。",
+      "I received my B.S. degree in Mechanical and Electrical Systems Engineering from Kyoto University of Advanced Science (KUAS), Kyoto, Japan, in 2025, where I am currently pursuing an M.S. (M.Eng.) degree.":
+        "2025年に京都先端科学大学（KUAS、京都）で機械電気システム工学の学士号を取得し、現在は同大学で修士（M.Eng.）課程に在籍しています。",
+      "My research interests include 3D-printed soft robots, developing bio-inspired soft robotic systems, and exploring novel actuation methods to enhance their functionality, adaptability, and performance.":
+        "研究分野は、3Dプリント・ソフトロボット、生物規範型ソフトロボットシステムの開発、そして機能性・適応性・性能を高める新しい駆動方式の探究です。",
+      "I received the Outstanding Student Award from the Robotics Society of Japan (RSJ) in 2025.":
+        "2025年に日本ロボット学会（RSJ）優秀学生賞を受賞しました。",
       "Based in": "拠点",
       "Kyoto, Japan": "京都、日本",
       "Research group": "研究室",
@@ -234,10 +236,12 @@ window.siteTranslations = {
       "Nisar Lab": "مختبر نيسار",
       "View publications": "عرض المنشورات",
       "Nisar Lab · Kyoto, Japan": "مختبر نيسار · كيوتو، اليابان",
-      "I am a first-year master’s student in Mechanical and Electrical Systems Engineering at Kyoto University of Advanced Science and a member of Nisar Lab.":
-        "أنا طالب في السنة الأولى من برنامج الماجستير في هندسة الأنظمة الميكانيكية والكهربائية بجامعة كيوتو للعلوم المتقدمة، وعضو في مختبر نيسار.",
-      "I received my B.S. degree in Mechanical and Electrical Systems Engineering from Kyoto University of Advanced Science in 2025. My work focuses on fabricating soft robots through additive manufacturing, developing bio-inspired robotic systems, and exploring actuation and intelligent control methods that improve their functionality, adaptability, and performance.":
-        "حصلت على درجة البكالوريوس في هندسة الأنظمة الميكانيكية والكهربائية من جامعة كيوتو للعلوم المتقدمة عام 2025. يركّز عملي على تصنيع الروبوتات اللينة بتقنيات التصنيع بالإضافة، وتطوير أنظمة روبوتية مستوحاة من الكائنات الحية، واستكشاف أساليب تشغيل وتحكم ذكية تحسّن الوظائف والقدرة على التكيف والأداء.",
+      "I received my B.S. degree in Mechanical and Electrical Systems Engineering from Kyoto University of Advanced Science (KUAS), Kyoto, Japan, in 2025, where I am currently pursuing an M.S. (M.Eng.) degree.":
+        "حصلت على درجة البكالوريوس في هندسة الأنظمة الميكانيكية والكهربائية من جامعة كيوتو للعلوم المتقدمة (KUAS) في كيوتو، اليابان، عام 2025، وأتابع حاليًا في الجامعة نفسها دراسة الماجستير في الهندسة (M.Eng.).",
+      "My research interests include 3D-printed soft robots, developing bio-inspired soft robotic systems, and exploring novel actuation methods to enhance their functionality, adaptability, and performance.":
+        "تشمل اهتماماتي البحثية الروبوتات اللينة المطبوعة ثلاثية الأبعاد، وتطوير أنظمة روبوتية لينة مستوحاة من الكائنات الحية، واستكشاف أساليب تشغيل مبتكرة لتعزيز وظائفها وقدرتها على التكيف وأدائها.",
+      "I received the Outstanding Student Award from the Robotics Society of Japan (RSJ) in 2025.":
+        "حصلت على جائزة الطالب المتميز من الجمعية اليابانية للروبوتات (RSJ) عام 2025.",
       "Based in": "الموقع",
       "Kyoto, Japan": "كيوتو، اليابان",
       "Research group": "المجموعة البحثية",
@@ -433,11 +437,11 @@ Object.assign(window.siteTranslations.ja.text, {
   "M.S. researcher": "修士課程研究者",
   "Nisar Lab · Kyoto, Japan": "Nisar研究室 · 京都",
   "01 · Material system": "01 · 材料システム",
-  "Low-hardness TPU": "低硬度TPU",
+  "Low-Hardness TPU": "低硬度TPU",
   "02 · Locomotion": "02 · 移動機構",
-  "Stiffness-tuned crawler": "剛性調整型クローラ",
+  "Stiffness-Tuned Crawler": "剛性調整型クローラ",
   "03 · Wearable": "03 · ウェアラブル",
-  "Rehabilitation glove": "リハビリテーショングローブ",
+  "Rehabilitation Glove": "リハビリテーショングローブ",
   "Low-hardness TPU grades": "低硬度TPUグレード",
   "Maximum speed increase": "最高速度の向上",
   "Energy per distance": "単位距離当たりのエネルギー",
@@ -507,11 +511,11 @@ Object.assign(window.siteTranslations.ar.text, {
   "M.S. researcher": "باحث ماجستير",
   "Nisar Lab · Kyoto, Japan": "مختبر نِسار · كيوتو، اليابان",
   "01 · Material system": "01 · نظام المواد",
-  "Low-hardness TPU": "TPU منخفض الصلادة",
+  "Low-Hardness TPU": "TPU منخفض الصلادة",
   "02 · Locomotion": "02 · الحركة",
-  "Stiffness-tuned crawler": "روبوت زاحف مضبوط الصلابة",
+  "Stiffness-Tuned Crawler": "روبوت زاحف مضبوط الصلابة",
   "03 · Wearable": "03 · روبوت قابل للارتداء",
-  "Rehabilitation glove": "قفاز لإعادة التأهيل",
+  "Rehabilitation Glove": "قفاز لإعادة التأهيل",
   "Low-hardness TPU grades": "درجات TPU منخفضة الصلادة",
   "Maximum speed increase": "زيادة السرعة القصوى",
   "Energy per distance": "الطاقة لكل مسافة",
@@ -571,7 +575,7 @@ Object.assign(window.siteTranslations.ar.attributes, {
 
 Object.assign(window.siteTranslations.ja.text, {
   "M.S. Student · Soft Robotics Researcher": "修士課程 · ソフトロボティクス研究",
-  "Nisar Lab · Kyoto University of Advanced Science": "Nisar研究室 · 京都先端科学大学",
+  "· Kyoto University of Advanced Science": "· 京都先端科学大学",
   "From material to motion": "材料から動きへ",
   "I research": "私の研究は",
   "3D-printed soft robots.": "3Dプリント・ソフトロボット。",
@@ -605,7 +609,7 @@ Object.assign(window.siteTranslations.ja.attributes, {
 
 Object.assign(window.siteTranslations.ar.text, {
   "M.S. Student · Soft Robotics Researcher": "طالب ماجستير · باحث في الروبوتات اللينة",
-  "Nisar Lab · Kyoto University of Advanced Science": "مختبر نِسار · جامعة كيوتو للعلوم المتقدمة",
+  "· Kyoto University of Advanced Science": "· جامعة كيوتو للعلوم المتقدمة",
   "From material to motion": "من المادة إلى الحركة",
   "I research": "أبحث في",
   "3D-printed soft robots.": "الروبوتات اللينة المطبوعة ثلاثيًّا.",
