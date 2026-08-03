@@ -794,7 +794,7 @@ Object.assign(window.siteTranslations.ar.attributes, {
 });
 
 Object.assign(window.siteTranslations.ja.text, {
-  "Research thesis": "研究の主題",
+  "Research approach": "研究アプローチ",
   "Material → mechanism → motion": "材料 → 機構 → 動作",
   "01 / Material": "01 / 材料",
   "Print softness": "柔らかさを造形",
@@ -808,7 +808,7 @@ Object.assign(window.siteTranslations.ja.text, {
 });
 
 Object.assign(window.siteTranslations.ar.text, {
-  "Research thesis": "الفكرة البحثية",
+  "Research approach": "النهج البحثي",
   "Material → mechanism → motion": "المادة ← الآلية ← الحركة",
   "01 / Material": "01 / المادة",
   "Print softness": "طباعة الليونة",
