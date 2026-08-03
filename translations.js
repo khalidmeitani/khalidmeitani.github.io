@@ -824,3 +824,36 @@ Object.assign(window.siteTranslations.ar.text, {
     "من مواد قابلة للطباعة إلى آلات لينة قادرة.",
   "Research plate": "لوحة بحثية",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Media 1 of 4: Foamed TPU stiffness tuning":
+    "メディア1/4：発泡TPUの剛性調整",
+  "Untethered soft crawler locomotion demonstration.":
+    "無線ソフトクローラの移動実験。",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Spatial stiffness tuning publication media": "空間剛性調整論文のメディア",
+  "Untethered crawler locomotion video": "無線クローラの移動動画",
+  "Play the untethered crawler locomotion video": "無線クローラ移動動画を再生",
+  "Video of the untethered soft crawler during locomotion":
+    "移動中の無線ソフトクローラを示す動画",
+  "Show crawler locomotion video": "クローラ移動動画を表示",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Media 1 of 4: Foamed TPU stiffness tuning":
+    "الوسائط 1 من 4: ضبط صلابة TPU الرغوي",
+  "Untethered soft crawler locomotion demonstration.":
+    "عرض لحركة الروبوت الزاحف اللين غير المربوط.",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Spatial stiffness tuning publication media": "وسائط بحث ضبط الصلابة المكاني",
+  "Untethered crawler locomotion video": "فيديو حركة الروبوت الزاحف غير المربوط",
+  "Play the untethered crawler locomotion video":
+    "تشغيل فيديو حركة الروبوت الزاحف غير المربوط",
+  "Video of the untethered soft crawler during locomotion":
+    "فيديو للروبوت الزاحف اللين غير المربوط أثناء الحركة",
+  "Show crawler locomotion video": "عرض فيديو حركة الروبوت الزاحف",
+});

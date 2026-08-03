@@ -55,7 +55,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260803-17" />
+    <link rel="stylesheet" href="styles.css?v=20260803-18" />
     <title>Khalid Meitani | M.S. Student &amp; Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -711,16 +711,16 @@
                   </div>
 
                   <section class="publication-media" aria-labelledby="spatial-stiffness-media">
-                    <h4 id="spatial-stiffness-media">Figures</h4>
+                    <h4 id="spatial-stiffness-media">Figures &amp; video</h4>
                     <div
                       class="publication-carousel"
                       data-carousel
                       role="region"
                       aria-roledescription="carousel"
-                      aria-label="Spatial stiffness tuning publication figures"
+                      aria-label="Spatial stiffness tuning publication media"
                     >
                       <p class="sr-only" data-carousel-announcement aria-live="polite">
-                        Figure 1 of 3: Foamed TPU stiffness tuning
+                        Media 1 of 4: Foamed TPU stiffness tuning
                       </p>
 
                       <div class="carousel-slides">
@@ -835,11 +835,61 @@
                           </figcaption>
                         </figure>
 
+                        <figure
+                          class="publication-figure carousel-slide carousel-slide-video carousel-slide-video-landscape"
+                          data-carousel-slide
+                          data-carousel-label="Untethered crawler locomotion video"
+                          aria-hidden="true"
+                          hidden
+                        >
+                          <div class="publication-video-frame" data-video-frame>
+                            <button
+                              class="publication-video-poster"
+                              type="button"
+                              data-video-play
+                              aria-label="Play the untethered crawler locomotion video"
+                            >
+                              <img
+                                src="assets/publications/2026-spatial-stiffness-tuning/crawler-locomotion-poster.webp"
+                                alt=""
+                                width="1280"
+                                height="720"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                              <span aria-hidden="true">▶</span>
+                            </button>
+                            <video
+                              class="publication-video"
+                              controls
+                              preload="none"
+                              playsinline
+                              muted
+                              loop
+                              poster="assets/publications/2026-spatial-stiffness-tuning/crawler-locomotion-poster.webp"
+                              width="1280"
+                              height="720"
+                              aria-label="Video of the untethered soft crawler during locomotion"
+                              hidden
+                            >
+                              <source
+                                src="assets/publications/2026-spatial-stiffness-tuning/crawler-locomotion-muted.mp4"
+                                type="video/mp4"
+                              />
+                              Your browser does not support embedded video.
+                            </video>
+                          </div>
+                          <figcaption>
+                            <span>Video 1</span>
+                            Untethered soft crawler locomotion demonstration.
+                          </figcaption>
+                        </figure>
+
                         <button
                           class="carousel-arrow carousel-arrow-previous"
                           type="button"
                           data-carousel-prev
-                          aria-label="Show previous figure"
+                          aria-label="Show previous media item"
                         >
                           <span aria-hidden="true">←</span>
                         </button>
@@ -848,14 +898,14 @@
                           class="carousel-arrow carousel-arrow-next"
                           type="button"
                           data-carousel-next
-                          aria-label="Show next figure"
+                          aria-label="Show next media item"
                         >
                           <span aria-hidden="true">→</span>
                         </button>
                       </div>
 
                       <div class="carousel-navigation">
-                        <div class="carousel-dots" aria-label="Choose a figure">
+                        <div class="carousel-dots" aria-label="Choose a media item">
                           <button
                             type="button"
                             data-carousel-dot
@@ -872,6 +922,12 @@
                             type="button"
                             data-carousel-dot
                             aria-label="Show figure 3"
+                            aria-current="false"
+                          ></button>
+                          <button
+                            type="button"
+                            data-carousel-dot
+                            aria-label="Show crawler locomotion video"
                             aria-current="false"
                           ></button>
                         </div>
@@ -2422,7 +2478,7 @@
       </div>
     </footer>
 
-    <script src="translations.js?v=20260803-18"></script>
+    <script src="translations.js?v=20260803-19"></script>
     <script src="script.js?v=20260803-13"></script>
     <script src="crawler-motion.js?v=20260803-13"></script>
   </body>

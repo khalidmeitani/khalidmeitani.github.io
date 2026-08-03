@@ -1180,6 +1180,11 @@ html[data-theme="dark"] .adaptive-figure {
   aspect-ratio: 480 / 848;
 }
 
+.carousel-slide-video.carousel-slide-video-landscape .publication-video-frame {
+  width: min(100%, 960px);
+  aspect-ratio: 16 / 9;
+}
+
 .publication-video-poster {
   position: relative;
   display: grid;
