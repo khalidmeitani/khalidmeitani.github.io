@@ -792,3 +792,31 @@ Object.assign(window.siteTranslations.ar.attributes, {
   "Animated fixed side view of the soft crawler, with its longer forward end facing right and moving from left to right.":
     "منظر جانبي ثابت ومتحرك للروبوت الزاحف اللين، مع توجيه طرفه الأمامي الأطول إلى اليمين وتحركه من اليسار إلى اليمين.",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Research thesis": "研究の主題",
+  "Material → mechanism → motion": "材料 → 機構 → 動作",
+  "01 / Material": "01 / 材料",
+  "Print softness": "柔らかさを造形",
+  "02 / Structure": "02 / 構造",
+  "Program stiffness": "剛性を設計",
+  "03 / Motion": "03 / 動作",
+  "Create motion": "動きを生み出す",
+  "From printable materials to capable soft machines.":
+    "造形可能な材料から、機能するソフトマシンへ。",
+  "Research plate": "研究プレート",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Research thesis": "الفكرة البحثية",
+  "Material → mechanism → motion": "المادة ← الآلية ← الحركة",
+  "01 / Material": "01 / المادة",
+  "Print softness": "طباعة الليونة",
+  "02 / Structure": "02 / البنية",
+  "Program stiffness": "برمجة الصلابة",
+  "03 / Motion": "03 / الحركة",
+  "Create motion": "توليد الحركة",
+  "From printable materials to capable soft machines.":
+    "من مواد قابلة للطباعة إلى آلات لينة قادرة.",
+  "Research plate": "لوحة بحثية",
+});
