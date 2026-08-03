@@ -774,30 +774,6 @@ Object.assign(window.siteTranslations.ar.attributes, {
 });
 
 Object.assign(window.siteTranslations.ja.text, {
-  "Real grasp test": "実機把持テスト",
-  "Tap again for paper": "もう一度タップして論文へ",
-  "Neutral → grasp": "中立姿勢 → 把持",
-  "Interactive model": "インタラクティブモデル",
-});
-
-Object.assign(window.siteTranslations.ja.attributes, {
-  "Tendon-driven rehabilitation glove in a neutral hand posture":
-    "中立手姿勢の腱駆動リハビリテーショングローブ",
-});
-
-Object.assign(window.siteTranslations.ar.text, {
-  "Real grasp test": "اختبار إمساك حقيقي",
-  "Tap again for paper": "اضغط مرة أخرى لفتح البحث",
-  "Neutral → grasp": "وضع محايد ← إمساك",
-  "Interactive model": "نموذج تفاعلي",
-});
-
-Object.assign(window.siteTranslations.ar.attributes, {
-  "Tendon-driven rehabilitation glove in a neutral hand posture":
-    "قفاز إعادة تأهيل يعمل بالأوتار في وضع اليد المحايد",
-});
-
-Object.assign(window.siteTranslations.ja.text, {
   "Fixed side view": "固定側面ビュー",
   "Forward end · to the right": "前進側 · 右方向",
 });
