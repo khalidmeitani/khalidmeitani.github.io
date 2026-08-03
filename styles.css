@@ -3728,7 +3728,8 @@ html[dir="rtl"] .reading-progress span {
   border-color: var(--signal);
 }
 
-body.crawler-dialog-open {
+body.crawler-dialog-open,
+body.gripper-dialog-open {
   overflow: hidden;
 }
 
@@ -4354,6 +4355,284 @@ html[dir="rtl"] .crawler-motion-note a span {
   transform: scaleX(-1);
 }
 
+.gripper-motion-section {
+  background:
+    radial-gradient(circle at 10% 18%, rgba(202, 255, 106, 0.09), transparent 27%),
+    radial-gradient(circle at 88% 72%, rgba(226, 76, 57, 0.15), transparent 29%),
+    #08130e;
+}
+
+.gripper-motion-section::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(10% - 1px),
+      rgba(243, 247, 242, 0.022) calc(10% - 1px),
+      rgba(243, 247, 242, 0.022) 10%
+    );
+}
+
+.gripper-model-legend .legend-gripper {
+  background: #7f9d87;
+}
+
+.gripper-model-legend .legend-mount {
+  background: #d5ddd6;
+}
+
+.gripper-model-legend .legend-object {
+  background: #e84f3d;
+}
+
+.gripper-motion-console {
+  border-radius: 72px 5px 5px 5px;
+}
+
+.gripper-experiment-grid {
+  display: grid;
+  min-height: clamp(470px, 49vw, 620px);
+  grid-template-columns: minmax(0, 1.32fr) minmax(310px, 0.68fr);
+}
+
+.gripper-model-stage {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent),
+    radial-gradient(circle at 50% 62%, rgba(202, 255, 106, 0.06), transparent 38%);
+  border-right: 1px solid rgba(243, 247, 242, 0.12);
+  direction: ltr;
+}
+
+.gripper-model-stage::before {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(243, 247, 242, 0.13) 0.7px, transparent 0.7px);
+  background-size: 22px 22px;
+  content: "";
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 82%, transparent);
+  opacity: 0.23;
+  pointer-events: none;
+}
+
+.gripper-model-stage canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: clamp(470px, 49vw, 620px);
+  pointer-events: none;
+}
+
+.gripper-model-fallback {
+  position: absolute;
+  z-index: 0;
+  inset: 6% 9%;
+  width: 82%;
+  height: 88%;
+  object-fit: contain;
+  filter: grayscale(0.25) contrast(1.05);
+  opacity: 0.38;
+}
+
+.gripper-motion-console.is-ready .gripper-model-fallback {
+  display: none;
+}
+
+.gripper-pressure-state {
+  position: absolute;
+  z-index: 3;
+  top: 22px;
+  right: 23px;
+  display: inline-flex;
+  min-height: 34px;
+  padding: 8px 12px;
+  align-items: center;
+  color: rgba(243, 247, 242, 0.62);
+  background: rgba(7, 18, 13, 0.72);
+  border: 1px solid rgba(243, 247, 242, 0.15);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 8px;
+  gap: 8px;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+  pointer-events: none;
+}
+
+.gripper-pressure-state i {
+  width: 7px;
+  height: 7px;
+  background: rgba(243, 247, 242, 0.34);
+  border-radius: 50%;
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.gripper-pressure-state.is-pressurized {
+  color: #f4ffe3;
+  background: rgba(48, 72, 35, 0.78);
+  border-color: rgba(202, 255, 106, 0.52);
+}
+
+.gripper-pressure-state.is-pressurized i {
+  background: var(--signal);
+  box-shadow: 0 0 0 5px rgba(202, 255, 106, 0.12), 0 0 17px rgba(202, 255, 106, 0.5);
+}
+
+.gripper-pressure-state.is-secured {
+  color: #fff0ea;
+  background: rgba(91, 31, 24, 0.8);
+  border-color: rgba(232, 79, 61, 0.62);
+}
+
+.gripper-pressure-state.is-secured i {
+  background: #f16a55;
+  box-shadow: 0 0 0 5px rgba(241, 106, 85, 0.13), 0 0 17px rgba(241, 106, 85, 0.5);
+}
+
+.gripper-model-hint {
+  position: absolute;
+  z-index: 3;
+  top: 25px;
+  left: 24px;
+  margin: 0;
+  color: rgba(243, 247, 242, 0.45);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.gripper-lift-guide {
+  position: absolute;
+  z-index: 3;
+  right: 24px;
+  bottom: 26px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1px auto;
+  gap: 11px;
+  pointer-events: none;
+}
+
+.gripper-lift-guide span {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(202, 255, 106, 0.62), transparent);
+}
+
+.gripper-lift-guide span::before {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid var(--signal);
+  border-left: 1px solid var(--signal);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.gripper-lift-guide p {
+  margin: 0;
+  color: rgba(202, 255, 106, 0.58);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.gripper-reference-panel {
+  display: flex;
+  min-width: 0;
+  padding: clamp(25px, 3.5vw, 42px);
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.gripper-reference-panel > div > p {
+  margin: 0 0 7px;
+  color: var(--signal);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gripper-reference-panel > div > strong {
+  display: block;
+  color: rgba(243, 247, 242, 0.88);
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.1vw, 29px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.gripper-reference-panel img {
+  width: 100%;
+  height: auto;
+  margin-block: clamp(25px, 4vw, 38px) 22px;
+  background: #ffffff;
+  border: 1px solid rgba(243, 247, 242, 0.16);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+.gripper-reference-panel > p {
+  margin: 0;
+  color: rgba(243, 247, 242, 0.52);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.gripper-reference-panel > a {
+  margin-top: 18px;
+  color: var(--signal);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.045em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.gripper-reference-panel > a:hover,
+.gripper-reference-panel > a:focus-visible {
+  color: #ffffff;
+}
+
+.gripper-phase-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gripper-phase-grid button {
+  min-height: 155px;
+}
+
+html[lang="ja"] .gripper-pressure-state,
+html[lang="ja"] .gripper-model-hint,
+html[lang="ja"] .gripper-lift-guide p,
+html[lang="ja"] .gripper-reference-panel > div > p,
+html[lang="ja"] .gripper-reference-panel > a,
+html[lang="ar"] .gripper-pressure-state,
+html[lang="ar"] .gripper-model-hint,
+html[lang="ar"] .gripper-lift-guide p,
+html[lang="ar"] .gripper-reference-panel > div > p,
+html[lang="ar"] .gripper-reference-panel > a {
+  font-family: var(--sans);
+}
+
+html[dir="rtl"] .gripper-reference-panel > a span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
 .project-actions {
   display: flex;
   align-items: center;
@@ -4418,6 +4697,10 @@ html[lang="ar"] .hero-stage h2 {
 }
 
 @media (max-width: 1080px) {
+  .gripper-experiment-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  }
+
   .crawler-motion-heading {
     grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
     gap: 54px;
@@ -4454,6 +4737,35 @@ html[lang="ar"] .hero-stage h2 {
 }
 
 @media (max-width: 900px) {
+  .gripper-experiment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gripper-model-stage {
+    border-right: 0;
+    border-bottom: 1px solid rgba(243, 247, 242, 0.12);
+  }
+
+  .gripper-reference-panel {
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(200px, 0.75fr) minmax(0, 1.25fr);
+    gap: 22px 30px;
+  }
+
+  .gripper-reference-panel img {
+    margin: 0;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+  }
+
+  .gripper-reference-panel > div,
+  .gripper-reference-panel > p,
+  .gripper-reference-panel > a {
+    margin-top: 0;
+    grid-column: 2;
+  }
+
   .crawler-motion-heading {
     align-items: start;
     grid-template-columns: 1fr;
@@ -4489,6 +4801,47 @@ html[lang="ar"] .hero-stage h2 {
 }
 
 @media (max-width: 680px) {
+  .crawler-motion-console.gripper-motion-console {
+    border-radius: 38px 4px 4px 4px;
+  }
+
+  .gripper-model-stage,
+  .gripper-model-stage canvas {
+    min-height: 430px;
+    height: 430px;
+  }
+
+  .gripper-pressure-state {
+    top: 16px;
+    right: 15px;
+  }
+
+  .gripper-model-hint {
+    top: 18px;
+    left: 16px;
+    max-width: 140px;
+    line-height: 1.45;
+  }
+
+  .gripper-lift-guide {
+    right: 17px;
+    bottom: 20px;
+  }
+
+  .gripper-reference-panel {
+    display: flex;
+    padding: 25px 18px 28px;
+    gap: 0;
+  }
+
+  .gripper-reference-panel img {
+    margin-block: 24px 19px;
+  }
+
+  .gripper-reference-panel > a {
+    margin-top: 17px;
+  }
+
   .crawler-motion-dialog {
     width: 100vw;
     height: 100dvh;
@@ -4622,6 +4975,12 @@ html[lang="ar"] .hero-stage h2 {
 }
 
 @media (max-width: 480px) {
+  .gripper-model-stage,
+  .gripper-model-stage canvas {
+    min-height: 390px;
+    height: 390px;
+  }
+
   .crawler-dialog-toolbar button {
     width: 40px;
     padding: 8px;

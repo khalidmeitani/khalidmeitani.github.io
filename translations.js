@@ -792,3 +792,111 @@ Object.assign(window.siteTranslations.ar.attributes, {
   "Animated fixed side view of the soft crawler, with its longer forward end facing right and moving from left to right.":
     "منظر جانبي ثابت ومتحرك للروبوت الزاحف اللين، مع توجيه طرفه الأمامي الأطول إلى اليمين وتحركه من اليسار إلى اليمين.",
 });
+
+Object.assign(window.siteTranslations.ja.text, {
+  "Explore grasp demo": "把持デモを見る",
+  "Interactive project · 01": "インタラクティブプロジェクト · 01",
+  "Low-hardness TPU soft gripper": "低硬度TPUソフトグリッパ",
+  "Interactive experiment": "インタラクティブ実験",
+  "Gripper motion lab": "グリッパ動作ラボ",
+  "Pressure. Curl. Grasp.": "加圧。湾曲。把持。",
+  "Pressure. Curl.": "加圧。湾曲。",
+  "Grasp.": "把持。",
+  "Pneumatic pressure expands the internal chambers of the monolithic TPU fingers, making them curl inward and conform around an object. This animated project model approaches a tomato, grasps it, lifts it, places it back, and releases before repeating the cycle.":
+    "空気圧によって一体成形TPUフィンガの内部チャンバが膨張し、内側へ湾曲して対象物に沿います。このプロジェクトモデルはトマトに接近し、把持、持ち上げ、元の位置への配置、解放を行い、このサイクルを繰り返します。",
+  "Low-hardness TPU fingers": "低硬度TPUフィンガ",
+  "Rigid gripper mount": "剛性グリッパマウント",
+  Tomato: "トマト",
+  "Loading gripper geometry…": "グリッパ形状を読み込み中…",
+  "Gripper OBJ ready": "グリッパOBJの準備完了",
+  "Gripper preview unavailable": "グリッパプレビューを表示できません",
+  "Approaching object": "対象物に接近中",
+  "Fixed model view · Repeating grasp cycle": "固定モデルビュー · 繰り返し把持サイクル",
+  Lift: "持ち上げ",
+  "Paper motion reference": "論文の動作参照",
+  "Pressure programs curvature": "圧力で湾曲を制御",
+  "The finger chambers move from an open shape to a curved grasp as pressure rises. Compliance lets the fingers adapt at contact rather than relying on a rigid closing trajectory.":
+    "圧力の上昇に伴ってフィンガのチャンバは開いた形状から湾曲した把持形状へ移行します。柔軟性により、固定された閉軌道ではなく接触時に対象物へ適応できます。",
+  "Watch the real cube experiment": "実際の立方体把持実験を見る",
+  "Grasp cycle": "把持サイクル",
+  Approach: "接近",
+  "The open fingers descend and align around the tomato.": "開いたフィンガが下降し、トマトの周囲に位置を合わせます。",
+  "Conform & grasp": "適応・把持",
+  "Pneumatic actuation curls the soft fingers inward around the tomato.": "空気圧駆動によりソフトフィンガがトマトの周囲へ内側に湾曲します。",
+  "The closed fingers lift the tomato while maintaining compliant contact.": "閉じたフィンガが柔軟な接触を保ちながらトマトを持ち上げます。",
+  "Place & release": "配置・解放",
+  "The tomato returns to the surface and the fingers reopen.": "トマトを台面へ戻し、フィンガを再び開きます。",
+  "Geometry is loaded from the project OBJ. The deformation and tomato are explanatory animations of the grasp cycle, not a finite-element simulation.":
+    "形状はプロジェクトのOBJから読み込まれます。変形とトマトは把持サイクルを説明するアニメーションであり、有限要素シミュレーションではありません。",
+  "Pressure off": "圧力オフ",
+  "Pressure rising": "加圧中",
+  "Grasp secured": "把持完了",
+  "Lowering object": "対象物を下降中",
+  "Releasing pressure": "圧力を解放中",
+});
+
+Object.assign(window.siteTranslations.ja.attributes, {
+  "Open the soft gripper grasping experiment": "ソフトグリッパの把持実験を開く",
+  "Close gripper motion lab": "グリッパ動作ラボを閉じる",
+  "Gripper experiment key": "グリッパ実験の凡例",
+  "Animated 3D model of the pneumatic soft gripper grasping, lifting, replacing, and releasing a tomato":
+    "空気圧ソフトグリッパがトマトを把持し、持ち上げ、元に戻して解放する3Dアニメーションモデル",
+  "Real soft gripper positioned above a wooden cube before grasping": "把持前に木製立方体の上へ配置された実際のソフトグリッパ",
+  "Paper figure showing the soft gripper unactuated, actuated, and over-actuated":
+    "ソフトグリッパの非駆動、駆動、過駆動状態を示す論文図",
+  "Choose a grasp cycle phase": "把持サイクルの段階を選択",
+});
+
+Object.assign(window.siteTranslations.ar.text, {
+  "Explore grasp demo": "استكشف عرض الإمساك",
+  "Interactive project · 01": "مشروع تفاعلي · 01",
+  "Low-hardness TPU soft gripper": "قابض لين من TPU منخفض الصلابة",
+  "Interactive experiment": "تجربة تفاعلية",
+  "Gripper motion lab": "مختبر حركة القابض",
+  "Pressure. Curl. Grasp.": "ضغط. انحناء. إمساك.",
+  "Pressure. Curl.": "ضغط. انحناء.",
+  "Grasp.": "إمساك.",
+  "Pneumatic pressure expands the internal chambers of the monolithic TPU fingers, making them curl inward and conform around an object. This animated project model approaches a tomato, grasps it, lifts it, places it back, and releases before repeating the cycle.":
+    "يوسّع الضغط الهوائي الحجرات الداخلية لأصابع TPU المطبوعة كقطعة واحدة، فتنحني إلى الداخل وتتكيّف حول الجسم. يقترب هذا النموذج المتحرك من حبة طماطم ويمسكها ويرفعها ثم يعيدها ويحررها قبل تكرار الدورة.",
+  "Low-hardness TPU fingers": "أصابع TPU منخفضة الصلابة",
+  "Rigid gripper mount": "قاعدة قابض صلبة",
+  Tomato: "طماطم",
+  "Loading gripper geometry…": "جارٍ تحميل هندسة القابض…",
+  "Gripper OBJ ready": "نموذج OBJ للقابض جاهز",
+  "Gripper preview unavailable": "معاينة القابض غير متاحة",
+  "Approaching object": "الاقتراب من الجسم",
+  "Fixed model view · Repeating grasp cycle": "منظر نموذج ثابت · دورة إمساك متكررة",
+  Lift: "رفع",
+  "Paper motion reference": "مرجع الحركة في الورقة",
+  "Pressure programs curvature": "الضغط يحدد الانحناء",
+  "The finger chambers move from an open shape to a curved grasp as pressure rises. Compliance lets the fingers adapt at contact rather than relying on a rigid closing trajectory.":
+    "تنتقل حجرات الأصابع من الشكل المفتوح إلى قبضة منحنية مع ارتفاع الضغط. وتسمح المرونة للأصابع بالتكيف عند التلامس بدلاً من اتباع مسار إغلاق صلب.",
+  "Watch the real cube experiment": "شاهد تجربة المكعب الحقيقية",
+  "Grasp cycle": "دورة الإمساك",
+  Approach: "اقتراب",
+  "The open fingers descend and align around the tomato.": "تهبط الأصابع المفتوحة وتتموضع حول حبة الطماطم.",
+  "Conform & grasp": "تكيف وإمساك",
+  "Pneumatic actuation curls the soft fingers inward around the tomato.": "يثني التشغيل الهوائي الأصابع اللينة إلى الداخل حول حبة الطماطم.",
+  "The closed fingers lift the tomato while maintaining compliant contact.": "ترفع الأصابع المغلقة حبة الطماطم مع الحفاظ على تلامس مرن.",
+  "Place & release": "وضع وتحرير",
+  "The tomato returns to the surface and the fingers reopen.": "تعود حبة الطماطم إلى السطح وتفتح الأصابع من جديد.",
+  "Geometry is loaded from the project OBJ. The deformation and tomato are explanatory animations of the grasp cycle, not a finite-element simulation.":
+    "تُحمّل الهندسة من ملف OBJ الخاص بالمشروع. تشوه القابض وحبة الطماطم رسوم توضيحية لدورة الإمساك وليسا محاكاة بالعناصر المحددة.",
+  "Pressure off": "الضغط متوقف",
+  "Pressure rising": "الضغط يرتفع",
+  "Grasp secured": "الإمساك محكم",
+  "Lowering object": "خفض الجسم",
+  "Releasing pressure": "تحرير الضغط",
+});
+
+Object.assign(window.siteTranslations.ar.attributes, {
+  "Open the soft gripper grasping experiment": "افتح تجربة الإمساك للقابض اللين",
+  "Close gripper motion lab": "أغلق مختبر حركة القابض",
+  "Gripper experiment key": "مفتاح تجربة القابض",
+  "Animated 3D model of the pneumatic soft gripper grasping, lifting, replacing, and releasing a tomato":
+    "نموذج ثلاثي الأبعاد متحرك لقابض هوائي لين يمسك حبة طماطم ويرفعها ثم يعيدها ويحررها",
+  "Real soft gripper positioned above a wooden cube before grasping": "قابض لين حقيقي موضوع فوق مكعب خشبي قبل الإمساك",
+  "Paper figure showing the soft gripper unactuated, actuated, and over-actuated":
+    "شكل من الورقة يوضح القابض اللين دون تشغيل وأثناء التشغيل والتشغيل الزائد",
+  "Choose a grasp cycle phase": "اختر مرحلة من دورة الإمساك",
+});

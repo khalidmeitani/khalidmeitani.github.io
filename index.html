@@ -55,7 +55,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260802-11" />
+    <link rel="stylesheet" href="styles.css?v=20260803-12" />
     <title>Khalid Meitani | M.S. Student &amp; Soft Robotics Researcher</title>
 
     <script type="application/ld+json">
@@ -233,9 +233,11 @@
           </div>
 
           <div class="hero-lab-visual" aria-label="Selected research prototypes">
-            <a
+            <button
               class="hero-visual-card hero-visual-primary"
-              href="#project-low-hardness-tpu"
+              type="button"
+              data-gripper-open="gripper-motion-dialog"
+              aria-label="Open the soft gripper grasping experiment"
             >
               <img
                 src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
@@ -249,7 +251,7 @@
                 <span>01 · Material system</span>
                 <strong>Low-hardness TPU</strong>
               </div>
-            </a>
+            </button>
 
             <button
               class="hero-visual-card hero-visual-secondary"
@@ -433,7 +435,12 @@
 
         <div class="project-stories">
           <article class="project-story reveal">
-            <a class="project-story-media" href="#project-low-hardness-tpu">
+            <button
+              class="project-story-media gripper-project-trigger"
+              type="button"
+              data-gripper-open="gripper-motion-dialog"
+              aria-label="Open the soft gripper grasping experiment"
+            >
               <img
                 src="assets/publications/2025-materials-and-methods-tpu-grippers/gripperGrasping.webp"
                 alt="Low-hardness TPU soft gripper holding several objects"
@@ -443,10 +450,18 @@
                 decoding="async"
               />
               <span class="project-index" aria-hidden="true">01</span>
-            </a>
+            </button>
             <div class="project-story-content">
               <p class="project-kicker">Materials · Fabrication · FEA</p>
-              <h3><a href="#project-low-hardness-tpu">Low-hardness TPU soft grippers</a></h3>
+              <h3>
+                <button
+                  class="crawler-project-title gripper-project-title"
+                  type="button"
+                  data-gripper-open="gripper-motion-dialog"
+                >
+                  Low-hardness TPU soft grippers
+                </button>
+              </h3>
               <p class="project-deck">
                 Material characterization and printing methods for monolithic pneumatic
                 grippers in highly flexible 60A–70A TPU, validated through simulation
@@ -467,6 +482,13 @@
                 </div>
               </dl>
               <div class="project-actions">
+                <button
+                  class="project-link project-interactive-link"
+                  type="button"
+                  data-gripper-open="gripper-motion-dialog"
+                >
+                  Explore grasp demo <span aria-hidden="true">↗</span>
+                </button>
                 <a class="project-link" href="#project-low-hardness-tpu">
                   View publication <span aria-hidden="true">↓</span>
                 </a>
@@ -1928,6 +1950,179 @@
     </main>
 
     <dialog
+      id="gripper-motion-dialog"
+      class="crawler-motion-dialog gripper-motion-dialog"
+      data-gripper-dialog
+      aria-labelledby="gripper-motion-dialog-title"
+    >
+      <div class="crawler-dialog-frame gripper-dialog-frame">
+        <div class="crawler-dialog-toolbar">
+          <div>
+            <span>Interactive project · 01</span>
+            <p id="gripper-motion-dialog-title">Low-hardness TPU soft gripper</p>
+          </div>
+          <button
+            type="button"
+            data-gripper-close
+            aria-label="Close gripper motion lab"
+          >
+            <span>Close</span>
+            <i aria-hidden="true">×</i>
+          </button>
+        </div>
+
+        <section
+          class="crawler-motion-section gripper-motion-section"
+          data-gripper-lab
+          data-model-url="assets/models/soft-gripper/soft-gripper-web.obj"
+        >
+          <div class="shell crawler-motion-shell gripper-motion-shell">
+            <div class="crawler-motion-heading gripper-motion-heading">
+              <div>
+                <p class="section-number">Interactive experiment</p>
+                <p class="crawler-motion-kicker">Gripper motion lab</p>
+                <h2>Pressure. Curl.<br />Grasp.</h2>
+              </div>
+              <div class="crawler-motion-intro">
+                <p>
+                  Pneumatic pressure expands the internal chambers of the monolithic TPU
+                  fingers, making them curl inward and conform around an object. This
+                  animated project model approaches a tomato, grasps it, lifts it, places
+                  it back, and releases before repeating the cycle.
+                </p>
+                <div class="crawler-model-legend gripper-model-legend" aria-label="Gripper experiment key">
+                  <span><i class="legend-gripper" aria-hidden="true"></i>Low-hardness TPU fingers</span>
+                  <span><i class="legend-mount" aria-hidden="true"></i>Rigid gripper mount</span>
+                  <span><i class="legend-object" aria-hidden="true"></i>Tomato</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="crawler-motion-console gripper-motion-console">
+              <div class="crawler-console-bar">
+                <p><span class="signal-dot" aria-hidden="true"></span>Live OBJ model</p>
+                <p data-gripper-status aria-live="polite">Loading gripper geometry…</p>
+              </div>
+
+              <div class="gripper-experiment-grid">
+                <div class="gripper-model-stage" data-gripper-stage>
+                  <canvas
+                    data-gripper-canvas
+                    role="img"
+                    aria-label="Animated 3D model of the pneumatic soft gripper grasping, lifting, replacing, and releasing a tomato"
+                  ></canvas>
+                  <img
+                    class="gripper-model-fallback"
+                    src="assets/publications/2025-materials-and-methods-tpu-grippers/cube-grasping-poster.webp"
+                    width="480"
+                    height="854"
+                    loading="lazy"
+                    alt="Real soft gripper positioned above a wooden cube before grasping"
+                  />
+                  <div class="gripper-pressure-state" data-gripper-pressure>
+                    <i aria-hidden="true"></i>
+                    <span data-gripper-pressure-label>Approaching object</span>
+                  </div>
+                  <p class="gripper-model-hint">Fixed model view · Repeating grasp cycle</p>
+                  <div class="gripper-lift-guide" aria-hidden="true">
+                    <span></span>
+                    <p>Lift</p>
+                  </div>
+                </div>
+
+                <aside class="gripper-reference-panel">
+                  <div>
+                    <p>Paper motion reference</p>
+                    <strong>Pressure programs curvature</strong>
+                  </div>
+                  <img
+                    src="assets/publications/2025-materials-and-methods-tpu-grippers/Figure%208.webp"
+                    width="2030"
+                    height="1126"
+                    loading="lazy"
+                    alt="Paper figure showing the soft gripper unactuated, actuated, and over-actuated"
+                  />
+                  <p>
+                    The finger chambers move from an open shape to a curved grasp as
+                    pressure rises. Compliance lets the fingers adapt at contact rather
+                    than relying on a rigid closing trajectory.
+                  </p>
+                  <a href="assets/publications/2025-materials-and-methods-tpu-grippers/9cm%20cube%20grasping%20(1).mp4">
+                    Watch the real cube experiment <span aria-hidden="true">↗</span>
+                  </a>
+                </aside>
+              </div>
+
+              <div class="crawler-motion-controls gripper-motion-controls">
+                <div class="crawler-control-buttons">
+                  <button type="button" data-gripper-toggle>
+                    <span data-gripper-toggle-label>Pause motion</span>
+                    <span aria-hidden="true">Ⅱ</span>
+                  </button>
+                  <button type="button" data-gripper-reset>
+                    Restart <span aria-hidden="true">↺</span>
+                  </button>
+                </div>
+                <label class="crawler-progress-control">
+                  <span>Grasp cycle</span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1000"
+                    value="0"
+                    step="1"
+                    data-gripper-progress
+                  />
+                </label>
+                <p class="crawler-phase-readout">
+                  <span data-gripper-phase-index>01</span>
+                  <strong data-gripper-phase-title>Approach</strong>
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="crawler-phase-grid gripper-phase-grid"
+              role="group"
+              aria-label="Choose a grasp cycle phase"
+            >
+              <button class="is-active" type="button" data-gripper-phase="0.08">
+                <span>01</span>
+                <strong>Approach</strong>
+                <span class="crawler-phase-description">The open fingers descend and align around the tomato.</span>
+              </button>
+              <button type="button" data-gripper-phase="0.32">
+                <span>02</span>
+                <strong>Conform &amp; grasp</strong>
+                <span class="crawler-phase-description">Pneumatic actuation curls the soft fingers inward around the tomato.</span>
+              </button>
+              <button type="button" data-gripper-phase="0.52">
+                <span>03</span>
+                <strong>Lift</strong>
+                <span class="crawler-phase-description">The closed fingers lift the tomato while maintaining compliant contact.</span>
+              </button>
+              <button type="button" data-gripper-phase="0.78">
+                <span>04</span>
+                <strong>Place &amp; release</strong>
+                <span class="crawler-phase-description">The tomato returns to the surface and the fingers reopen.</span>
+              </button>
+            </div>
+
+            <div class="crawler-motion-note">
+              <p>
+                Geometry is loaded from the project OBJ. The deformation and tomato are
+                explanatory animations of the grasp cycle, not a finite-element simulation.
+              </p>
+              <a href="https://doi.org/10.1109/ACCESS.2025.3642169">
+                Read the paper <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </dialog>
+
+    <dialog
       id="crawler-motion-dialog"
       class="crawler-motion-dialog"
       data-crawler-dialog
@@ -2383,8 +2578,9 @@
       </div>
     </footer>
 
-    <script src="translations.js?v=20260802-11"></script>
-    <script src="script.js?v=20260802-11"></script>
-    <script src="crawler-motion.js?v=20260802-11"></script>
+    <script src="translations.js?v=20260803-12"></script>
+    <script src="script.js?v=20260803-12"></script>
+    <script src="crawler-motion.js?v=20260803-12"></script>
+    <script src="gripper-motion.js?v=20260803-12"></script>
   </body>
 </html>
